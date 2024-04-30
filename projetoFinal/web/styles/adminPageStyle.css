@@ -1,0 +1,74 @@
+header{
+    width: 100vw;
+    height: 12vh;
+}
+
+.main-container{
+    width: 100vw;
+    height: 88vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+form p{
+    margin-bottom: 2%;
+    color: rgba(27, 27, 27);
+}
+
+form input{
+    padding: 10px;
+    width: 25vw;
+    color: rgb(100, 100, 100);
+    border: 1px solid black;
+}
+
+form input:hover{
+    border: 1px solid black;
+}
+
+form input:focus{
+    outline: none;
+}
+
+form h6{
+    color: rgb(100, 100, 100);
+    font-weight: lighter;
+    font-size: 12px;
+}
+
+form a{
+    text-decoration: none;
+    color: rgb(30,30,30);
+}
+
+form button{
+    height: 7vh;
+    background-color: black;
+    color: #fff;
+    border: 1px solid black;
+    transition: 200ms;
+}
+
+form button:hover{
+    background-color: #fff;
+    color: rgba(27, 27, 27);
+    cursor: pointer;
+}
+
+.title{
+    margin: 10px;
+    bottom: 40px;
+}
+
+footer{
+    width: 100vw;
+    height: 40vh;
+}

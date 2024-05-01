@@ -65,7 +65,7 @@ public class LoginController extends HttpServlet {
 
                 if (valida.login(user) == true) {
                     if (user.getEmail().equals("admin@gmail.com") && user.getSenha().equals("123")) {
-                        nextPage = "/WEB-INF/jsp/controleAdmin.jsp";
+                        nextPage = "./ProdutosController";
                         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
                         dispatcher.forward(request, response);
                     } else {

@@ -7,10 +7,8 @@
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
             <script src="https://kit.fontawesome.com/3f0655ac6d.js" crossorigin="anonymous"></script>
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-                integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-                crossorigin="anonymous">
             <link href="styles/style.css" rel="stylesheet" type="text/css" />
+            <link href="styles/loginStyle.css" rel="stylesheet" type="text/css" />
             <link href="styles/adminPageStyle.css" rel="stylesheet" type="text/css" />
             <title>LESS OFICIAL</title>
         </head>
@@ -38,14 +36,14 @@
                         <div class="title">
                             <h1>Cadastro de Produtos</h1>
                         </div>
-                        <span>Imagem:</span>
+                        <p>Imagem:</p>
                         <input type="file">
-                        <span>Nome do produto:</span>
+                        <p>Nome do produto:</p>
                         <input type="text" placeholder="Nome do produto">
-                        <span>Quantidade:</span>
-                        <input type="number" placeholder="Quantidade" min="0">
-                        <span>Preço:</span>
-                        <input type="number" placeholder="Preço do Produto">
+                        <p>Quantidade:</p>
+                        <input type="number" min="0" placeholder="Quantidade">
+                        <p>Preço:</p>
+                        <input type="text" id="inPreco" step="0.01" min="0.00" placeholder="Preço do Produto">
                         <button type="submit">ADICIONAR</button>
                     </form>
                 </div>
@@ -74,6 +72,14 @@
                     </div>
                 </div>
             </footer>
+
+            <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"
+                integrity="sha512-0XDfGxFliYJPFrideYOoxdgNIvrwGTLnmK20xZbCAvPfLGQMzHUsaqZK8ZoH+luXGRxTrS46+Aq400nCnAT0/w=="
+                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            <script>
+                $('#inPreco').mask("#.##0,00", {reverse: true});
+            </script>
         </body>
 
         </html>

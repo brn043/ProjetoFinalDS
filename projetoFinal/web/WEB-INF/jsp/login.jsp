@@ -52,20 +52,20 @@
                         <h1>REGISTRE-SE</h1>
                         <form action="./signup" method="post">
                             <p>Nome: </p>
-                            <input type="text" name="inName" id="inName" placeholder="Digite aqui" required><br>
+                            <input type="text" name="inName" id="inName" placeholder="Digite aqui" required>
                             <p>Email: </p>
-                            <input type="email" name="inEmail" id="inEmail" placeholder="Digite aqui" required><br>
+                            <input type="email" name="inEmail" id="inEmail" placeholder="Digite aqui" required>
                             <p>Senha: </p>
                             <input type="password" name="inPassword" id="inPassword" placeholder="Digite aqui"
-                                required><br>
+                                required>
                             <p>Cpf: </p>
-                            <input type="text" name="inCpf" id="inCpf" placeholder="Digite aqui" required><br>
+                            <input type="text" minlength="14" maxlength="14" name="inCpf" id="inCpf" placeholder="Digite aqui" required>
                             <p>Telefone: </p>
-                            <input type="text" name="inTelefone" id="inTelefone" placeholder="Digite aqui"
-                                required><br>
+                            <input type="text" minlength="11" maxlength="11" name="inTelefone" id="inTelefone" placeholder="Digite aqui"
+                                required>
                             <p>Data de Nascimento: </p>
-                            <input type="date" name="inDataNascimento" id="inDataNasc" placeholder="Digite aqui"><br>
-                            <h6>Já possui uma conta? <button type="button" id="loginBtn">Conecte-se</button></h6><br>
+                            <input type="date" name="inDataNascimento" id="inDataNasc" placeholder="Digite aqui">
+                            <h6>Já possui uma conta? <button type="button" id="loginBtn">Conecte-se</button></h6>
                             <button type="submit" name="signup" id="btn_signup">REGISTRAR-SE</button>
                         </form>
                     </div>

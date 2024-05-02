@@ -39,7 +39,7 @@
                         <h1>CONECTE-SE</h1>
                         <form action="./signin" method="get">
                             <p>Email: </p>
-                            <input type="text" name="inEmail" id="inEmail" placeholder="Digite aqui" required><br>
+                            <input type="email" name="inEmail" id="inEmail" placeholder="Digite aqui" required><br>
                             <p>Senha: </p>
                             <input type="password" name="inPassword" id="inPassword" placeholder="Digite aqui"
                                 required><br>
@@ -102,7 +102,7 @@
                 crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             <script>
                 $('#inTelefone').mask('(00) 00000-0000');
-                $('#inCpf').mask('000.000.000-00', {reverse: true});
+                $('#inCpf').mask('000.000.000-00', {reverse: false});
             </script>
         </body>
         <script src="js/script.js"></script>

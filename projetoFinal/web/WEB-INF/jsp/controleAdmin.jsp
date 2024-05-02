@@ -10,7 +10,7 @@
             <link href="styles/style.css" rel="stylesheet" type="text/css" />
             <link href="styles/loginStyle.css" rel="stylesheet" type="text/css" />
             <link href="styles/adminPageStyle.css" rel="stylesheet" type="text/css" />
-            <title>LESS OFICIAL</title>
+            <title>Controle de Estoque - LESS</title>
         </head>
 
         <body>

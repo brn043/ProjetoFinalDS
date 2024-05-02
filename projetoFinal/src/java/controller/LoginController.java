@@ -53,42 +53,26 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
         String url = request.getServletPath();
         if (url.equals("/signin")) {
-            String nextPage = "/WEB-INF/jsp/produtos.html";
+            String nextPage;
             Usuarios user = new Usuarios();
             UsuariosDAO valida = new UsuariosDAO();
 
             user.setEmail(request.getParameter("inEmail"));
             user.setSenha(request.getParameter("inPassword"));
-
-            try {
-                valida.login(user);
-
-                if (valida.login(user) == true) {
-                    if (user.getEmail().equals("admin@gmail.com") && user.getSenha().equals("123")) {
-                        nextPage = "./ProdutosController";
-                        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-                        dispatcher.forward(request, response);
-                    } else {
-                        nextPage = "/WEB-INF/jsp/produtos.html";
-                        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-                        dispatcher.forward(request, response);
-                    }
-                } else {
-                    nextPage = "/WEB-INF/jsp/login.jsp";
-                    request.setAttribute("errorMessage", "Usuário ou senha inválidos");
-                    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-                    dispatcher.forward(request, response);
-                }
-            } catch (Exception e) {
-                nextPage = "/WEB-INF/jsp/login.jsp";
-                request.setAttribute("errorMessage", "Usuário ou senha inválidos");
+            
+            user = valida.login(user);
+            if(user.getId_usuario() > 0 && user.getAcesso() == 2){
+                nextPage = "/WEB-INF/jsp/index.jsp";
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+                dispatcher.forward(request, response);
+            }else if(user.getAcesso() == 1){
+                nextPage = "/WEB-INF/jsp/controleAdmin.jsp";
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
                 dispatcher.forward(request, response);
             }
-        } else {
-            processRequest(request, response);
+        }else{
+        processRequest(request, response);
         }
-
     }
 
     /**
@@ -115,6 +99,8 @@ public class LoginController extends HttpServlet {
             user.setTelefone(request.getParameter("inTelefone"));
             String data = request.getParameter("inDataNascimento");
             user.setDataNascimento((Date.valueOf(data)));
+            int acessoUsuario = 2;
+            user.setAcesso(acessoUsuario);
 
             try {
                 valida.cadastrar(user);

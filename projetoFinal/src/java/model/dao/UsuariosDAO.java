@@ -23,13 +23,15 @@ public class UsuariosDAO {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
 
-            stmt = conexao.prepareStatement("INSERT INTO usuarios (nome, email, senha, cpf, telefone, dataNascimento) VALUES (?, ?, ?, ?, ?, ?)");
+            stmt = conexao.prepareStatement("INSERT INTO usuarios (nome, email, senha, cpf, telefone, endereco, acesso, dataNascimento) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             stmt.setString(1, user.getNome());
             stmt.setString(2, user.getEmail());
             stmt.setString(3, user.getSenha());
             stmt.setString(4, user.getCpf());
             stmt.setString(5, user.getTelefone());
-            stmt.setDate(6, user.getDataNascimento());
+            stmt.setString(6, user.getEndereco());
+            stmt.setInt(7, user.getAcesso());
+            stmt.setDate(8, user.getDataNascimento());
 
             stmt.executeUpdate();
             stmt.close();

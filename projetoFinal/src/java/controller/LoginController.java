@@ -51,28 +51,7 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String url = request.getServletPath();
-        if (url.equals("/signin")) {
-            String nextPage;
-            Usuarios user = new Usuarios();
-            UsuariosDAO valida = new UsuariosDAO();
-
-            user.setEmail(request.getParameter("inEmail"));
-            user.setSenha(request.getParameter("inPassword"));
-            
-            user = valida.login(user);
-            if(user.getId_usuario() > 0 && user.getAcesso() == 2){
-                nextPage = "/WEB-INF/jsp/index.jsp";
-                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-                dispatcher.forward(request, response);
-            }else if(user.getAcesso() == 1){
-                nextPage = "/WEB-INF/jsp/controleAdmin.jsp";
-                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-                dispatcher.forward(request, response);
-            }
-        }else{
         processRequest(request, response);
-        }
     }
 
     /**
@@ -87,7 +66,25 @@ public class LoginController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String url = request.getServletPath();
-        if (url.equals("/signup")) {
+        if (url.equals("/signin")) {
+            String nextPage;
+            Usuarios user = new Usuarios();
+            UsuariosDAO valida = new UsuariosDAO();
+
+            user.setEmail(request.getParameter("inEmail"));
+            user.setSenha(request.getParameter("inPassword"));
+
+            user = valida.login(user);
+            if (user.getId_usuario() > 0 && user.getAcesso() == 2) {
+                nextPage = "/WEB-INF/jsp/index.jsp";
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+                dispatcher.forward(request, response);
+            } else if (user.getAcesso() == 1) {
+                nextPage = "/WEB-INF/jsp/controleAdmin.jsp";
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+                dispatcher.forward(request, response);
+            }
+        } else if (url.equals("/signup")) {
             String nextPage = "/WEB-INF/jsp/login.jsp";
             Usuarios user = new Usuarios();
             UsuariosDAO valida = new UsuariosDAO();

@@ -37,7 +37,7 @@
                     </div>
                     <div id="signin-container">
                         <h1>CONECTE-SE</h1>
-                        <form action="./signin" method="get">
+                        <form action="./signin" method="post">
                             <p>Email: </p>
                             <input type="email" name="inEmail" id="inEmail" placeholder="Digite aqui" required><br>
                             <p>Senha: </p>

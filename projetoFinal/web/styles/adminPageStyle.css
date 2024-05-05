@@ -16,12 +16,12 @@ form{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    gap: 10px;
+    gap: 5px;
     background-color: transparent;
 }
 
 form p{
-    margin-bottom: 2%;
+    margin-top: 2%;
     color: rgba(27, 27, 27);
 }
 
@@ -30,6 +30,18 @@ form input{
     width: 25vw;
     color: rgb(100, 100, 100);
     border: 1px solid black;
+}
+
+form select{
+    padding: 10px;
+    width: 100%;
+    color: rgb(100, 100, 100);
+    border: 1px solid black;
+}
+
+form select:focus{
+    outline: none;
+    color: rgb(100, 100, 100);
 }
 
 form input:hover{

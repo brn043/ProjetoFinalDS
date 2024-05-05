@@ -123,6 +123,12 @@ form input:focus{
     outline: none;
 }
 
+input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
 form h6{
     color: rgb(100, 100, 100);
     font-weight: lighter;

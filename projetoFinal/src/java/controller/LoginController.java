@@ -6,7 +6,6 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -76,7 +75,7 @@ public class LoginController extends HttpServlet {
 
             user = valida.login(user);
             if (user.getId_usuario() > 0 && user.getAcesso() == 2) {
-                nextPage = "/WEB-INF/jsp/index.jsp";
+                nextPage = "/WEB-INF/jsp/produtos.jsp";
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
                 dispatcher.forward(request, response);
             } else if (user.getAcesso() == 1) {

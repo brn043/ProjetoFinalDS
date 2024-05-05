@@ -10,30 +10,24 @@ package model.bean;
  * @author Bruno
  */
 public class Produtos {
-    private byte[] img;
     private int id_produto;
     private String nome;
-    private String categoria;
+    private int categoria;
     private int quantidade;
     private float preco;
+    private String descricao;
+    private byte[] img;
 
     public Produtos() {
-    }
+    }   
 
-    public Produtos(byte[] img, int id_produto, String nome, String categoria, int quantidade, float preco) {
-        this.img = img;
+    public Produtos(int id_produto, String nome, int categoria, int quantidade, float preco, String descricao, byte[] img) {
         this.id_produto = id_produto;
         this.nome = nome;
         this.categoria = categoria;
         this.quantidade = quantidade;
         this.preco = preco;
-    }
-
-    public byte[] getImg() {
-        return img;
-    }
-
-    public void setImg(byte[] img) {
+        this.descricao = descricao;
         this.img = img;
     }
 
@@ -53,11 +47,11 @@ public class Produtos {
         this.nome = nome;
     }
 
-    public String getCategoria() {
+    public int getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(String categoria) {
+    public void setCategoria(int categoria) {
         this.categoria = categoria;
     }
 
@@ -75,6 +69,23 @@ public class Produtos {
 
     public void setPreco(float preco) {
         this.preco = preco;
-    }   
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public byte[] getImg() {
+        return img;
+    }
+
+    public void setImg(byte[] img) {
+        this.img = img;
+    }
+    
     
 }

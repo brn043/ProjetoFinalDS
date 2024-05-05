@@ -7,7 +7,10 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.Servlet;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +22,7 @@ import model.dao.ProdutosDAO;
  *
  * @author Bruno
  */
-public class ProdutosController extends HttpServlet {
+public class ListarProdutosController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,7 +35,11 @@ public class ProdutosController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nextPage = "/WEB-INF/jsp/controleAdmin.jsp";
+         ProdutosDAO produtosDAO = new ProdutosDAO();
+        List<Produtos> produto = produtosDAO.ler();
+    
+        request.setAttribute("produtos", produto);
+        String nextPage = "/WEB-INF/jsp/produtos.jsp";
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
         dispatcher.forward(request, response);
@@ -50,6 +57,14 @@ public class ProdutosController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String url = request.getServletPath();
+        if(url.equals("/buscar")){
+            String busca = request.getParameter("busca");
+            
+            ProdutosDAO pDao = new ProdutosDAO();
+            List<Produtos> produto = pDao.busca("%" + busca + "%");
+            request.setAttribute("produtos", produto);
+        }
         processRequest(request, response);
     }
 
@@ -63,30 +78,8 @@ public class ProdutosController extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String url = request.getServletPath();
-        if (url.equals("/cadastrar-produto")) {
-            try {
-                Produtos p = new Produtos();
-                ProdutosDAO pDao = new ProdutosDAO();
-
-                p.setNome(request.getParameter("nome"));
-                p.setCategoria(Integer.parseInt(request.getParameter("categoria")));
-                p.setPreco(Float.parseFloat(request.getParameter("preco")));
-                p.setQuantidade(Integer.parseInt(request.getParameter("quantidade")));
-                p.setDescricao(request.getParameter("desc"));
-
-                pDao.cadastrarProduto(p);
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            String nextPage = "/WEB-INF/jsp/controleAdmin.jsp";
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-            dispatcher.forward(request, response);
-        } else {
-            processRequest(request, response);
-        }
+            throws ServletException, IOException {        
+        processRequest(request, response);
     }
 
     /**

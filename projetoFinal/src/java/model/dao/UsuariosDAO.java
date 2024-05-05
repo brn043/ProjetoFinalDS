@@ -23,7 +23,7 @@ public class UsuariosDAO {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
 
-            stmt = conexao.prepareStatement("INSERT INTO usuarios (nome, email, senha, cpf, telefone, endereco, acesso, dataNascimento) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            stmt = conexao.prepareStatement("INSERT INTO usuarios (nome, email, senha, cpf, telefone, acesso, dataNascimento) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             stmt.setString(1, user.getNome());
             stmt.setString(2, user.getEmail());
             stmt.setString(3, user.getSenha());

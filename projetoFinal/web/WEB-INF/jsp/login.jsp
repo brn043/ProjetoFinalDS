@@ -40,20 +40,20 @@
                 </div>
                 <div id="signin-container">
                     <h1>CONECTE-SE</h1>
-                    <form action="./signin" method="post">
+                    <form action="./signin" method="post" id="frmSignIn">
                         <p>Email: </p>
-                        <input type="email" name="inEmail" id="inEmail" placeholder="Digite aqui" required><br>
+                        <input type="email" name="inEmail" id="Email" placeholder="Digite aqui" required><br>
                         <p>Senha: </p>
-                        <input type="password" name="inPassword" id="inPassword" placeholder="Digite aqui"
+                        <input type="password" name="inPassword" id="Password" placeholder="Digite aqui"
                                required><br>
                         <h6>Não possui uma conta? <button type="button" id="registerBtn">Registre-se</button></h6>
                         <br>
                         <button type="submit" name="signin" id="btn_signin">ENTRAR</button>
                     </form>
                 </div>
-                <div id="signup-container">
+                <div id="signup-container" >
                     <h1>REGISTRE-SE</h1>
-                    <form action="./signup" method="post">
+                    <form action="./signup" method="post" id="frmSignUp">
                         <p>Nome: </p>
                         <input type="text" name="inName" id="inName" placeholder="Digite aqui" required>
                         <p>Email: </p>
@@ -110,4 +110,5 @@
     </body>
     <script src="js/script.js"></script>
     <script src="js/search-bar.js" type="text/javascript"></script>
+    <script src="js/validation.js"></script>
 </html>

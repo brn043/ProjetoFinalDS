@@ -35,14 +35,38 @@ public class ListarProdutosController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         ProdutosDAO produtosDAO = new ProdutosDAO();
-        List<Produtos> produto = produtosDAO.ler();
-    
-        request.setAttribute("produtos", produto);
-        String nextPage = "/WEB-INF/jsp/produtos.jsp";
+        ProdutosDAO pDao = new ProdutosDAO();
+        String url = request.getServletPath();
+        String nextPage;
+        if (url.equals("/buscar")) {
+            if (request.getParameter("busca").trim().isEmpty()) {
+                List<Produtos> produto = pDao.ler();
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-        dispatcher.forward(request, response);
+                request.setAttribute("produtos", produto);
+                nextPage = "/WEB-INF/jsp/produtos.jsp";
+
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+                dispatcher.forward(request, response);
+            } else {
+                String busca = "%" + request.getParameter("busca") + "%";
+
+                List<Produtos> produto = pDao.busca(busca);
+
+                request.setAttribute("produtos", produto);
+                nextPage = "/WEB-INF/jsp/produtos.jsp";
+
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+                dispatcher.forward(request, response);
+            }
+        } else {
+            List<Produtos> produto = pDao.ler();
+
+            request.setAttribute("produtos", produto);
+            nextPage = "/WEB-INF/jsp/produtos.jsp";
+
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -57,14 +81,6 @@ public class ListarProdutosController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String url = request.getServletPath();
-        if(url.equals("/buscar")){
-            String busca = request.getParameter("busca");
-            
-            ProdutosDAO pDao = new ProdutosDAO();
-            List<Produtos> produto = pDao.busca("%" + busca + "%");
-            request.setAttribute("produtos", produto);
-        }
         processRequest(request, response);
     }
 
@@ -78,7 +94,7 @@ public class ListarProdutosController extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {        
+            throws ServletException, IOException {
         processRequest(request, response);
     }
 

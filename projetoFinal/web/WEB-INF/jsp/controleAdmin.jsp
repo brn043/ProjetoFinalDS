@@ -49,7 +49,7 @@
                         <option value="3">Bermudas</option>
                         <option value="4">Moletom</option>
                         <option value="5">Acessórios</option>
-                    </select>                        
+                    </select>
                     <p>Quantidade:</p>
                     <input type="number" name="quantidade" min="0" placeholder="Quantidade">
                     <p>Preço:</p>

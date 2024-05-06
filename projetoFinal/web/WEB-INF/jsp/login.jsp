@@ -8,14 +8,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://kit.fontawesome.com/3f0655ac6d.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="styles/style.css">
         <link rel="stylesheet" href="styles/loginStyle.css">
         <title>Login - LESS</title>
     </head>
 
     <body>
         <header>
-            <nav>
+            <nav class="navbar">
                 <div class="links-pages">
                     <a href="./ListarProdutosController">SHOP</a>
                     <a href="./sobreController">SOBRE</a>
@@ -30,6 +29,17 @@
                     <a id="search-button"><i class="fa-solid fa-magnifying-glass"></i></a>
                     <a href="./LoginController"><i class="fa-solid fa-user"></i></a>
                     <a href="./carrinhoController"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+            </nav>
+            <nav class="mobile-navbar">
+                <div class="menu-container">
+                    <a href="" id="menu"><i class="fa-solid fa-bars"></i></a>
+                </div>
+                <div class="logo">
+                    <a href="IndexController"><img src="assets/less-logo-mobile.png" alt=""></a>
+                </div>
+                <div class="links-user">
+                    <a href="./LoginController"><i class="fa-solid fa-user"></i></a>
                 </div>
             </nav>
         </header>

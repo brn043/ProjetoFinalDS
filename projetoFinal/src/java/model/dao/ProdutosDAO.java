@@ -82,6 +82,38 @@ public class ProdutosDAO {
         }        
         return produtos;
     }
+    
+        public List<Produtos> buscaCategoria(int busca){
+        List<Produtos> produtos = new ArrayList();
+        
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+            
+            stmt = conexao.prepareStatement("SELECT * FROM produtos WHERE categoria = ?");
+            stmt.setInt(1, busca);
+            rs = stmt.executeQuery();
+            
+            while(rs.next()){
+                Produtos produto = new Produtos();
+                produto.setNome(rs.getString("nome"));
+                produto.setCategoria(rs.getInt("categoria"));
+                produto.setQuantidade(rs.getInt("quantidade"));
+                produto.setPreco(rs.getFloat("preco"));
+                produto.setDescricao(rs.getString("descricao"));
+                produto.setImg(rs.getBytes("image"));
+                produtos.add(produto);
+            }
+            rs.close();
+            stmt.close();
+            conexao.close();
+            
+        } catch(SQLException e){
+            e.printStackTrace();
+        }        
+        return produtos;
+    }
         
    public void cadastrarProduto(Produtos produto){
    try {

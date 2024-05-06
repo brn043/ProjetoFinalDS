@@ -2,9 +2,11 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<html>
+
+<html lang="pt-br">
 
     <head>
+        <meta charset="UTF-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="https://kit.fontawesome.com/3f0655ac6d.js" crossorigin="anonymous"></script>
         <link href="styles/style.css" rel="stylesheet" type="text/css" />

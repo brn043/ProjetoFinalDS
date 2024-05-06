@@ -64,6 +64,10 @@
         <servlet-name>ListarProdutosController</servlet-name>
         <url-pattern>/buscar</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListarProdutosController</servlet-name>
+        <url-pattern>/buscar-categoria</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

@@ -58,6 +58,26 @@ public class ListarProdutosController extends HttpServlet {
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
                 dispatcher.forward(request, response);
             }
+        }
+        if (url.equals("/buscar-categoria")) {
+            int busca = Integer.parseInt(request.getParameter("categoria"));
+            if (busca == 0) {
+                List<Produtos> produto = pDao.ler();
+                
+                request.setAttribute("produtos", produto);
+                nextPage = "/WEB-INF/jsp/produtos.jsp";
+
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+                dispatcher.forward(request, response);                
+            } else {
+                List<Produtos> produto = pDao.buscaCategoria(busca);
+
+                request.setAttribute("produtos", produto);
+                nextPage = "/WEB-INF/jsp/produtos.jsp";
+
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+                dispatcher.forward(request, response);
+            }
         } else {
             List<Produtos> produto = pDao.ler();
 

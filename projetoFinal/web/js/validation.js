@@ -10,7 +10,7 @@ loginForm.addEventListener('submit', function (event) {
     if (email.value.trim() === "" || password.value.trim() === "") {
         alert("Email e/ou Senha Incorretos!");
     } else {
-        form.submit();
+        loginForm.submit();
     }
 });
 
@@ -32,6 +32,6 @@ registerForm.addEventListener('submit', function (event) {
         || dataNasc.value.trim() === "") {
             alert("Preencha todos os campos corretamente !");
     }else{
-        form.submit();
+        registerForm.submit();
     }
 });

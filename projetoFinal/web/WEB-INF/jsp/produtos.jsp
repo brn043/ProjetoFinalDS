@@ -55,10 +55,15 @@
                         <div class="cards-container">
                             <c:forEach items="${produtos}" var="produto">
                                 <div class="card">
-                                    <img src="... alt="">
-                                <span>${produto.nome}</span>
-                                <span>${produto.preco}</span>
-                                <button><i class=" fa-solid fa-plus"></i></button>
+                                    <div id="product-img">
+                                        <img src="${produto.img}" alt="">
+                                    </div>
+                                    <div id="product-title">
+                                        <span>${produto.nome}</span>
+                                    </div>
+                                    <div id="product-add">
+                                        <a href="./ver-produto?${produto.id_produto}"><i class=" fa-solid fa-plus"></i></a>
+                                    </div>                                    
                                 </div>
                             </c:forEach>
                         </div>

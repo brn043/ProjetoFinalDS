@@ -37,7 +37,7 @@
         </header>
         <main>
             <div class="main-container">
-                <form action="./cadastrar-produto" method="post">
+                <form action="./cadastrar-produto" method="post" enctype="multipart/form-data">
                     <div class="title">
                         <h1>Cadastro de Produtos</h1>
                     </div>

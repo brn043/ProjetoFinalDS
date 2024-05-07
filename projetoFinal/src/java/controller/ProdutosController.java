@@ -5,13 +5,19 @@
  */
 package controller;
 
+import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+import javax.servlet.annotation.MultipartConfig;
 import model.bean.Produtos;
 import model.dao.ProdutosDAO;
 
@@ -19,6 +25,7 @@ import model.dao.ProdutosDAO;
  *
  * @author Bruno
  */
+@MultipartConfig
 public class ProdutosController extends HttpServlet {
 
     /**
@@ -74,7 +81,28 @@ public class ProdutosController extends HttpServlet {
                 p.setCategoria(Integer.parseInt(request.getParameter("categoria")));
                 p.setPreco(Float.parseFloat(request.getParameter("preco")));
                 p.setQuantidade(Integer.parseInt(request.getParameter("quantidade")));
-                p.setDescricao(request.getParameter("desc"));
+                p.setDescricao(request.getParameter("desc"));                
+                Part filePart = request.getPart("imagem");
+                String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // Corrige problemas com o navegador IE
+                if (fileName != null && !fileName.isEmpty()) {
+                    String basePath = getServletContext().getRealPath("/") + "assets/produtos-img"; // Caminho para a pasta assets
+                    File uploads = new File(basePath);
+                    if (!uploads.exists()) {
+                        uploads.mkdirs(); // Cria o diretório se não existir
+                    }
+                    File file = new File(uploads, fileName);
+
+                    try (InputStream input = filePart.getInputStream()) {
+                        Files.copy(input, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                    } catch (Exception e) {
+                        e.printStackTrace(); // Trate as exceções de forma adequada
+                    }
+
+                    // Configurando apenas o caminho relativo da imagem no banco de dados
+                    p.setImg("assets/produtos-img/" + fileName);
+                } else {
+                    p.setImg(null);
+                }
 
                 pDao.cadastrarProduto(p);
 

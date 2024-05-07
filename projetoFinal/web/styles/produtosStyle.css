@@ -74,19 +74,40 @@ form button:hover{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    background-color: #fff;
+    color: rgba(27, 27, 27);
 }
 
-.card button{
-    border-radius: 20%;
-    width: 20%;
-    height: 10%;
-    border: none;
-    background-color: transparent;
+#product-img{
+    width: 100%;
+    height: 50%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
 }
 
-.card button:hover{
-    color: #27272750;
-    cursor: pointer;
+#product-img img{
+    width: 100%;
+    height: 100%;
+}
+
+#product-add{
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#product-add a{
+    color: #272727;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+#product-add a:hover{
+    opacity: 0.5;
 }
 
 .card img{

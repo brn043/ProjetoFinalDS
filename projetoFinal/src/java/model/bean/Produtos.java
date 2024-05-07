@@ -16,12 +16,12 @@ public class Produtos {
     private int quantidade;
     private float preco;
     private String descricao;
-    private byte[] img;
+    private String img;
 
     public Produtos() {
     }   
 
-    public Produtos(int id_produto, String nome, int categoria, int quantidade, float preco, String descricao, byte[] img) {
+    public Produtos(int id_produto, String nome, int categoria, int quantidade, float preco, String descricao, String img) {
         this.id_produto = id_produto;
         this.nome = nome;
         this.categoria = categoria;
@@ -79,11 +79,11 @@ public class Produtos {
         this.descricao = descricao;
     }
 
-    public byte[] getImg() {
+    public String getImg() {
         return img;
     }
 
-    public void setImg(byte[] img) {
+    public void setImg(String img) {
         this.img = img;
     }
     

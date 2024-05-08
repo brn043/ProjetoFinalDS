@@ -61,11 +61,12 @@ html {
         display: flex;
         align-items: center;
         justify-content: center;
+        overflow: hidden;
     }
 
     .mobile-navbar .logo img {
         width: 100%;
-        height: 60%;
+        height: 20%;
         overflow: hidden;
     }
 

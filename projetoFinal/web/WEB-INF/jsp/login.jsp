@@ -9,6 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://kit.fontawesome.com/3f0655ac6d.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="styles/loginStyle.css">
+        <link rel="stylesheet" href="styles/style.css">
         <title>Login - LESS</title>
     </head>
 
@@ -44,7 +45,7 @@
             </nav>
         </header>
         <main>
-            <div class="main-container">
+            <div class="main-login-container">
                 <div class="cover-image">
                     <img src="assets/login-cover-image.jpg" alt="">
                 </div>

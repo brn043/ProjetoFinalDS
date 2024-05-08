@@ -5,7 +5,7 @@
 }
 
 /* estilização pagina de login */
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 320px) and (max-width: 768px) {
     header {
         width: 100vw;
         height: 8vh;
@@ -247,7 +247,7 @@
         overflow: hidden;
     }
 
-    .main-container {
+    .main-login-container {
         overflow: hidden;
         height: 100%;
         display: flex;

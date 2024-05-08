@@ -63,12 +63,12 @@ public class ListarProdutosController extends HttpServlet {
             int busca = Integer.parseInt(request.getParameter("categoria"));
             if (busca == 0) {
                 List<Produtos> produto = pDao.ler();
-                
+
                 request.setAttribute("produtos", produto);
                 nextPage = "/WEB-INF/jsp/produtos.jsp";
 
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-                dispatcher.forward(request, response);                
+                dispatcher.forward(request, response);
             } else {
                 List<Produtos> produto = pDao.buscaCategoria(busca);
 
@@ -78,6 +78,18 @@ public class ListarProdutosController extends HttpServlet {
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
                 dispatcher.forward(request, response);
             }
+        }
+        if (url.equals("/ver-produto")) {
+            /*int id = 0;
+            List<Produtos> produto = pDao.verProduto(id);
+            System.out.println("==================AQUI=====================");
+            System.out.println(id);
+
+            request.setAttribute("produtos", produto);*/
+            nextPage = "/WEB-INF/jsp/produtoInfos.jsp";
+
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
         } else {
             List<Produtos> produto = pDao.ler();
 

@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#product-image{
+    grid-area: img;
+}
+
+#product-title{
+    grid-area: title;
+}
+
+#product-price{
+    grid-area: price;
+}
+
+#product-description{
+    grid-area: desc;
+}
+
+#product-add{
+    grid-area: btn;
+}
+
+.container{
+    width: 100vw;
+    height: 88vh;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+        ". img img img title ."
+        ". img img img price ."
+        ". img img img btn ."
+        ". desc desc desc desc ."
+    ;
+    gap: 10px;
+    padding: 2%;
+}
+
+.container div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

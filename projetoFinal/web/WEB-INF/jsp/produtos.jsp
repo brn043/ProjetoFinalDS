@@ -62,8 +62,8 @@
                                         <span>${produto.nome}</span>
                                     </div>
                                     <div id="product-add">
-                                        <a href="./ver-produto?${produto.id_produto}"><i class=" fa-solid fa-plus"></i></a>
-                                    </div>                                    
+                                        <a href="./ver-produto"><i class=" fa-solid fa-plus"></i></a>
+                                    </div>
                                 </div>
                             </c:forEach>
                         </div>

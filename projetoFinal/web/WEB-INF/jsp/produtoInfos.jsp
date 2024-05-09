@@ -37,30 +37,23 @@
                 </header>
                 <main>
                     <div class="container">
+                        <c:forEach items="${produtos}" var="produto">
                             <div id="product-image">
-                                <img src="./../../assets/camiseta-overs.jpg" alt="product-image">
+                                <img src="${produto.img}" alt="product-image">
                             </div>
                             <div id="product-title">
                                 <h3>${produto.nome}</h3>
-                                <h3>Titulo teste</h3>
                             </div>
                             <div id="product-price">
                                 <h5>${produto.preco}</h5>
-                                <h5>299.90</h5>
                             </div>
                             <div id="product-add">
                                 <button>COMPRAR</button>
                             </div>
                             <div id="product-description">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae voluptatibus
-                                    accusamus est quo nisi? Veritatis deserunt ut ipsam dolore blanditiis, minus
-                                    asperiores debitis culpa vero? Architecto earum optio ullam eius?
-                                    Recusandae quas nesciunt maiores dicta odio reiciendis aspernatur ipsum, magnam
-                                    magni exercitationem neque nostrum, at tenetur doloribus aliquid reprehenderit,
-                                    eaque ducimus debitis similique quidem? Similique, nihil asperiores. Ex, suscipit
-                                    doloremque!</p>
                                 <p>${produto.descricao}</p>
                             </div>
+                        </c:forEach>
                     </div>
                 </main>
                 <footer>

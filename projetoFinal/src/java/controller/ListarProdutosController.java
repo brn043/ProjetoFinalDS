@@ -80,12 +80,12 @@ public class ListarProdutosController extends HttpServlet {
             }
         }
         if (url.equals("/ver-produto")) {
-            /*int id = 0;
+            int id = Integer.parseInt(request.getParameter("id"));
             List<Produtos> produto = pDao.verProduto(id);
             System.out.println("==================AQUI=====================");
             System.out.println(id);
 
-            request.setAttribute("produtos", produto);*/
+            request.setAttribute("produtos", produto);
             nextPage = "/WEB-INF/jsp/produtoInfos.jsp";
 
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);

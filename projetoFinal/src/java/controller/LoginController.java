@@ -30,6 +30,7 @@ public class LoginController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String nextPage = "/WEB-INF/jsp/login.jsp";
@@ -65,7 +66,7 @@ public class LoginController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String url = request.getServletPath();
-        if (url.equals("/signin")) {
+        if (url.equals("/logar")) {
             String nextPage;
             Usuarios user = new Usuarios();
             UsuariosDAO valida = new UsuariosDAO();
@@ -79,11 +80,11 @@ public class LoginController extends HttpServlet {
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
                 dispatcher.forward(request, response);
             } else if (user.getAcesso() == 1) {
-                nextPage = "/WEB-INF/jsp/controleAdmin.jsp";
+                nextPage = "/WEB-INF/jsp/controleAdministrador.jsp";
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
                 dispatcher.forward(request, response);
             }
-        } else if (url.equals("/signup")) {
+        } else if (url.equals("/registrar")) {
             String nextPage = "/WEB-INF/jsp/login.jsp";
             Usuarios user = new Usuarios();
             UsuariosDAO valida = new UsuariosDAO();

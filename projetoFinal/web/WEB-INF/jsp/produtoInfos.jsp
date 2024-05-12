@@ -41,17 +41,22 @@
                             <div id="product-image">
                                 <img src="${produto.img}" alt="product-image">
                             </div>
-                            <div id="product-title">
-                                <h3>${produto.nome}</h3>
-                            </div>
-                            <div id="product-price">
-                                <h5>${produto.preco}</h5>
-                            </div>
-                            <div id="product-add">
-                                <button>COMPRAR</button>
-                            </div>
-                            <div id="product-description">
-                                <p>${produto.descricao}</p>
+                            <div id="product-infos">
+                                <p id="product-name">${produto.nome}</p>
+                                <p id="product-price">R$ ${produto.preco}</p>
+                                <p id="product-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                    Magni voluptas dolorum totam ea omnis quam! 
+                                    Dicta labore itaque exercitationem expedita. </p>
+                                <div id="tabela-tamanhos">
+                                    <span>Tamanhos:</span>
+                                    <div id="opcoes-tamanho">
+                                        <div id="p"><span>P</span></div>
+                                        <div id="m"><span>M</span></div>
+                                        <div id="g"><span>G</span></div>
+                                        <div id="gg"><span>GG</span></div>
+                                    </div>
+                                </div>
+                                <button>ADICIONAR AO CARRINHO</button>
                             </div>
                         </c:forEach>
                     </div>

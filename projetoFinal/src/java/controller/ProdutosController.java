@@ -39,10 +39,23 @@ public class ProdutosController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nextPage = "/WEB-INF/jsp/controleAdmin.jsp";
+        String url = request.getServletPath();
+        if (url.equals("/adicionar-produto")) {
+            String nextPage = "/WEB-INF/jsp/addProduto.jsp";
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-        dispatcher.forward(request, response);
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+        } else if (url.equals("/adicionar-usuario")) {
+            String nextPage = "/WEB-INF/jsp/addAdmin.jsp";
+
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+        } else {
+            String nextPage = "/WEB-INF/jsp/controleAdministrador.jsp";
+
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -81,7 +94,7 @@ public class ProdutosController extends HttpServlet {
                 p.setCategoria(Integer.parseInt(request.getParameter("categoria")));
                 p.setPreco(Float.parseFloat(request.getParameter("preco")));
                 p.setQuantidade(Integer.parseInt(request.getParameter("quantidade")));
-                p.setDescricao(request.getParameter("desc"));                
+                p.setDescricao(request.getParameter("desc"));
                 Part filePart = request.getPart("imagem");
                 String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // Corrige problemas com o navegador IE
                 if (fileName != null && !fileName.isEmpty()) {
@@ -109,7 +122,7 @@ public class ProdutosController extends HttpServlet {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            String nextPage = "/WEB-INF/jsp/controleAdmin.jsp";
+            String nextPage = "/WEB-INF/jsp/controleAdministrador.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         } else {

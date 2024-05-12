@@ -1,0 +1,34 @@
+.container{
+    margin: 0 auto;
+}
+
+#title{
+    width: auto;
+    text-align: center;
+    margin: 5% auto;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+#inputs-container{
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    gap: 50px;
+}
+
+#left-block{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#right-block{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form button{
+    width: 30vw;
+    margin: 5% auto;
+}

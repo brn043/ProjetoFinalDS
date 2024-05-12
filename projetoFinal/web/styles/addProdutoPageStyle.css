@@ -16,7 +16,6 @@ form{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    gap: 5px;
     background-color: transparent;
 }
 
@@ -65,6 +64,7 @@ form a{
 
 form button{
     height: 7vh;
+    margin: 5px 0 5px 0;
     background-color: black;
     color: #fff;
     border: 1px solid black;

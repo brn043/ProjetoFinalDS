@@ -11,7 +11,7 @@
         <script src="https://kit.fontawesome.com/3f0655ac6d.js" crossorigin="anonymous"></script>
         <link href="styles/style.css" rel="stylesheet" type="text/css" />
         <link href="styles/loginStyle.css" rel="stylesheet" type="text/css" />
-        <link href="styles/adminPageStyle.css" rel="stylesheet" type="text/css" />
+        <link href="styles/addProdutoPageStyle.css" rel="stylesheet" type="text/css" />
         <title>Controle de Estoque - LESS</title>
     </head>
 
@@ -51,9 +51,17 @@
                         <option value="3">Bermudas</option>
                         <option value="4">Moletom</option>
                         <option value="5">Acessórios</option>
-                    </select>                        
+                    </select>
                     <p>Quantidade:</p>
                     <input type="number" name="quantidade" min="0" placeholder="Quantidade">
+                    <p>Tamanho:</p>
+                    <select id="selectTamanhos" name="tamanho">
+                        <option>Selecione o tamanho</option>
+                        <option value="1">P</option>
+                        <option value="2">M</option>
+                        <option value="3">G</option>
+                        <option value="4">GG</option>
+                    </select>
                     <p>Preço:</p>
                     <input type="text" id="inPreco" name="preco" step="0.01" min="0.00" placeholder="Preço do Produto">
                     <p>Descrição:</p>

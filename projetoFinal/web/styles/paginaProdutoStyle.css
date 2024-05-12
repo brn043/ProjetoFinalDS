@@ -4,45 +4,95 @@
     box-sizing: border-box;
 }
 
-#product-image{
-    grid-area: img;
-}
-
-#product-title{
-    grid-area: title;
-}
-
-#product-price{
-    grid-area: price;
-}
-
-#product-description{
-    grid-area: desc;
-}
-
-#product-add{
-    grid-area: btn;
+body{
+    background: linear-gradient(to right, #fff, #2727270c);
 }
 
 .container{
-    width: 100vw;
-    height: 88vh;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-template-rows: auto;
-    grid-template-areas:
-        ". img img img title ."
-        ". img img img price ."
-        ". img img img btn ."
-        ". desc desc desc desc ."
-    ;
-    gap: 10px;
-    padding: 2%;
+    width: 70vw;
+    height: 90vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
-.container div{
+.container #product-name{
+    font-size: 24px;
+    font-weight: lighter;
+    color: #272727;
+}
+
+.container #product-price{
+    font-size: 20px;
+    font-weight: lighter;
+    color: #272727;
+}
+
+.container #product-desc{
+    font-size: 16px;
+    font-weight: lighter;
+    color: #272727;
+}
+
+.container button{
+    width: 100%;
+    height: 12%;
+    border: none;
+    background-color: #272727;
+    color: #fff;
+    padding: 5%;
+    font-size: 16px;
+    font-weight: 100;
+    transition: 300ms;
+}
+
+.container button:hover{
+    background-color: #fff;
+    color: #272727;
+    border: 1px solid #272727;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+#product-image{
+    width: 470px;
+    height: 405px;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid #272727;
+}
+
+#product-infos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 300px;
+    height: 405px;
+}
+
+#tabela-tamanhos{
+    width: 100%;
+    display: grid;
+    gap: 20px;
+}
+
+#opcoes-tamanho{
+    display: flex;
+    gap: 10px;
+}
+
+#opcoes-tamanho div{
+    border: 1px solid #272727;
+    background-color: #fff;
+    padding: 2%;
+}
+
+#opcoes-tamanho div:hover{
+    cursor: pointer;
+    opacity: 0.5;
 }
 

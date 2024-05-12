@@ -40,7 +40,7 @@
                 </div>
                 <div id="signin-container">
                     <h1>CONECTE-SE</h1>
-                    <form action="./signin" method="post" id="frmSignIn">
+                    <form action="./logar" method="post" id="frmSignIn">
                         <p>Email: </p>
                         <input type="email" name="inEmail" id="Email" placeholder="Digite aqui" required><br>
                         <p>Senha: </p>
@@ -53,7 +53,7 @@
                 </div>
                 <div id="signup-container" >
                     <h1>REGISTRE-SE</h1>
-                    <form action="./signup" method="post" id="frmSignUp">
+                    <form action="./registrar" method="post" id="frmSignUp">
                         <p>Nome: </p>
                         <input type="text" name="inName" id="inName" placeholder="Digite aqui" required>
                         <p>Email: </p>

@@ -1,0 +1,57 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#title{
+    width: 100%;
+    text-align: center;
+    margin: 5%;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+#table{
+    width: 60vw;
+    height: 40vh;
+    display: block;
+}
+
+#produto{
+    background-color: #d9d9d9;
+    border: 1px solid #f6f6f6;
+    display: flex;
+    align-items: center;
+    gap: 8%;
+}
+
+#produto-img{
+    width: 120px;
+    height: 110px;
+    overflow: hidden;
+}
+
+#produto-img img{
+    width: 100%;
+    height: 100%;
+}
+
+#buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    font-size: 20px;
+}
+
+#buttons a{
+    text-decoration: none;
+    color: #272727;
+}
+
+#buttons a:hover{
+    opacity: 0.5;
+}

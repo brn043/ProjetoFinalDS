@@ -1,5 +1,3 @@
-<%-- Document : login Created on : 30/04/2024, 14:11:59 Author : Senai --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="pt-br">

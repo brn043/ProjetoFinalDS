@@ -28,6 +28,10 @@
         <servlet-name>ListarProdutosController</servlet-name>
         <servlet-class>controller.ListarProdutosController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminController</servlet-name>
+        <servlet-class>controller.AdminController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -58,15 +62,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ProdutosController</servlet-name>
-        <url-pattern>/adicionar-usuario</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ProdutosController</servlet-name>
         <url-pattern>/gerenciar-produtos</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ProdutosController</servlet-name>
-        <url-pattern>/gerenciar-usuarios</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ProdutosController</servlet-name>
@@ -87,6 +83,18 @@
     <servlet-mapping>
         <servlet-name>ListarProdutosController</servlet-name>
         <url-pattern>/ver-produto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminController</servlet-name>
+        <url-pattern>/AdminController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminController</servlet-name>
+        <url-pattern>/adicionar-usuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminController</servlet-name>
+        <url-pattern>/gerenciar-usuarios</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -35,26 +35,26 @@
             </header>
             <main>
                 <div class="container">
-                    <form action="/adicionar-usuario" method="post">
+                    <form id="frmSignUp" action="./adicionar-usuario" method="post">
                         <div id="title">
                             <p>Adicionar Administrador</p>
                         </div>
                         <div id="inputs-container">
                             <div id="left-block">
                                 <label for="nome">Nome:</label>
-                                <input name="nome" type="text" placeholder="Digite aqui">
+                                <input name="nome" id="inName" type="text" placeholder="Digite aqui">
                                 <label for="email">Email:</label>
-                                <input name="email" type="email" placeholder="Digite aqui">
+                                <input name="email" id="inEmail" type="email" placeholder="Digite aqui">
                                 <label for="senha">Senha:</label>
-                                <input name="senha" type="password" placeholder="Digite aqui">
+                                <input name="senha" id="inPassword" type="password" placeholder="Digite aqui">
                             </div>
                             <div id="right-block">
                                 <label for="cpf">Cpf:</label>
-                                <input id="inCpf" name="cpf" type="text" placeholder="Digite aqui">
+                                <input id="inCpf" name="cpf" id="inCpf" type="text" placeholder="Digite aqui">
                                 <label for="telefone">Telefone:</label>
-                                <input id="inTelefone" name="telefone" type="text" placeholder="Digite aqui">
+                                <input id="inTelefone" name="telefone" id="inTelefone" type="text" placeholder="Digite aqui">
                                 <label for="dataNascimento">Data de Nascimento:</label>
-                                <input name="dataNascimento" type="date">
+                                <input name="dataNascimento" id="inDataNasc" type="date">
                             </div>
                         </div>
                         <button type="submit">ADICIONAR</button>
@@ -95,5 +95,5 @@
             $('#inCpf').mask('000.000.000-00', {reverse: false});
         </script>
         <script src="js/search-bar.js" type="text/javascript"></script>
-        <script src="js/validation.js"></script>
+        <script src="js/validationAdmin.js"></script>
         </html>

@@ -21,7 +21,7 @@ public class CarrinhoDAO {
 
     public List<Carrinho> ler(int id) {
         List<Carrinho> carrinho = new ArrayList();
-        Carrinho cart = new Carrinho();
+        
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
@@ -32,6 +32,7 @@ public class CarrinhoDAO {
             rs = stmt.executeQuery();
 
             while (rs.next()) {
+                Carrinho cart = new Carrinho();
                 cart.setImg(rs.getString("image"));
                 cart.setId_compra(rs.getInt("id_compra"));
                 cart.setProduto(rs.getString("produto"));
@@ -93,5 +94,29 @@ public class CarrinhoDAO {
             e.printStackTrace();
         }
     }
+    
+    public void adicionar(Carrinho cart){
+        
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
 
+            stmt = conexao.prepareStatement("INSERT INTO carrinho (image, produto, preco, quantidade, tamanho, total, id_cliente) VALUES (?,?,?,?,?,?,?)");
+            stmt.setString(1, cart.getImg());
+            stmt.setString(2, cart.getProduto());
+            stmt.setFloat(3, cart.getPreco());
+            stmt.setInt(4, cart.getQuantidade());
+            stmt.setString(5, cart.getTamanho());
+            stmt.setFloat(6, cart.getTotal());
+            stmt.setInt(7, cart.getId_cliente());
+            stmt.executeUpdate();
+            
+            stmt.close();
+            conexao.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }       
+    }
 }

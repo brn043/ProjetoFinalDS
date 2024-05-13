@@ -44,9 +44,7 @@
                             <div id="product-infos">
                                 <p id="product-name">${produto.nome}</p>
                                 <p id="product-price">R$ ${produto.preco}</p>
-                                <p id="product-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                                    Magni voluptas dolorum totam ea omnis quam! 
-                                    Dicta labore itaque exercitationem expedita. </p>
+                                <p id="product-desc">${produto.descricao}</p>
                                 <div id="tabela-tamanhos">
                                     <span>Tamanhos:</span>
                                     <div id="opcoes-tamanho">
@@ -56,7 +54,7 @@
                                         <div id="gg"><span>GG</span></div>
                                     </div>
                                 </div>
-                                <button>ADICIONAR AO CARRINHO</button>
+                               <a href="./adicionar?img=${produto.img}&produto=${produto.nome}&preco=${produto.preco}&quantidade=1&tamanho=G"><button>ADICIONAR AO CARRINHO</button></a>
                             </div>
                         </c:forEach>
                     </div>

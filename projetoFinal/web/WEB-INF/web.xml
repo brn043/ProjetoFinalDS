@@ -112,6 +112,10 @@
         <servlet-name>CarrinhoController</servlet-name>
         <url-pattern>/diminuir</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CarrinhoController</servlet-name>
+        <url-pattern>/adicionar</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

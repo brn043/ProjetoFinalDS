@@ -9,15 +9,16 @@
 #title{
     width: 100%;
     text-align: center;
-    margin: 5%;
+    margin: 3%;
     font-size: 32px;
     font-weight: bold;
 }
 
 #table{
     width: 60vw;
-    height: 40vh;
-    display: block;
+    height: auto;
+    display: grid;
+    gap: 10px;
 }
 
 #produto{

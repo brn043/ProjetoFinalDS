@@ -9,9 +9,11 @@ import conexao.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import model.bean.Carrinho;
+import model.bean.Produtos;
 
 /**
  *
@@ -118,5 +120,31 @@ public class CarrinhoDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }       
+    }
+    
+        public Carrinho validar(Carrinho produto) {
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+
+            stmt = conexao.prepareStatement("SELECT id_compra, quantidade, preco, total FROM carrinho WHERE produto = ?");
+            stmt.setString(1, produto.getProduto());
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                produto.setId_compra(rs.getInt("id_compra"));
+                produto.setQuantidade(rs.getInt("quantidade"));
+                produto.setTotal(rs.getFloat("total"));
+                produto.setPreco(rs.getFloat("preco"));
+            }
+            rs.close();
+            stmt.close();
+            conexao.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+       return produto;
     }
 }

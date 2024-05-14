@@ -36,20 +36,41 @@ public class CarrinhoController extends HttpServlet {
         String url = request.getServletPath();
         int id_usuario = 1;
 
-        Carrinho cart = new Carrinho();
         CarrinhoDAO cDao = new CarrinhoDAO();
 
         if (url.equals("/adicionar")) {
-            cart.setImg(request.getParameter("img"));
+            Carrinho cart = new Carrinho();
             cart.setProduto(request.getParameter("produto"));
-            cart.setPreco(Float.parseFloat(request.getParameter("preco")));
-            cart.setQuantidade(Integer.parseInt(request.getParameter("quantidade")));
-            cart.setTamanho(request.getParameter("tamanho"));
-            cart.setTotal(cart.getPreco()*cart.getQuantidade());
-            cart.setId_cliente(id_usuario);
+            cart = cDao.validar(cart);
             
-            cDao.adicionar(cart);
-            
+            if (cart.getId_compra() > 0) {
+                int id_compra = cart.getId_compra();
+                int quantidade = cart.getQuantidade();
+                float preco = cart.getPreco();
+                float total = cart.getTotal();
+                quantidade = quantidade + 1;
+                total = preco * quantidade;
+
+                cDao.update(quantidade, id_compra, total);
+
+                List<Carrinho> produto = cDao.ler(id_usuario);
+
+                request.setAttribute("produtos", produto);
+                String nextPage = "/WEB-INF/jsp/carrinho.jsp";
+
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+                dispatcher.forward(request, response);
+            } else {
+                cart.setImg(request.getParameter("img"));
+                cart.setProduto(request.getParameter("produto"));
+                cart.setPreco(Float.parseFloat(request.getParameter("preco")));
+                cart.setQuantidade(Integer.parseInt(request.getParameter("quantidade")));
+                cart.setTamanho(request.getParameter("tamanho"));
+                cart.setTotal(cart.getPreco() * cart.getQuantidade());
+                cart.setId_cliente(id_usuario);
+
+                cDao.adicionar(cart);
+            }
         } else if (url.equals("/incrementar")) {
             int id_compra = Integer.parseInt(request.getParameter("id"));
             int quantidade = Integer.parseInt(request.getParameter("quantidade"));

@@ -10,22 +10,25 @@ package model.bean;
  * @author Bruno
  */
 public class Produtos {
+
     private int id_produto;
     private String nome;
     private int categoria;
     private int quantidade;
+    private int tamanho;
     private float preco;
     private String descricao;
     private String img;
 
     public Produtos() {
-    }   
+    }
 
-    public Produtos(int id_produto, String nome, int categoria, int quantidade, float preco, String descricao, String img) {
+    public Produtos(int id_produto, String nome, int categoria, int quantidade, int tamanho, float preco, String descricao, String img) {
         this.id_produto = id_produto;
         this.nome = nome;
         this.categoria = categoria;
         this.quantidade = quantidade;
+        this.tamanho = tamanho;
         this.preco = preco;
         this.descricao = descricao;
         this.img = img;
@@ -63,6 +66,14 @@ public class Produtos {
         this.quantidade = quantidade;
     }
 
+    public int getTamanho() {
+        return tamanho;
+    }
+
+    public void setTamanho(int tamanho) {
+        this.tamanho = tamanho;
+    }
+
     public float getPreco() {
         return preco;
     }
@@ -86,6 +97,5 @@ public class Produtos {
     public void setImg(String img) {
         this.img = img;
     }
-    
-    
+
 }

@@ -94,6 +94,7 @@ public class ProdutosController extends HttpServlet {
                 p.setCategoria(Integer.parseInt(request.getParameter("categoria")));
                 p.setPreco(Float.parseFloat(request.getParameter("preco")));
                 p.setQuantidade(Integer.parseInt(request.getParameter("quantidade")));
+                p.setTamanho(Integer.parseInt(request.getParameter("tamanho")));
                 p.setDescricao(request.getParameter("desc"));
                 Part filePart = request.getPart("imagem");
                 String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString(); // Corrige problemas com o navegador IE

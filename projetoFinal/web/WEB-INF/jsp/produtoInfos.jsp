@@ -48,10 +48,9 @@
                                 <div id="tabela-tamanhos">
                                     <span>Tamanhos:</span>
                                     <div id="opcoes-tamanho">
-                                        <div id="p"><span>P</span></div>
-                                        <div id="m"><span>M</span></div>
-                                        <div id="g"><span>G</span></div>
-                                        <div id="gg"><span>GG</span></div>
+                                        <c:forEach items="${tamanhos}" var="tamanho">
+                                        <div id="tamanho"><span>${tamanho.tamanho}</span></div>
+                                        </c:forEach>
                                     </div>
                                 </div>
                                <a href="./adicionar?img=${produto.img}&produto=${produto.nome}&preco=${produto.preco}&quantidade=1&tamanho=G"><button>ADICIONAR AO CARRINHO</button></a>

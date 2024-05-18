@@ -15,7 +15,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.bean.Estoque;
 import model.bean.Produtos;
+import model.dao.EstoqueDAO;
 import model.dao.ProdutosDAO;
 
 /**
@@ -82,12 +84,17 @@ public class ListarProdutosController extends HttpServlet {
         if (url.equals("/ver-produto")) {
             int id = Integer.parseInt(request.getParameter("id"));
             List<Produtos> produto = pDao.verProduto(id);
-
             request.setAttribute("produtos", produto);
+            
+            EstoqueDAO eDao = new EstoqueDAO();
+            String nome = request.getParameter("name");
+            List<Estoque> tamanhos = eDao.listarTamanhos(nome);
+            request.setAttribute("tamanhos", tamanhos);
+            
             nextPage = "/WEB-INF/jsp/produtoInfos.jsp";
-
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
+            
         } else {
             List<Produtos> produto = pDao.ler();
 

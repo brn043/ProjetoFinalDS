@@ -84,10 +84,6 @@ public class CarrinhoController extends HttpServlet {
             List<Carrinho> produto = cDao.ler(id_usuario);
 
             request.setAttribute("produtos", produto);
-            String nextPage = "/WEB-INF/jsp/carrinho.jsp";
-
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-            dispatcher.forward(request, response);
         }
         if (url.equals("/diminuir")) {
             int id_compra = Integer.parseInt(request.getParameter("id"));

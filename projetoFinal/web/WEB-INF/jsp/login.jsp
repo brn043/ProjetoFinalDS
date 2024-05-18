@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -44,9 +45,13 @@
                         <p>Senha: </p>
                         <input type="password" name="inPassword" id="Password" placeholder="Digite aqui"
                                required><br>
+                        <p id="errorMessage"><% 
+                            String errorMessage = (String) request.getAttribute("errorMessage");
+                            if(errorMessage != null) out.println(errorMessage);    
+                            %></p>
                         <h6>Não possui uma conta? <button type="button" id="registerBtn">Registre-se</button></h6>
                         <br>
-                        <button type="submit" name="signin" id="btn_signin">ENTRAR</button>
+                        <button type="submit" name="signin" id="btn_signin">ENTRAR</button>                        
                     </form>
                 </div>
                 <div id="signup-container" >

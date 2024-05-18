@@ -6,6 +6,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -82,6 +83,12 @@ public class LoginController extends HttpServlet {
                 nextPage = "/WEB-INF/jsp/controleAdministrador.jsp";
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
                 dispatcher.forward(request, response);
+            } else {
+                nextPage = "/WEB-INF/jsp/login.jsp";
+                System.out.println("errado");
+                request.setAttribute("errorMessage", "Usuário e/ou senha inválidos");
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+                dispatcher.forward(request, response);
             }
         } else if (url.equals("/registrar")) {
             String nextPage = "/WEB-INF/jsp/login.jsp";
@@ -104,7 +111,7 @@ public class LoginController extends HttpServlet {
                 dispatcher.forward(request, response);
             } catch (Exception e) {
                 nextPage = "/WEB-INF/jsp/login.jsp";
-                request.setAttribute("errorMessage", "Usuário ou senha inválidos");
+                request.setAttribute("errorMessage", "Usuário ou senha inválidos!");
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
                 dispatcher.forward(request, response);
             }

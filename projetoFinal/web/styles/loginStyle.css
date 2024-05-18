@@ -163,3 +163,8 @@ footer{
     width: 100vw;
     height: 40vh;
 }
+
+#signin-container form #errorMessage{
+    color: red;
+    font-size: 14px;
+}

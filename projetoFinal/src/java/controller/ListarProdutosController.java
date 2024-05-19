@@ -89,7 +89,11 @@ public class ListarProdutosController extends HttpServlet {
             EstoqueDAO eDao = new EstoqueDAO();
             String nome = request.getParameter("name");
             List<Estoque> tamanhos = eDao.listarTamanhos(nome);
-            request.setAttribute("tamanhos", tamanhos);
+            if(tamanhos != null){
+                request.setAttribute("tamanhos", tamanhos);
+            }else{
+                request.setAttribute("message", "<i class=\"fa-regular fa-face-frown\"></i> Produto Indisponível");
+            }
             
             nextPage = "/WEB-INF/jsp/produtoInfos.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);

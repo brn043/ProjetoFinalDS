@@ -46,7 +46,14 @@
                                 <p id="product-price">R$ ${produto.preco}</p>
                                 <p id="product-desc">${produto.descricao}</p>
                                 <div id="tabela-tamanhos">
-                                    <span>Tamanhos:</span>
+                                    <p id="message"><%
+                                        String message = (String) request.getAttribute("message");                                        
+                                        if(message != null){
+                                            out.print(message);
+                                        }else{
+                                            out.print("Tamanhos: ");
+                                        }
+                                        %></p>
                                     <div id="opcoes-tamanho">
                                         <c:forEach items="${tamanhos}" var="tamanho">
                                         <div id="tamanho"><span>${tamanho.tamanho}</span></div>

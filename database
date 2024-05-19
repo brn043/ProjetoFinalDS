@@ -1,0 +1,167 @@
+create database projetoFinal;
+use projetoFinal;
+
+SET FOREIGN_KEY_CHECKS=0;
+
+create table usuarios(
+	id_usuario int auto_increment primary key,
+    nome varchar(45) not null,
+    email varchar(45) not null,
+    senha varchar(45) not null,
+    cpf varchar(15) unique not null,
+    telefone varchar(20),
+	acesso int default 2,
+    dataNascimento date not null,
+    endereco int,
+    Foreign Key (endereco) references endereco(id_endereco)
+);
+
+insert into usuarios(nome, email, senha, cpf, telefone, acesso, dataNascimento) values ('admin', 'admin@gmail.com', '123', '123.456.789-10', '(43)91234-5678', '1', '2000-01-01');
+
+create table endereco(
+	id_endereco int auto_increment primary key,
+    id_cliente int,
+    Foreign key (id_cliente) references usuarios(id_usuario),
+    cep char(10),
+    rua varchar(45),
+    numero varchar(10),
+    bairro varchar(45),
+    complemento tinytext
+);
+
+SET FOREIGN_KEY_CHECKS=1;
+
+create table tamanhos(
+	id_tamanho int auto_increment primary key,
+	nome varchar(45)
+);
+
+INSERT INTO tamanhos (nome) VALUES ('P');
+INSERT INTO tamanhos (nome) VALUES ('M');
+INSERT INTO tamanhos (nome) VALUES ('G');
+INSERT INTO tamanhos (nome) VALUES ('GG');
+
+create table categoria(
+	id_categoria int auto_increment primary key,
+    nome varchar(45)
+);
+
+INSERT INTO categoria (nome) VALUES ('Camisetas'); 
+INSERT INTO categoria (nome) VALUES ('Calça'); 
+INSERT INTO categoria (nome) VALUES ('Bermudas'); 
+INSERT INTO categoria (nome) VALUES ('Moletom'); 
+INSERT INTO categoria (nome) VALUES ('Acessórios');
+
+create table produtos(
+	image varchar(45),
+	id_produto int auto_increment primary key,
+    nome varchar(45) not null,
+    categoria int,
+    Foreign key (categoria) references categoria(id_categoria),    
+    quantidade int not null,
+    tamanho int,
+    Foreign key (tamanho) references tamanhos(id_tamanho),
+    preco float not null,
+    descricao tinytext
+);
+
+create table estoque(
+	id_estoque int auto_increment primary key,
+    produto int,
+    Foreign key (produto) references produtos(id_produto),
+    nome varchar(45),
+    tamanho int,
+    Foreign key (tamanho) references tamanhos(id_tamanho),
+    quantidade int
+);
+
+DELIMITER //
+CREATE PROCEDURE inserir_produto(
+	IN p_image VARCHAR(45),
+    IN p_nome VARCHAR(45),
+    IN p_categoria INT,
+    IN p_quantidade INT,
+    IN p_tamanho INT,
+    IN p_preco FLOAT,
+    IN p_descricao TINYTEXT
+)
+BEGIN
+    DECLARE existing_product_id INT;
+    DECLARE existing_quantity INT;    
+    -- Verifica se já existe um produto com o mesmo nome e tamanho
+    SELECT id_produto, quantidade INTO existing_product_id, existing_quantity
+    FROM produtos
+    WHERE nome = p_nome AND tamanho = p_tamanho;
+    
+    IF existing_product_id IS NOT NULL THEN
+        -- Produto já existe, então incrementa a quantidade
+        UPDATE produtos
+        SET quantidade = existing_quantity + p_quantidade
+        WHERE id_produto = existing_product_id;
+    ELSE
+        -- Produto não existe, então insere normalmente
+        INSERT INTO produtos (image, nome, categoria, quantidade, tamanho, preco, descricao)
+        VALUES (p_image, p_nome, p_categoria, p_quantidade, p_tamanho, p_preco, p_descricao);
+    END IF;
+END;
+//
+DELIMITER ;
+
+DELIMITER //
+CREATE TRIGGER atualizar_quantidade_no_estoque
+AFTER UPDATE ON produtos
+FOR EACH ROW
+BEGIN
+    DECLARE existing_quantity INT;
+    SELECT quantidade INTO existing_quantity
+    FROM estoque
+    WHERE nome = NEW.nome AND tamanho = NEW.tamanho;
+    IF existing_quantity IS NOT NULL THEN
+        UPDATE estoque
+        SET quantidade = NEW.quantidade
+        WHERE nome = NEW.nome AND tamanho = NEW.tamanho;
+    END IF;
+END;
+//
+DELIMITER ;
+
+DELIMITER //
+CREATE TRIGGER inserir_no_estoque
+AFTER INSERT ON produtos
+FOR EACH ROW
+BEGIN
+    INSERT INTO estoque(produto, nome, tamanho, quantidade) VALUES (NEW.id_produto, NEW.nome, NEW.tamanho, NEW.quantidade);
+END;
+//
+DELIMITER ;
+
+create table carrinho(
+	image varchar(45),
+	id_compra int auto_increment primary key,
+    produto varchar(45) not null,
+    preco float not null,
+    quantidade int,
+    tamanho varchar(5),
+    total float not null,
+    id_cliente int,
+	Foreign key (id_cliente) references usuarios(id_usuario)
+);
+
+select * from carrinho;
+
+create table historico(
+	image varchar(45),
+    id_pedido int auto_increment primary key,
+    produto varchar(45),
+    preco float,
+    quantidade int,
+    total float,
+    dataPedido date,
+	situacao varchar(45),
+    id_cliente int,
+	Foreign key (id_cliente) references usuarios(id_usuario)
+);
+
+select * from usuarios;
+select * from produtos;
+select * from estoque;

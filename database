@@ -67,17 +67,21 @@ create table produtos(
 
 create table estoque(
 	id_estoque int auto_increment primary key,
-    produto int,
-    Foreign key (produto) references produtos(id_produto),
     nome varchar(45),
     tamanho int,
     Foreign key (tamanho) references tamanhos(id_tamanho),
     quantidade int
 );
 
+
+
+
+-- Procedimento inserir na tabela produtos --
+
 DELIMITER //
+
 CREATE PROCEDURE inserir_produto(
-	IN p_image VARCHAR(45),
+    IN p_image VARCHAR(45),
     IN p_nome VARCHAR(45),
     IN p_categoria INT,
     IN p_quantidade INT,
@@ -87,53 +91,83 @@ CREATE PROCEDURE inserir_produto(
 )
 BEGIN
     DECLARE existing_product_id INT;
-    DECLARE existing_quantity INT;    
-    -- Verifica se já existe um produto com o mesmo nome e tamanho
-    SELECT id_produto, quantidade INTO existing_product_id, existing_quantity
-    FROM produtos
-    WHERE nome = p_nome AND tamanho = p_tamanho;
+    DECLARE existing_product_name VARCHAR(45);
+    DECLARE existing_quantity INT;
     
-    IF existing_product_id IS NOT NULL THEN
-        -- Produto já existe, então incrementa a quantidade
+    -- Verifica se já existe um produto com o mesmo nome e categoria
+    SELECT id_produto, nome INTO existing_product_id, existing_product_name
+    FROM produtos
+    WHERE nome = p_nome AND categoria = p_categoria;
+    
+    IF (existing_product_id) IS NOT NULL THEN
+        -- Produto já existe, verifica o estoque
+        SELECT quantidade INTO existing_quantity
+        FROM estoque
+        WHERE nome = existing_product_name AND tamanho = p_tamanho;
+        
+        IF (existing_quantity) IS NOT NULL THEN
+            -- Tamanho já existe no estoque, incrementa a quantidade
+            UPDATE estoque
+            SET quantidade = existing_quantity + p_quantidade
+            WHERE nome = existing_product_name AND tamanho = p_tamanho;
+        ELSE
+            -- Tamanho não existe no estoque, insere o novo tamanho
+            INSERT INTO estoque (nome, tamanho, quantidade)
+            VALUES (p_nome, p_tamanho, p_quantidade);
+        END IF;
+        
+        -- Atualiza a quantidade total do produto na tabela produtos
         UPDATE produtos
-        SET quantidade = existing_quantity + p_quantidade
-        WHERE id_produto = existing_product_id;
+        SET quantidade = quantidade + p_quantidade
+        WHERE nome = existing_product_name;
     ELSE
-        -- Produto não existe, então insere normalmente
+        -- Produto não existe, insere o novo produto
         INSERT INTO produtos (image, nome, categoria, quantidade, tamanho, preco, descricao)
         VALUES (p_image, p_nome, p_categoria, p_quantidade, p_tamanho, p_preco, p_descricao);
+        
+        -- Insere o novo produto no estoque
+        INSERT INTO estoque (nome, tamanho, quantidade)
+        VALUES (p_nome, p_tamanho, p_quantidade);
     END IF;
 END;
 //
+
 DELIMITER ;
 
+-- Trigger para atualizar a tabela estoque
+
 DELIMITER //
+
 CREATE TRIGGER atualizar_quantidade_no_estoque
 AFTER UPDATE ON produtos
 FOR EACH ROW
 BEGIN
     DECLARE existing_quantity INT;
+    
+    -- Verifica se já existe o tamanho no estoque
     SELECT quantidade INTO existing_quantity
     FROM estoque
     WHERE nome = NEW.nome AND tamanho = NEW.tamanho;
-    IF existing_quantity IS NOT NULL THEN
+    
+    IF (existing_quantity) IS NOT NULL THEN
+        -- Tamanho já existe no estoque, atualiza a quantidade
         UPDATE estoque
         SET quantidade = NEW.quantidade
         WHERE nome = NEW.nome AND tamanho = NEW.tamanho;
+    ELSE
+        -- Tamanho não existe no estoque, insere o novo tamanho
+        INSERT INTO estoque (produto, nome, tamanho, quantidade)
+        VALUES (NEW.id_produto, NEW.nome, NEW.tamanho, NEW.quantidade);
     END IF;
 END;
 //
+
 DELIMITER ;
 
-DELIMITER //
-CREATE TRIGGER inserir_no_estoque
-AFTER INSERT ON produtos
-FOR EACH ROW
-BEGIN
-    INSERT INTO estoque(produto, nome, tamanho, quantidade) VALUES (NEW.id_produto, NEW.nome, NEW.tamanho, NEW.quantidade);
-END;
-//
-DELIMITER ;
+
+
+-- fim das triggers
+
 
 create table carrinho(
 	image varchar(45),

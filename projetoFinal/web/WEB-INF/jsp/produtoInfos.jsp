@@ -47,7 +47,7 @@
                                 <p id="product-desc">${produto.descricao}</p>
                                 <div id="tabela-tamanhos">
                                     <p id="message"><%
-                                        String message = (String) request.getAttribute("message");                                        
+                                        String message = (String) request.getAttribute("message");
                                         if(message != null){
                                             out.print(message);
                                         }else{
@@ -56,7 +56,7 @@
                                         %></p>
                                     <div id="opcoes-tamanho">
                                         <c:forEach items="${tamanhos}" var="tamanho">
-                                        <div id="tamanho"><span>${tamanho.tamanho}</span></div>
+                                        <div class="tamanho"><span>${tamanho.tamanho}</span></div>
                                         </c:forEach>
                                     </div>
                                 </div>
@@ -90,6 +90,6 @@
                     </div>
                 </footer>
             </body>
-            <script src="js/search-bar.js" type="text/javascript"></script>
-
+            <script src="./js/search-bar.js" type="text/javascript"></script>
+            <script src="./js/tamanhos.js" type="text/javascript"></script>
             </html>

@@ -105,3 +105,8 @@ body{
     opacity: 0.5;
 }
 
+.tamanho.selected{
+    border: 1px double #27272795;
+    opacity: 0.8;
+}
+

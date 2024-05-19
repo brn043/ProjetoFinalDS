@@ -31,7 +31,7 @@ public class EstoqueDAO {
 
             stmt = conexao.prepareStatement("SELECT produtos.nome AS nome, tamanhos.nome AS tamanho\n" +
             "FROM produtos\n" +
-            "JOIN estoque ON produtos.id_produto = estoque.produto\n" +
+            "JOIN estoque ON produtos.nome = estoque.nome\n" +
             "JOIN tamanhos ON estoque.tamanho = tamanhos.id_tamanho\n" +
             "WHERE produtos.nome = ?");
             stmt.setString(1, nome_produto);

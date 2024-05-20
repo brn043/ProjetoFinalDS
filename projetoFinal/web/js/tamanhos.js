@@ -1,12 +1,16 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const size = document.getElementsByClassName("tamanho");
+    const sizes = document.getElementsByClassName("tamanho");
 
-    size.addEventListener('click', function () {
-        if (size.classList.contains("selected")) {
-            size.classList.remove("selected");
-        } else {
-            size.classList.add("selected");
-        }
-    });
+    for (let i = 0; i < sizes.length; i++) {
+        sizes[i].addEventListener('click', function () {
+            for (let i = 0; i < sizes.length; i++) {
+                if (sizes[i].classList.contains("selected")) {
+                    sizes[i].classList.remove("selected");
+                }                
+            }
+            sizes[i].classList.add("selected");
+        });
+        
+    }
 });
 

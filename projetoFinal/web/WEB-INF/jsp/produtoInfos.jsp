@@ -12,7 +12,6 @@
                 <script src="https://kit.fontawesome.com/3f0655ac6d.js" crossorigin="anonymous"></script>
                 <link rel="stylesheet" href="styles/paginaProdutoStyle.css">
                 <link rel="stylesheet" href="styles/style.css">
-                <title>Produto - LESS</title>
             </head>
 
             <body>
@@ -56,7 +55,7 @@
                                         %></p>
                                     <div id="opcoes-tamanho">
                                         <c:forEach items="${tamanhos}" var="tamanho">
-                                        <div class="tamanho"><span>${tamanho.tamanho}</span></div>
+                                        <div class="tamanho" data-id="${tamanho.id}"><span>${tamanho.tamanho}</span></div>
                                         </c:forEach>
                                     </div>
                                 </div>

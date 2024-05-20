@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <div class="total-container">
-                    <a href="#checkout"><button>COMPRAR</button></a>
+                    <a href="./CheckoutController"><button>COMPRAR</button></a>
                 </div>
                 <footer>
                     <div class="footer-container">

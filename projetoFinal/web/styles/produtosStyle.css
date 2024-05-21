@@ -1,0 +1,124 @@
+header{
+    width: 100vw;
+    height: 12vh;
+}
+
+main{
+    width: 100vw;
+    height: auto;
+}
+
+.products{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background: linear-gradient(to right, #fff, #2727270c);
+}
+
+.products-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.filter-column{
+    width: 8%;
+    height: 50vh;
+}
+
+.filter-column form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    gap: 10px;
+}
+
+form select{
+    height: 6%;
+}
+
+form button{
+    height: 8%;
+    background-color: black;
+    color: #fff;
+    border: 1px solid black;
+    transition: 200ms;
+}
+
+form button:hover{
+    background-color: #fff;
+    color: rgba(27, 27, 27);
+    cursor: pointer;
+}
+
+.cards-container{
+    width: 80%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-content: space-around;
+    justify-items: center;
+    overflow: hidden;
+}
+
+.card{
+    width: 300px;
+    height: 400px;
+    margin: 2%;
+    border: 1px solid #2727278b;
+    border-radius: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fff;
+    color: rgba(27, 27, 27);
+}
+
+#product-img{
+    width: 100%;
+    height: 50%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+#product-img img{
+    width: 100%;
+    height: 100%;
+}
+
+#product-add{
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#product-add a{
+    color: #272727;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+#product-add a:hover{
+    opacity: 0.5;
+}
+
+.card img{
+    width: fit-content;
+    height: fit-content;
+    overflow: cover;
+}
+
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2%;
+}

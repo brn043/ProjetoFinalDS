@@ -1,0 +1,103 @@
+.container {
+    width: 100vw;
+    height: 90vh;
+    overflow: hidden;
+}
+
+#title {
+    width: 100%;
+    text-align: center;
+    padding: 2%;
+}
+
+#forms {
+    width: 100%;
+    height: 90%;
+    overflow: hidden;
+    display: flex;
+}
+
+#forms #frmEndereco {
+    width: 50%;
+    height: 100%;
+    border-right: 2px solid #272727;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#frmEndereco #blocks{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#frmEndereco #blocks div{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 20%;
+}
+
+#frmEndereco #form-title{
+    width: 100%;
+    font-size: 22px;
+    font-weight: 200;
+    text-align: center;
+    margin: 5%;
+}
+
+#frmEndereco #blocks div input{
+    height: 2vh;
+    border: 1px solid #272727;
+    margin-bottom: 5%;
+    padding: 6px;
+}
+
+#frmEndereco #blocks label{
+    font-size: 20px;
+}
+
+#frmEndereco #blocks div input:focus{
+    outline: none;
+}
+
+/* métodos de pagamento */
+
+#payment{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+#payments-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: 70%;
+}
+
+#payment-title{
+    width: 100%;
+    font-size: 22px;
+    font-weight: 200;
+    text-align: center;
+    margin: 5%;
+}
+
+#payment #credito, #boleto, #pix{
+    width: 80%;
+    height: 15%;
+    background-color: #d9d9d9;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2px;
+}
+

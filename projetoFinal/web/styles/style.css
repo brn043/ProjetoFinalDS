@@ -1,0 +1,126 @@
+/* parametros de configuração inicial */
+
+*{
+    margin: 0%;
+    padding: 0%;
+    overflow-x: hidden;
+    font-family: poppins, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    background: linear-gradient(to right, #fff, #2727270c);
+}
+
+/* estilização do header */
+
+header{
+    width: 100vw;
+    height: 12vh;
+}
+
+header nav {
+    position: fixed;
+    width: 100vw;
+    height: 12vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #fff;
+    z-index: 10;
+}
+
+nav div{
+    width: 500px;
+    height: 12vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+nav .logo{
+    width: fit-content;
+    height: 12vh;
+    overflow: hidden;
+}
+
+.logo img{
+    margin-top: 12%;
+    width: max-content;
+    overflow: hidden;
+    height: 50vh;
+}
+
+nav a{
+    text-decoration: none;
+    color: rgba(27, 27, 27, 0.8);
+    font-size: 15px;
+    font-weight: 100;
+}
+
+nav a:hover{
+    text-decoration: none;
+    color: rgba(27, 27, 27, 0.5);
+    font-weight: 400;
+}
+
+#search-bar.toogle{
+    display: none;
+}
+
+#search-bar.active{
+    display: flex;
+}
+
+#search-bar input{
+    color: #101010;
+    background-color: #fff;
+    border: 1px solid #272727;
+    padding: 10px;
+}
+
+/* dimensionamento da imagem cta */
+
+.cta, .cta img{
+    width: 100vw;
+    height: 100vh;
+    z-index: 9;
+}
+
+/* estilização do footer */
+
+.footer{
+    width: 100vw;
+    height: 40vh;
+}
+
+.footer-container{
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: black;
+    background: linear-gradient(to top, black, #101010);
+}
+
+.footer-container div{
+    height: auto;
+    width: 20%;
+    text-align: center;
+    line-height: 30px;
+}
+
+.footer-container a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.footer-container p{
+    color: #fff;
+}
+

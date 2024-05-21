@@ -1,0 +1,91 @@
+.container{
+    width: 100vw;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.total-container{
+    width: 100vw;
+    height: 22vh;
+    display: flex;
+    justify-content: flex-end;
+}
+.total-container a{
+    width: 20vw;
+    height: 8vh;
+    margin: 0 18% 10% 15%;
+}
+
+.total-container button{
+    font-size: 16px;
+    font-weight: 100;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: #272727;
+    color: #fff;
+    transition: 300ms;
+}
+
+.total-container button:hover{
+    background-color: #fff;
+    color: #272727;
+    border: 1px solid #272727;
+    cursor: pointer;
+}
+
+
+#title{
+    width: 100%;
+    text-align: center;
+    margin: 3%;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+#table{
+    width: 60vw;
+    height: auto;
+    display: grid;
+    gap: 10px;
+}
+
+#produto{
+    background-color: #d9d9d9;
+    border: 1px solid #f6f6f6;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    gap: 8%;
+}
+
+#produto-img{
+    width: 120px;
+    height: 110px;
+    overflow: hidden;
+}
+
+#produto-img img{
+    width: 100%;
+    height: 100%;
+}
+
+#buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    font-size: 20px;
+}
+
+#buttons a{
+    text-decoration: none;
+    color: #272727;
+}
+
+#buttons a:hover{
+    opacity: 0.5;
+}

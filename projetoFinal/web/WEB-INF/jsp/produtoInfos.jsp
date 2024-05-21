@@ -55,7 +55,7 @@
                                         %></p>
                                     <div id="opcoes-tamanho">
                                         <c:forEach items="${tamanhos}" var="tamanho">
-                                        <div class="tamanho" data-id="${tamanho.id}"><span>${tamanho.tamanho}</span></div>
+                                        <div class="tamanho"><span>${tamanho.tamanho}</span></div>
                                         </c:forEach>
                                     </div>
                                 </div>

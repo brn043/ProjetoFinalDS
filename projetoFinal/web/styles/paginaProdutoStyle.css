@@ -105,8 +105,8 @@ body{
     opacity: 0.5;
 }
 
-.tamanho.selected{
-    border: 1px dashed #272727;
+.tamanho.selected{    
     opacity: 0.5;
+    border: 1px dotted #272727;
 }
 

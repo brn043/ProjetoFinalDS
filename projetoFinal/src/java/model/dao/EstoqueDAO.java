@@ -20,20 +20,16 @@ import model.bean.Produtos;
  * @author Bruno
  */
 public class EstoqueDAO {
-    
-    public List<Estoque> listarTamanhos(String nome_produto){
+
+    public List<Estoque> listarTamanhos(String nome_produto) {
         List<Estoque> tamanhos = new ArrayList();
-        
+
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
             ResultSet rs = null;
 
-            stmt = conexao.prepareStatement("SELECT produtos.nome AS nome, tamanhos.nome AS tamanho\n" +
-            "FROM produtos\n" +
-            "JOIN estoque ON produtos.nome = estoque.nome\n" +
-            "JOIN tamanhos ON estoque.tamanho = tamanhos.id_tamanho\n" +
-            "WHERE produtos.nome = ?");
+            stmt = conexao.prepareStatement("SELECT produtos.nome AS nome, tamanhos.nome AS tamanho FROM produtos JOIN estoque ON produtos.nome = estoque.nome JOIN tamanhos ON estoque.tamanho = tamanhos.id_tamanho WHERE produtos.nome = (?) ORDER BY FIELD(tamanhos.nome, 'P', 'M', 'G', 'GG')");
             stmt.setString(1, nome_produto);
             rs = stmt.executeQuery();
 
@@ -49,8 +45,8 @@ public class EstoqueDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        
+
         return tamanhos;
     }
-    
+
 }

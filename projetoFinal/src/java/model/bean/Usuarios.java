@@ -12,14 +12,14 @@ import java.sql.Date;
  * @author Senai
  */
 public class Usuarios {
-    private int id_usuario;
+    private static int id_usuario;
     private String nome;
     private String email;
     private String senha;
     private String cpf;
     private String telefone;
     private String endereco;
-    private int acesso;
+    private static int acesso;
     private Date dataNascimento;
 
     public Usuarios() {

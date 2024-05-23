@@ -33,10 +33,22 @@ public class LoginController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nextPage = "/WEB-INF/jsp/login.jsp";
+        Usuarios user = new Usuarios();
+        String nextPage;
+        if (user.getId_usuario() == 0) {
+            nextPage = "/WEB-INF/jsp/login.jsp";
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-        dispatcher.forward(request, response);
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+        } else if (user.getAcesso() == 1) {
+            nextPage = "/WEB-INF/jsp/controleAdministrador.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+        } else {
+            nextPage = "/WEB-INF/jsp/produtos.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -75,6 +87,7 @@ public class LoginController extends HttpServlet {
             user.setSenha(request.getParameter("inPassword"));
 
             user = valida.login(user);
+            System.out.println(user.getId_usuario());
             if (user.getId_usuario() > 0 && user.getAcesso() == 2) {
                 nextPage = "/WEB-INF/jsp/produtos.jsp";
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);

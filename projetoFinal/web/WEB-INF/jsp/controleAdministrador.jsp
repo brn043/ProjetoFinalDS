@@ -1,6 +1,7 @@
+<%@page import="model.bean.Usuarios"%>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-    <!DOCTYPE html>
-    <html>
+<!DOCTYPE html>
+<html>
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -25,7 +26,18 @@
                         <input type="text" name="busca" placeholder="Digite o que você deseja">
                     </form>
                     <a id="search-button"><i class="fa-solid fa-magnifying-glass"></i></a>
-                    <a href="./LoginController"><i class="fa-solid fa-user"></i></a>
+                    <a href="./LoginController">
+                        <% Usuarios user = new Usuarios();
+                            String icon;
+                            if (user.getId_usuario() > 0) {
+                                icon = "<i class=\"fa-solid fa-right-from-bracket\"></i>";
+                                out.print(icon);
+                            } else {
+                                icon = "<i class=\"fa-solid fa-user\"></i>";
+                                out.print(icon);
+                            }
+                        %>
+                    </a>
                     <a href="./CarrinhoController"><i class="fa-solid fa-cart-shopping"></i></a>
                 </div>
             </nav>
@@ -70,4 +82,4 @@
     </body>
     <script src="js/search-bar.js" type="text/javascript"></script>
 
-    </html>
+</html>

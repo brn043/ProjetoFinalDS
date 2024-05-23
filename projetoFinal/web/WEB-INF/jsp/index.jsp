@@ -26,7 +26,7 @@
                     <input type="text" name="busca" placeholder="Digite o que você deseja">
                 </form>
                 <a id="search-button"><i class="fa-solid fa-magnifying-glass"></i></a>
-                <a href="./LoginController"><i class="fa-solid fa-user"></i></a>
+                <a href="./LoginController"><% String accountIcon = "<i class=\"fa-solid fa-user\"></i>"; out.print(accountIcon);%></a>
                 <a href="./CarrinhoController"><i class="fa-solid fa-cart-shopping"></i></a>
             </div>
         </nav>

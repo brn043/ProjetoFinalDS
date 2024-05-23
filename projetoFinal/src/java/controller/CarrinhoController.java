@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.bean.Carrinho;
+import model.bean.Usuarios;
 import model.dao.CarrinhoDAO;
 
 /**
@@ -34,7 +35,13 @@ public class CarrinhoController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String url = request.getServletPath();
-        int id_usuario = 1;
+        Usuarios user = new Usuarios();
+
+        if (user.getId_usuario() == 0) {
+            String nextPage = "/WEB-INF/jsp/login.jsp";
+            RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+        }
 
         CarrinhoDAO cDao = new CarrinhoDAO();
 
@@ -42,7 +49,7 @@ public class CarrinhoController extends HttpServlet {
             Carrinho cart = new Carrinho();
             cart.setProduto(request.getParameter("produto"));
             cart = cDao.validar(cart);
-            
+
             if (cart.getId_compra() > 0) {
                 int id_compra = cart.getId_compra();
                 int quantidade = cart.getQuantidade();
@@ -53,8 +60,10 @@ public class CarrinhoController extends HttpServlet {
 
                 cDao.update(quantidade, id_compra, total);
 
-                List<Carrinho> produto = cDao.ler(id_usuario);
-
+                List<Carrinho> produto = cDao.ler(Usuarios.getId_usuario());
+                float total_carrinho = cDao.somaTotal(Usuarios.getId_usuario());
+                
+                request.setAttribute("total-carrinho", total_carrinho);
                 request.setAttribute("produtos", produto);
                 String nextPage = "/WEB-INF/jsp/carrinho.jsp";
 
@@ -67,7 +76,7 @@ public class CarrinhoController extends HttpServlet {
                 cart.setQuantidade(Integer.parseInt(request.getParameter("quantidade")));
                 cart.setTamanho(request.getParameter("tamanho"));
                 cart.setTotal(cart.getPreco() * cart.getQuantidade());
-                cart.setId_cliente(id_usuario);
+                cart.setId_cliente(Usuarios.getId_usuario());
 
                 cDao.adicionar(cart);
             }
@@ -81,8 +90,10 @@ public class CarrinhoController extends HttpServlet {
 
             cDao.update(quantidade, id_compra, total);
 
-            List<Carrinho> produto = cDao.ler(id_usuario);
-
+            List<Carrinho> produto = cDao.ler(Usuarios.getId_usuario());
+            float total_carrinho = cDao.somaTotal(Usuarios.getId_usuario());
+            
+            request.setAttribute("total", total_carrinho);
             request.setAttribute("produtos", produto);
         }
         if (url.equals("/diminuir")) {
@@ -90,6 +101,7 @@ public class CarrinhoController extends HttpServlet {
             int quantidade = Integer.parseInt(request.getParameter("quantidade"));
             float preco = Float.parseFloat(request.getParameter("preco"));
             float total = Float.parseFloat(request.getParameter("total"));
+            
             quantidade = quantidade - 1;
             total = preco * quantidade;
 
@@ -98,8 +110,11 @@ public class CarrinhoController extends HttpServlet {
             } else {
                 cDao.update(quantidade, id_compra, total);
             }
-            List<Carrinho> produto = cDao.ler(id_usuario);
-
+            
+            List<Carrinho> produto = cDao.ler(Usuarios.getId_usuario());
+            float total_carrinho = cDao.somaTotal(Usuarios.getId_usuario());
+            
+            request.setAttribute("total", total_carrinho);
             request.setAttribute("produtos", produto);
             String nextPage = "/WEB-INF/jsp/carrinho.jsp";
 
@@ -107,7 +122,10 @@ public class CarrinhoController extends HttpServlet {
             dispatcher.forward(request, response);
 
         } else {
-            List<Carrinho> produto = cDao.ler(id_usuario);
+            List<Carrinho> produto = cDao.ler(Usuarios.getId_usuario());
+            float total_carrinho = cDao.somaTotal(Usuarios.getId_usuario());
+            System.out.println("totallllllllll =====" + total_carrinho);
+            request.setAttribute("total", total_carrinho);
 
             request.setAttribute("produtos", produto);
             String nextPage = "/WEB-INF/jsp/carrinho.jsp";

@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.bean.Carrinho;
 import model.bean.Produtos;
+import model.bean.Usuarios;
 
 /**
  *
@@ -146,5 +147,30 @@ public class CarrinhoDAO {
             e.printStackTrace();
         }
        return produto;
+    }
+        
+    public Float somaTotal(int id_usuario){
+        Float total_carrinho = null;
+        
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+
+            stmt = conexao.prepareStatement("SELECT SUM(total) as total_soma FROM carrinho WHERE id_cliente = ?");
+            stmt.setInt(1, Usuarios.getId_usuario());
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                total_carrinho = (rs.getFloat("total_soma")); 
+            }
+            rs.close();
+            stmt.close();
+            conexao.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }        
+        return total_carrinho;
     }
 }

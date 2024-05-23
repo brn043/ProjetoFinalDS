@@ -12,37 +12,35 @@ import java.sql.Date;
  * @author Senai
  */
 public class Usuarios {
-    private int id_usuario;
+    private static int id_usuario;
     private String nome;
     private String email;
     private String senha;
     private String cpf;
     private String telefone;
     private String endereco;
-    private int acesso;
+    private static int acesso;
     private Date dataNascimento;
 
     public Usuarios() {
     }
 
-    public Usuarios(int id_usuario, String nome, String email, String senha, String cpf, String telefone, String endereco, int acesso, Date dataNascimento) {
-        this.id_usuario = id_usuario;
+    public Usuarios(String nome, String email, String senha, String cpf, String telefone, String endereco, Date dataNascimento) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
         this.cpf = cpf;
         this.telefone = telefone;
         this.endereco = endereco;
-        this.acesso = acesso;
         this.dataNascimento = dataNascimento;
     }
 
-    public int getId_usuario() {
+    public static int getId_usuario() {
         return id_usuario;
     }
 
-    public void setId_usuario(int id_usuario) {
-        this.id_usuario = id_usuario;
+    public static void setId_usuario(int id_usuario) {
+        Usuarios.id_usuario = id_usuario;
     }
 
     public String getNome() {
@@ -93,12 +91,12 @@ public class Usuarios {
         this.endereco = endereco;
     }
 
-    public int getAcesso() {
+    public static int getAcesso() {
         return acesso;
     }
 
-    public void setAcesso(int acesso) {
-        this.acesso = acesso;
+    public static void setAcesso(int acesso) {
+        Usuarios.acesso = acesso;
     }
 
     public Date getDataNascimento() {

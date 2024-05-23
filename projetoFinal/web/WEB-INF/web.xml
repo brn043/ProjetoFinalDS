@@ -57,6 +57,10 @@
         <url-pattern>/registrar</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>IndexController</servlet-name>
         <url-pattern>/IndexController</url-pattern>
     </servlet-mapping>

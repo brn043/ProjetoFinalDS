@@ -59,8 +59,10 @@
                 </div>
             </div>
             <div class="total-container">
-                <p>Total: R$ <%Float total = (Float) request.getAttribute("total"); if(total != null){out.print(total);}%></p>
-                <a href="./CheckoutController"><button>COMPRAR</button></a>
+                <div>
+                    <h4>Total: R$ <%Float total = (Float) request.getAttribute("total"); if(total != null){out.print(total);}%></h4>
+                    <a href="./CheckoutController"><button>COMPRAR</button></a>
+                </div>
             </div>
             <footer>
                 <div class="footer-container">

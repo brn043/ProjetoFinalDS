@@ -3,10 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Senai/Downloads/ProjetoFinalDS-modelo-novo/ProjetoFinalDS-modelo-novo/projetoFinal/src/java/model/bean/Estoque.java</file>
-            <file>file:/C:/Users/Senai/Downloads/ProjetoFinalDS-modelo-novo/ProjetoFinalDS-modelo-novo/projetoFinal/src/java/conexao/Conexao.java</file>
-            <file>file:/C:/Users/Senai/Downloads/ProjetoFinalDS-modelo-novo/ProjetoFinalDS-modelo-novo/projetoFinal/web/js/tamanhos.js</file>
-            <file>file:/C:/Users/Senai/Downloads/ProjetoFinalDS-modelo-novo/ProjetoFinalDS-modelo-novo/projetoFinal/web/WEB-INF/jsp/produtoInfos.jsp</file>
+            <file>file:/D:/Arquivos%20e%20projetos%20DS/ProjetoFinalDS/ProjetoFinalDS/projetoFinal/web/WEB-INF/jsp/login.jsp</file>
+            <file>file:/D:/Arquivos%20e%20projetos%20DS/ProjetoFinalDS/ProjetoFinalDS/projetoFinal/web/WEB-INF/jsp/carrinho.jsp</file>
+            <file>file:/D:/Arquivos%20e%20projetos%20DS/ProjetoFinalDS/ProjetoFinalDS/projetoFinal/src/java/controller/CarrinhoController.java</file>
         </group>
     </open-files>
 </project-private>

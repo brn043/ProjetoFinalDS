@@ -12,6 +12,18 @@
     display: flex;
     justify-content: flex-end;
 }
+
+.total-container div{
+    width: 50%;
+    height: 100%;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    padding: 0 5% 0 0;
+    gap: 10px;
+    font-size: 20px;
+}
+
 .total-container a{
     width: 20vw;
     height: 8vh;

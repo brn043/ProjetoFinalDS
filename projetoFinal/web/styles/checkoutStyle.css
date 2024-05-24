@@ -71,16 +71,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 15px;
 }
 
 #payments-container{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
     width: 100%;
     height: 70%;
+    gap: 10px;
 }
 
 #payment-title{
@@ -93,11 +92,88 @@
 
 #payment #credito, #boleto, #pix{
     width: 80%;
-    height: 15%;
+    height: 20%;
     background-color: #d9d9d9;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     justify-content: space-around;
-    padding: 2px;
+}
+
+#credito, #boleto, #pix div{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+#payment button{
+    border: none;
+    font-size: 20px;
+    color: #272727;
+    background-color: transparent;
+}
+
+#payment button:hover{
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+#label-numero{
+    grid-area: label-numero;
+}
+#in-numero{
+    grid-area: in-numero;
+}
+
+#label-data{
+    grid-area: label-data;
+}
+#in-data{
+    grid-area: in-data;
+}
+
+#label-cvc{
+    grid-area: label-cvc;
+}
+#in-cvc{
+    grid-area: in-cvc;
+}
+
+#label-nome{
+    grid-area: label-nome;
+}
+#in-nome{
+    grid-area: in-nome;
+}
+
+#creditCardFrm{
+    overflow: hidden;
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 5%;
+    grid-template-areas: "label-numero label-numero"
+                         "in-numero in-numero"
+                         "label-data label-cvc"
+                         "in-data in-cvc"
+                         "label-nome label-nome"
+                         "in-nome in-nome";
+}
+
+#creditCardFrm label, input{
+    padding: 1%;
+    overflow: hidden;
+}
+
+#form-container-credit{
+    display: none;
+}
+
+#form-container-credit.selected{
+    display: grid;
+    overflow: hidden;
+    width: 80%;
+    height: 100%;
 }
 

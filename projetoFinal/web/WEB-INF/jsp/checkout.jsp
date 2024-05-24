@@ -67,22 +67,37 @@
                         <div id="payment-title">
                             <p>Forma de Pagamento:</p>
                         </div>
-                        <div id="payments-container">
+                        <di id="payments-container">
                             <div id="credito">
-                                <img src="" alt="bandeiras">
-                                <p>Cartão de Crédito</p><button>></button>
+                                <div><img src="" alt="bandeiras"></div>
+                                <div><p>Cartão de Crédito</p></div>
+                                <div><button class="btn">></button></div>
+                            </div>
+                            <div class="frm" id="form-container-credit">
+                                <form action="" id="creditCardFrm">
+                                    <label id="label-numero" for="card-number">Número do Cartão:</label>
+                                    <input id="in-numero" type="number" placeholder="Digite Aqui">
+                                    <label id="label-data" for="data-venc">Data de Vencimento:</label>
+                                    <input id="in-data" type="text" placeholder="Digite Aqui">
+                                    <label id="label-cvc" for="cvc">CVC:</label>
+                                    <input id="in-cvc" type="number" placeholder="Digite Aqui">
+                                    <label id="label-nome" for="nome-cartao">Nome no Cartão:</label>
+                                    <input id="in-nome" type="text" placeholder="Digite Aqui">
+                                </form>
                             </div>
                             <div id="boleto">
-                                <img src="" alt="boleto">
-                                <p>Boleto</p><button>></button>
+                                <div><img src="" alt="boleto"></div>
+                                <div><p>Boleto</p></div>
+                                <div><button class="btn">></button></div>
                             </div>
                             <div id="pix">
-                                <img src="" alt="boleto">
-                                <p>Pix</p><button>></button>
+                                <div><img src="" alt="boleto"></div>
+                                <div><p>Pix</p></div>
+                                <div><button class="btn">></button></div>
                             </div>
-                        </div>
                     </div>
                 </div>
+            </div>
             </div>
         </main>
         <footer>
@@ -118,6 +133,6 @@
             $('#cep').mask('00000-000');
         </script>
     </body>
-    <script src="js/search-bar.js" type="text/javascript"></script>
-
+    <script src="./js/search-bar.js" type="text/javascript"></script>
+    <script src="./js/checkout.js" type="text/javascript"></script>
     </html>

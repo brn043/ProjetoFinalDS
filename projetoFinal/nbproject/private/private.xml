@@ -3,10 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Arquivos%20e%20projetos%20DS/ProjetoFinalDS/ProjetoFinalDS/projetoFinal/web/WEB-INF/jsp/login.jsp</file>
-            <file>file:/D:/Arquivos%20e%20projetos%20DS/ProjetoFinalDS/ProjetoFinalDS/projetoFinal/web/WEB-INF/jsp/carrinho.jsp</file>
-            <file>file:/D:/Arquivos%20e%20projetos%20DS/ProjetoFinalDS/ProjetoFinalDS/projetoFinal/src/java/controller/CarrinhoController.java</file>
-            <file>file:/D:/Arquivos%20e%20projetos%20DS/ProjetoFinalDS/ProjetoFinalDS/projetoFinal/web/styles/checkoutStyle.css</file>
+            <file>file:/D:/Arquivos%20e%20projetos%20DS/ProjetoFinalDS/ProjetoFinalDS/projetoFinal/src/java/conexao/Conexao.java</file>
+            <file>file:/D:/Arquivos%20e%20projetos%20DS/ProjetoFinalDS/ProjetoFinalDS/projetoFinal/web/WEB-INF/jsp/addAdmin.jsp</file>
         </group>
     </open-files>
 </project-private>

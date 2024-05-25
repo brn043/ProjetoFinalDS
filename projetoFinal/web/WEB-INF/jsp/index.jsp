@@ -14,7 +14,7 @@
 
     <body>
     <header>
-        <nav>
+        <nav class="navbar">
             <div class="links-pages">
                 <a href="./ListarProdutosController">SHOP</a>
                 <a href="./sobreController">SOBRE</a>
@@ -31,11 +31,28 @@
                 <a href="./CarrinhoController"><i class="fa-solid fa-cart-shopping"></i></a>
             </div>
         </nav>
+        <nav class="mobile-navbar">
+            <div class="menu-container">
+                <a href="" id="menu"><i class="fa-solid fa-bars"></i></a>
+            </div>
+            <div class="logo">
+                <a href="IndexController"><img src="assets/less-logo-mobile.png" alt=""></a>
+            </div>
+            <div class="links-user">
+                <a href="./LoginController"><i class="fa-solid fa-user"></i></a>
+            </div>
+        </nav>
     </header>
     <main>
-        <div class="main-container" id="main">
+        <div class="main-container">
             <div class="cta">
-                <img src="assets/cta-image.jpg" alt="" />
+                <img src="assets/cta-image.jpg" alt="">
+            </div> 
+        </div>
+        <div class="main-container-mobile" id="main">
+            <div class="cta-mobile">
+                <img src="assets/cta-image-mobile.jpg" alt="">
+                <button><a href="./ListarProdutosController">NOSSOS PRODUTOS</a></button>
             </div>
         </div>
     </main>

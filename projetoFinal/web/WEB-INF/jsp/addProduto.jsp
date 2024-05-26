@@ -43,6 +43,7 @@
                 </div>
                 <div class="links-user">
                     <a href="./LoginController"><i class="fa-solid fa-user"></i></a>
+                    <a href="./CarrinhoController"><i class="fa-solid fa-cart-shopping"></i></a>
                 </div>
             </nav>
         </header>

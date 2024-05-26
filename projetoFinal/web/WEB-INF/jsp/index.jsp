@@ -17,7 +17,7 @@
         <nav class="navbar">
             <div class="links-pages">
                 <a href="./ListarProdutosController">SHOP</a>
-                <a href="./sobreController">SOBRE</a>
+                <a href="./SobreController">SOBRE</a>
             </div>
             <div class="logo">
                 <a href="IndexController"><img src="assets/less-logo.png" alt=""></a>
@@ -53,14 +53,17 @@
         <div class="main-container-mobile" id="main">
             <div class="cta-mobile">
                 <div id="side-menu">
-                    <div id="search-box">
-                        <form action="./buscar" method="get">
-                            <input type="text" id="search-bar" name="busca" placeholder="Digite o que você deseja">
-                        </form>
-                    </div>
-                    <div id="links">
-                        <a href="">SHOP</a>
-                        <a href="">SOBRE</a>
+                    <div id="container">
+                        <div id="search-box">
+                            <form action="./buscar" method="get">
+                                <input type="text" id="search-bar" name="busca" placeholder="Digite o que você deseja">
+                                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                            </form>
+                        </div>
+                        <div id="links">
+                            <a href="./ListarProdutosController">SHOP</a>
+                            <a href="./SobreController">SOBRE</a>
+                        </div>
                     </div>
                 </div>
                 <img src="assets/cta-image-mobile.jpg" alt="">

@@ -33,7 +33,7 @@
                 </nav>
                 <nav class="mobile-navbar">
                     <div class="menu-container">
-                        <a href="" id="menu"><i class="fa-solid fa-bars"></i></a>
+                        <a id="menu"><i class="fa-solid fa-bars"></i></a>
                     </div>
                     <div class="logo">
                         <a href="IndexController"><img src="assets/less-logo-mobile.png" alt=""></a>
@@ -45,6 +45,20 @@
                 </nav>
             </header>
             <main>
+                <div id="side-menu">
+                    <div id="container">
+                        <div id="search-box">
+                            <form action="./buscar" method="get">
+                                <input type="text" id="search-bar" name="busca" placeholder="Digite o que você deseja">
+                                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                            </form>
+                        </div>
+                        <div id="links">
+                            <a href="./ListarProdutosController">SHOP</a>
+                            <a href="./SobreController">SOBRE</a>
+                        </div>
+                    </div>
+                </div>
                 <div class="products">
                     <div class="title">
                         <h1>Nossos Produtos</h1>
@@ -108,5 +122,5 @@
             </footer>
         </body>
         <script src="js/search-bar.js" type="text/javascript"></script>
-
+        <script src="js/side-menu.js" type="text/javascript"></script>
         </html>

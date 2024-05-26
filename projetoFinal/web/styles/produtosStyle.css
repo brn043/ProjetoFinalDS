@@ -64,6 +64,104 @@
 
     }
 
+    #side-menu {
+        width: 70vw;
+        height: 100vh;
+        z-index: 9;
+        background-color: #fff;
+        margin-right: 115px;
+        overflow: hidden;
+        display: none;
+    }
+
+    #side-menu #container {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, #fff, #2727270c);
+        border: #f6f6f6;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #side-menu #search-box {
+        padding: 5% 0 0 0;
+        width: 100%;
+        height: 10%;
+        display: flex;
+        align-items: center;
+    }
+
+    @keyframes open-slide{
+        from{
+            transform: translateX(-100%);
+        }
+        to{
+            transform: translateX(0%);
+        }
+    }
+
+    #side-menu.active {
+        display: flex;
+        flex-direction: column;
+        animation: open-slide 300ms linear;
+        position: relative;
+        z-index: 9;
+    }
+
+    #side-menu.active #search-box form {
+        display: flex;
+        align-items: center;
+        width: 85%;
+        height: 90%;
+        margin: 0 auto;
+    }
+
+    #side-menu.active #search-box form input {
+        width: 100%;
+        height: 20%;
+        border: 1px solid #272727;
+        padding: 10px;
+    }
+
+    #side-menu.active #search-box form button {
+        width: 20%;
+        height: 60%;
+        padding: 5px;
+        background-color: #272727;
+        color: #fff;
+        border: 1px solid #272727;
+        transition: background 300ms ease;
+    }
+
+    #side-menu.active #search-box form button:hover {
+        background-color: #fff;
+        color: #272727;
+        border: 1px solid #272727;
+    }
+
+    #side-menu.active #links{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 15%;
+        padding: 0 0 0 15%;
+        justify-content: space-evenly;
+    }
+
+    #side-menu.active #links a{
+        text-decoration: none;
+        color: #272727;
+        font-style: italic;
+        font-size: 18px;
+        font-weight: 200;
+    }
+
+    #side-menu.active #links a:hover{
+        opacity: 0.6;
+        cursor: pointer;
+    }
+
     main {
         width: 100vw;
         height: auto;
@@ -76,6 +174,7 @@
         flex-direction: column;
         align-items: center;
         background: linear-gradient(to right, #fff, #2727270c);
+        z-index: 8;
     }
 
     .products-container {
@@ -155,6 +254,8 @@
         align-items: center;
         justify-content: center;
         margin: 5%;
+        position: relative;
+        z-index: 8;
     }
 
 }
@@ -261,6 +362,10 @@
         background-color: #fff;
         color: rgba(27, 27, 27);
         cursor: pointer;
+    }
+
+    #side-menu{
+        display: none;
     }
 
     .cards-container {

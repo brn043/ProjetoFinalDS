@@ -1,34 +1,89 @@
-.container{
-    margin: 0 auto;
+@media screen and (min-width: 320px) and (max-width: 768px){
+    .container{
+        width: 100vw;
+        height: 90vh;
+        display: grid;
+        align-content: stretch;
+    }
+
+    #title {
+        width: auto;
+        text-align: center;
+        margin: 5% auto;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    #inputs-container {
+        width: 90vw;
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+        gap: 10px;
+    }
+
+    #left-block {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #right-block {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    form button {
+        width: 80vw;
+        margin: 5% auto;
+    }
+
+    form input{
+        height: 4vh;
+        padding: 10px;
+        border: 1px solid #272727;
+    }
+
+    form input:focus{
+        outline: none;
+    }
 }
 
-#title{
-    width: auto;
-    text-align: center;
-    margin: 5% auto;
-    font-size: 32px;
-    font-weight: bold;
-}
+@media screen and (min-width: 1024px) {
+    .container {
+        margin: 0 auto;
+    }
 
-#inputs-container{
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    gap: 50px;
-}
+    #title {
+        width: auto;
+        text-align: center;
+        margin: 5% auto;
+        font-size: 32px;
+        font-weight: bold;
+    }
 
-#left-block{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-#right-block{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
+    #inputs-container {
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+        gap: 50px;
+    }
 
-form button{
-    width: 30vw;
-    margin: 5% auto;
+    #left-block {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #right-block {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    form button {
+        width: 30vw;
+        margin: 5% auto;
+    }
 }

@@ -14,7 +14,7 @@
 
     <body>
         <header>
-            <nav>
+            <nav class="navbar">
                 <div class="links-pages">
                     <a href="./ListarProdutosController">SHOP</a>
                     <a href="./sobreController">SOBRE</a>
@@ -31,6 +31,17 @@
                     <a href="./CarrinhoController"><i class="fa-solid fa-cart-shopping"></i></a>
                 </div>
             </nav>
+            <nav class="mobile-navbar">
+                <div class="menu-container">
+                    <a href="" id="menu"><i class="fa-solid fa-bars"></i></a>
+                </div>
+                <div class="logo">
+                    <a href="IndexController"><img src="assets/less-logo-mobile.png" alt=""></a>
+                </div>
+                <div class="links-user">
+                    <a href="./LoginController"><i class="fa-solid fa-user"></i></a>
+                </div>
+            </nav>
         </header>
         <main>
             <div class="container">
@@ -43,11 +54,19 @@
                             <div id="produto-img">
                                 <img src="${produto.img}" alt="imagem-produto">
                             </div>
-                            <p>${produto.produto}</p>
-                            <p>x${produto.quantidade}</p>
-                            <p>${produto.preco}</p>
-                            <p>${produto.tamanho}</p>
-                            <p>${produto.total}</p>
+                            <div id="produto-nome">
+                                <p>${produto.produto}</p>
+                            </div>
+                            <div id="produto-quantidade">
+                                <p>x${produto.quantidade}</p>
+                            </div>
+                            <div id="produto-preco">
+                                <p>${produto.preco}</p>
+                            </div>
+                            <div id="produto-tamanho">
+                                <p>${produto.tamanho}</p>
+                            </div>
+                            <p id="total-produto">${produto.total}</p>
                             <div id="buttons">
                                 <a
                                     href="./incrementar?id=${produto.id_compra}&quantidade=${produto.quantidade}&preco=${produto.preco}&total=${produto.total}">+</a>

@@ -1,91 +1,171 @@
-header{
-    width: 100vw;
-    height: 12vh;
+@media screen and (min-width: 320px) and (max-width: 768px){
+    .title {
+        margin: 10px;
+        bottom: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+    }
+
+    form {
+        width: 70vw;
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        background-color: transparent;
+    }
+
+    form p {
+        margin-top: 2%;
+        color: rgba(27, 27, 27);
+    }
+
+    form input {
+        padding: 10px;
+        color: rgb(100, 100, 100);
+        border: 1px solid black;
+    }
+
+    form select {
+        padding: 10px;
+        width: 100%;
+        color: rgb(100, 100, 100);
+        border: 1px solid black;
+    }
+
+    form select:focus {
+        outline: none;
+        color: rgb(100, 100, 100);
+    }
+
+    form input:hover {
+        border: 1px solid black;
+    }
+
+    form input:focus {
+        outline: none;
+    }
+
+    form h6 {
+        color: rgb(100, 100, 100);
+        font-weight: lighter;
+        font-size: 12px;
+    }
+
+    form a {
+        text-decoration: none;
+        color: rgb(30, 30, 30);
+    }
+
+    form button {
+        height: 8vh;
+        margin: 5px 0 5px 0;
+        background-color: black;
+        color: #fff;
+        border: 1px solid black;
+        transition: 200ms;
+    }
+
+    form button:hover {
+        background-color: #fff;
+        color: rgba(27, 27, 27);
+        cursor: pointer;
+    }
+
 }
 
-.main-container{
-    width: 100vw;
-    height: 88vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background: linear-gradient(to right, #fff, #2727270c);
-}
+@media screen and (min-width: 1024px) {
+    header {
+        width: 100vw;
+        height: 12vh;
+    }
 
-form{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    background-color: transparent;
-}
+    .main-container {
+        width: 100vw;
+        height: 88vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        background: linear-gradient(to right, #fff, #2727270c);
+    }
 
-form p{
-    margin-top: 2%;
-    color: rgba(27, 27, 27);
-}
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        background-color: transparent;
+    }
 
-form input{
-    padding: 10px;
-    width: 25vw;
-    color: rgb(100, 100, 100);
-    border: 1px solid black;
-}
+    form p {
+        margin-top: 2%;
+        color: rgba(27, 27, 27);
+    }
 
-form select{
-    padding: 10px;
-    width: 100%;
-    color: rgb(100, 100, 100);
-    border: 1px solid black;
-}
+    form input {
+        padding: 8px;
+        width: 100%;
+        color: rgb(100, 100, 100);
+        border: 1px solid black;
+    }
 
-form select:focus{
-    outline: none;
-    color: rgb(100, 100, 100);
-}
+    form select {
+        padding: 8px;
+        width: 100%;
+        color: rgb(100, 100, 100);
+        border: 1px solid black;
+    }
 
-form input:hover{
-    border: 1px solid black;
-}
+    form select:focus {
+        outline: none;
+        color: rgb(100, 100, 100);
+    }
 
-form input:focus{
-    outline: none;
-}
+    form input:hover {
+        border: 1px solid black;
+    }
 
-form h6{
-    color: rgb(100, 100, 100);
-    font-weight: lighter;
-    font-size: 12px;
-}
+    form input:focus {
+        outline: none;
+    }
 
-form a{
-    text-decoration: none;
-    color: rgb(30,30,30);
-}
+    form h6 {
+        color: rgb(100, 100, 100);
+        font-weight: lighter;
+        font-size: 12px;
+    }
 
-form button{
-    height: 7vh;
-    margin: 5px 0 5px 0;
-    background-color: black;
-    color: #fff;
-    border: 1px solid black;
-    transition: 200ms;
-}
+    form a {
+        text-decoration: none;
+        color: rgb(30, 30, 30);
+    }
 
-form button:hover{
-    background-color: #fff;
-    color: rgba(27, 27, 27);
-    cursor: pointer;
-}
+    form button {
+        height: 7vh;
+        margin: 5px 0 5px 0;
+        background-color: black;
+        color: #fff;
+        border: 1px solid black;
+        transition: 200ms;
+    }
 
-.title{
-    margin: 10px;
-    bottom: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    form button:hover {
+        background-color: #fff;
+        color: rgba(27, 27, 27);
+        cursor: pointer;
+    }
 
-footer{
-    width: 100vw;
-    height: 40vh;
+    .title {
+        margin: 10px;
+        bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    footer {
+        width: 100vw;
+        height: 40vh;
+    }
 }

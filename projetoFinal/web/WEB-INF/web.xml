@@ -82,6 +82,10 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ProdutosController</servlet-name>
+        <url-pattern>/remover-produto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProdutosController</servlet-name>
         <url-pattern>/gerenciar-produtos</url-pattern>
     </servlet-mapping>
     <servlet-mapping>

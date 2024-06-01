@@ -11,6 +11,7 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -42,17 +43,34 @@ public class ProdutosController extends HttpServlet {
         String url = request.getServletPath();
         if (url.equals("/adicionar-produto")) {
             String nextPage = "/WEB-INF/jsp/addProduto.jsp";
-
+            
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
-        } else if (url.equals("/adicionar-usuario")) {
-            String nextPage = "/WEB-INF/jsp/addAdmin.jsp";
-
+        } else if (url.equals("/gerenciar-produtos")) {
+            String nextPage = "/WEB-INF/jsp/gerenciarProdutos.jsp";
+            ProdutosDAO pDao = new ProdutosDAO();
+            List<Produtos> produto = pDao.ler();
+            
+            request.setAttribute("produtos", produto);
+            
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-            dispatcher.forward(request, response);
+            dispatcher.forward(request, response);            
+        }
+        if (url.equals("/remover-produto")) {
+            int id = Integer.parseInt(request.getParameter("id"));
+            ProdutosDAO pDao = new ProdutosDAO();
+            pDao.deletarProduto(id);
+            String nextPage = "/WEB-INF/jsp/gerenciarProdutos.jsp";
+
+            List<Produtos> produto = pDao.ler();
+            
+            request.setAttribute("produtos", produto);
+            
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);             
         } else {
             String nextPage = "/WEB-INF/jsp/controleAdministrador.jsp";
-
+            
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         }
@@ -89,7 +107,7 @@ public class ProdutosController extends HttpServlet {
             try {
                 Produtos p = new Produtos();
                 ProdutosDAO pDao = new ProdutosDAO();
-
+                
                 p.setNome(request.getParameter("nome"));
                 p.setCategoria(Integer.parseInt(request.getParameter("categoria")));
                 p.setPreco(Float.parseFloat(request.getParameter("preco")));
@@ -105,7 +123,7 @@ public class ProdutosController extends HttpServlet {
                         uploads.mkdirs(); // Cria o diretório se não existir
                     }
                     File file = new File(uploads, fileName);
-
+                    
                     try (InputStream input = filePart.getInputStream()) {
                         Files.copy(input, file.toPath(), StandardCopyOption.REPLACE_EXISTING);
                     } catch (Exception e) {
@@ -117,9 +135,9 @@ public class ProdutosController extends HttpServlet {
                 } else {
                     p.setImg(null);
                 }
-
+                
                 pDao.cadastrarProduto(p);
-
+                
             } catch (Exception e) {
                 e.printStackTrace();
             }

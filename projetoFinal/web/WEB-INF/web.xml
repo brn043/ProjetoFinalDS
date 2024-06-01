@@ -40,6 +40,14 @@
         <servlet-name>CheckoutController</servlet-name>
         <servlet-class>controller.CheckoutController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PagamentoController</servlet-name>
+        <servlet-class>controller.PagamentoController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SobreController</servlet-name>
+        <servlet-class>controller.SobreController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -127,6 +135,18 @@
     <servlet-mapping>
         <servlet-name>CheckoutController</servlet-name>
         <url-pattern>/CheckoutController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PagamentoController</servlet-name>
+        <url-pattern>/PagamentoController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PagamentoController</servlet-name>
+        <url-pattern>/validarPagamento</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SobreController</servlet-name>
+        <url-pattern>/SobreController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

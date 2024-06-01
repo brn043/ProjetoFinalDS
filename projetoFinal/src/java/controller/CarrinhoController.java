@@ -124,7 +124,6 @@ public class CarrinhoController extends HttpServlet {
         } else {
             List<Carrinho> produto = cDao.ler(Usuarios.getId_usuario());
             float total_carrinho = cDao.somaTotal(Usuarios.getId_usuario());
-            System.out.println("totallllllllll =====" + total_carrinho);
             request.setAttribute("total", total_carrinho);
 
             request.setAttribute("produtos", produto);

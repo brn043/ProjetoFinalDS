@@ -55,23 +55,23 @@
                         <div id="blocks">
                             <div id="l-block">
                                 <label for="nome">Nome:</label>
-                                <input type="text" name="nome">
+                                <input type="text" name="nome" placeholder="Digite aqui">
                                 <label for="telefone">Telefone:</label>
-                                <input type="text" name="telefone" id="telefone">
+                                <input type="text" name="telefone" id="telefone" placeholder="Digite aqui">
                                 <label for="rua">Rua:</label>
-                                <input type="text" name="rua">
+                                <input type="text" name="rua" placeholder="Digite aqui">
                                 <label for="numero">Número:</label>
-                                <input type="number" name="numero" min="1">
+                                <input type="number" name="numero" min="1" placeholder="Digite aqui">
                             </div>
                             <div id="r-block">
                                 <label for="sobrenome">Sobrenome:</label>
-                                <input type="text" name="sobrenome">
+                                <input type="text" name="sobrenome" placeholder="Digite aqui">
                                 <label for="cep">Cep:</label>
-                                <input type="text" name="cep" id="cep">
+                                <input type="text" name="cep" id="cep" placeholder="Digite aqui">
                                 <label for="bairro">Bairro:</label>
-                                <input type="text" name="bairro">
+                                <input type="text" name="bairro" placeholder="Digite aqui">
                                 <label for="complemento">Complemento:</label>
-                                <input type="text" name="complemento">
+                                <input type="text" name="complemento" placeholder="Digite aqui">
                             </div>
                         </div>
                     </form>
@@ -79,10 +79,12 @@
                         <div id="payment-title">
                             <p>Forma de Pagamento:</p>
                         </div>
-                        <di id="payments-container">
+                        <div id="payments-container">
                             <div id="credito">
                                 <div><img src="" alt="bandeiras"></div>
-                                <div><p>Cartão de Crédito</p></div>
+                                <div>
+                                    <p>Cartão de Crédito</p>
+                                </div>
                                 <div><button class="btn">></button></div>
                             </div>
                             <div class="frm" id="form-container-credit">
@@ -99,17 +101,22 @@
                             </div>
                             <div id="boleto">
                                 <div><img src="" alt="boleto"></div>
-                                <div><p>Boleto</p></div>
+                                <div>
+                                    <p>Boleto</p>
+                                </div>
                                 <div><button class="btn">></button></div>
                             </div>
                             <div id="pix">
                                 <div><img src="" alt="boleto"></div>
-                                <div><p>Pix</p></div>
+                                <div>
+                                    <p>Pix</p>
+                                </div>
                                 <div><button class="btn">></button></div>
                             </div>
+                        </div>
+                        <a href="./validarPagamento"><button>FINALIZAR COMPRA</button></a>
                     </div>
                 </div>
-            </div>
             </div>
         </main>
         <footer>
@@ -147,4 +154,5 @@
     </body>
     <script src="./js/search-bar.js" type="text/javascript"></script>
     <script src="./js/checkout.js" type="text/javascript"></script>
+
     </html>

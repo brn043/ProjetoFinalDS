@@ -1,0 +1,141 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px){
+    .main-container{
+        width: 100vw;
+        height: 88vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .main-container #icon-container{
+        width: 100vw;
+        height: 10vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .main-container #icon-container i{
+        font-size: 60px;
+        overflow: hidden;
+    }
+
+    .main-container #icon-container{
+        font-size: 20px;
+        color: #272727;
+    }
+
+    .main-container #text-container{
+        display: grid;
+        text-align: center;
+        align-items: center;
+        padding: 5px;
+        gap: 10px;
+    }
+
+    .main-container #buttons-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        gap: 10px;
+    }
+
+    .main-container #buttons-container button{
+        width: 70vw;
+        height: 6vh;
+        padding: 10px;
+        background-color: #272727;
+        color: #fff;
+        border: 1px solid #272727;
+    }
+
+    .main-container #buttons-container button:hover{
+        background-color: #fff;
+        color: #272727;
+        cursor: pointer;
+    }
+}
+
+@media screen and (min-width: 1024px){
+    .main-container{
+        width: 100vw;
+        height: 88vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .main-container #icon-container{
+        width: 100vw;
+        height: 20vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .main-container #icon-container i{
+        font-size: 100px;
+        overflow: hidden;
+    }
+
+    .main-container #icon-container{
+        color: #272727;
+    }
+
+    .main-container #text-container{
+        display: grid;
+        text-align: center;
+        align-items: center;
+        padding: 5px;
+        gap: 10px;
+    }
+
+    .main-container #text-container h3{
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .main-container #text-container p{
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    .main-container #buttons-container{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 50px;
+    }
+
+    .main-container #buttons-container button{
+        width: 25vw;
+        height: 7vh;
+        padding: 10px;
+        background-color: #272727;
+        color: #fff;
+        border: 1px solid #272727;
+        font-size: 20px;
+        font-weight: 300;
+    }
+
+    .main-container #buttons-container button:hover{
+        background-color: #fff;
+        color: #272727;
+        cursor: pointer;
+    }
+
+    #side-menu{
+        display: none;
+    }
+}

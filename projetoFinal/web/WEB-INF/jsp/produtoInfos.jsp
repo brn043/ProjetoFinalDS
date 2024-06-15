@@ -1,6 +1,6 @@
 <%-- Document : produtoInfos Created on : 07/05/2024, 16:47:40 Author : Senai --%>
 
-    <%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@page language="java" contentType="text/html"  pageEncoding = "ISO-8859-1"%>
         <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
             <!DOCTYPE html>
             <html lang="pt-br">
@@ -26,7 +26,7 @@
                         </div>
                         <div class="links-user">
                             <form id="search-bar" class="toogle" action="./buscar" method="get">
-                                <input type="text" name="busca" placeholder="Digite o que vocÃª deseja">
+                                <input type="text" name="busca" placeholder="Digite o que você deseja">
                             </form>
                             <a id="search-button"><i class="fa-solid fa-magnifying-glass"></i></a>
                             <a href="./LoginController"><i class="fa-solid fa-user"></i></a>
@@ -80,7 +80,7 @@
                     <div class="footer-container">
                         <div class="infos">
                             <p>
-                                LESS S.A Â© 2024.
+                                LESS S.A © 2024.
                                 <br>
                                 todos os direitos reservados
                                 <br>

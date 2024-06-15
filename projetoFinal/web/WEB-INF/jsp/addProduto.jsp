@@ -1,6 +1,6 @@
 <%-- Document : controleAdmin Created on : 30/04/2024, 14:12:12 Author : Senai --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@page language="java" contentType="text/html"  pageEncoding = "ISO-8859-1"%>
 <!DOCTYPE html>
 
 <html lang="pt-br">
@@ -27,7 +27,7 @@
                 </div>
                 <div class="links-user">
                     <form id="search-bar" class="toogle" action="./buscar" method="get">
-                        <input type="text" name="busca" placeholder="Digite o que vocÃª deseja">
+                        <input type="text" name="busca" placeholder="Digite o que você deseja">
                     </form>
                     <a id="search-button"><i class="fa-solid fa-magnifying-glass"></i></a>
                     <a href="./LoginController"><i class="fa-solid fa-user"></i></a>
@@ -59,10 +59,10 @@
                     <select id="selectCategoria" name="categoria">
                         <option>Selecione a categoria</option>
                         <option value="1">Camisetas</option>
-                        <option value="2">CalÃ§a</option>
+                        <option value="2">Calça</option>
                         <option value="3">Bermudas</option>
                         <option value="4">Moletom</option>
-                        <option value="5">AcessÃ³rios</option>
+                        <option value="5">Acessórios</option>
                     </select>
                     <p>Quantidade:</p>
                     <input type="number" name="quantidade" min="0" placeholder="Quantidade">
@@ -74,10 +74,10 @@
                         <option value="3">G</option>
                         <option value="4">GG</option>
                     </select>
-                    <p>PreÃ§o:</p>
-                    <input type="text" id="inPreco" name="preco" step="0.01" min="0.00" placeholder="PreÃ§o do Produto">
-                    <p>DescriÃ§Ã£o:</p>
-                    <input type="text" id="inDesc" name="desc" placeholder="Escreva uma breve descriÃ§Ã£o do produto">
+                    <p>Preço:</p>
+                    <input type="text" id="inPreco" name="preco" step="0.01" min="0.00" placeholder="Preço do Produto">
+                    <p>Descrição:</p>
+                    <input type="text" id="inDesc" name="desc" placeholder="Escreva uma breve descrição do produto">
                     <p>Imagem:</p>
                     <input type="file" name="imagem" placeholder="Selecione a imgem do produto">
                     <button type="submit">ADICIONAR</button>
@@ -88,7 +88,7 @@
             <div class="footer-container">
                 <div class="infos">
                     <p>
-                        LESS S.A Â© 2024.
+                        LESS S.A © 2024.
                         <br>
                         todos os direitos reservados
                         <br>

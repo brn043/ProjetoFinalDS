@@ -55,24 +55,48 @@
                         <div id="blocks">
                             <div id="l-block">
                                 <label for="nome">Nome:</label>
-                                <input type="text" name="nome" placeholder="Digite aqui">
+                                <input class="inEndereco" type="text" name="nome" placeholder="Digite aqui">
                                 <label for="telefone">Telefone:</label>
-                                <input type="text" name="telefone" id="telefone" placeholder="Digite aqui">
+                                <input class="inEndereco" type="text" name="telefone" id="telefone" placeholder="Digite aqui">
                                 <label for="rua">Rua:</label>
-                                <input type="text" name="rua" placeholder="Digite aqui">
+                                <input class="inEndereco" type="text" name="rua" placeholder="Digite aqui">
                                 <label for="numero">Número:</label>
-                                <input type="number" name="numero" min="1" placeholder="Digite aqui">
+                                <input class="inEndereco" type="number" name="numero" min="1" placeholder="Digite aqui">
                             </div>
                             <div id="r-block">
                                 <label for="sobrenome">Sobrenome:</label>
-                                <input type="text" name="sobrenome" placeholder="Digite aqui">
+                                <input class="inEndereco" type="text" name="sobrenome" placeholder="Digite aqui">
                                 <label for="cep">Cep:</label>
-                                <input type="text" name="cep" id="cep" placeholder="Digite aqui">
+                                <input class="inEndereco" type="text" name="cep" id="cep" placeholder="Digite aqui">
                                 <label for="bairro">Bairro:</label>
-                                <input type="text" name="bairro" placeholder="Digite aqui">
+                                <input class="inEndereco" type="text" name="bairro" placeholder="Digite aqui">
                                 <label for="complemento">Complemento:</label>
-                                <input type="text" name="complemento" placeholder="Digite aqui">
+                                <input class="inEndereco" type="text" name="complemento" placeholder="Digite aqui">
                             </div>
+                        </div>
+                    </form>
+
+                    <form action="" id="frmEnderecoMobile">
+                        <div id="form-title">
+                            <p>Informações para Entrega:</p>
+                        </div>
+                        <div id="inputs">
+                            <label for="nome">Nome:</label>
+                            <input class="inEndereco" type="text" name="nome" placeholder="Digite aqui">
+                            <label for="sobrenome">Sobrenome:</label>
+                            <input class="inEndereco" type="text" name="sobrenome" placeholder="Digite aqui">
+                            <label for="telefone">Telefone:</label>
+                            <input class="inEndereco" type="text" name="telefone" id="telefone" placeholder="Digite aqui">
+                            <label for="cep">Cep:</label>
+                            <input class="inEndereco" type="text" name="cep" id="cep" placeholder="Digite aqui">
+                            <label for="rua">Rua:</label>
+                            <input class="inEndereco" type="text" name="rua" placeholder="Digite aqui">
+                            <label for="bairro">Bairro:</label>
+                            <input class="inEndereco" type="text" name="bairro" placeholder="Digite aqui">
+                            <label for="numero">Número:</label>
+                            <input class="inEndereco" type="number" name="numero" min="1" placeholder="Digite aqui">
+                            <label for="complemento">Complemento:</label>
+                            <input class="inEndereco" type="text" name="complemento" placeholder="Digite aqui">
                         </div>
                     </form>
                     <div id="payment">
@@ -90,13 +114,13 @@
                             <div class="frm" id="form-container-credit">
                                 <form action="" id="creditCardFrm">
                                     <label id="label-numero" for="card-number">Número do Cartão:</label>
-                                    <input id="in-numero" type="number" placeholder="Digite Aqui">
+                                    <input class="inCard" id="in-numero" type="number" placeholder="Digite Aqui">
                                     <label id="label-data" for="data-venc">Data de Vencimento:</label>
-                                    <input id="in-data" type="text" placeholder="Digite Aqui">
+                                    <input class="inCard" id="in-data" type="text" placeholder="Digite Aqui">
                                     <label id="label-cvc" for="cvc">CVC:</label>
-                                    <input id="in-cvc" type="number" placeholder="Digite Aqui">
+                                    <input class="inCard" id="in-cvc" type="number" placeholder="Digite Aqui">
                                     <label id="label-nome" for="nome-cartao">Nome no Cartão:</label>
-                                    <input id="in-nome" type="text" placeholder="Digite Aqui">
+                                    <input class="inCard" id="in-nome" type="text" placeholder="Digite Aqui">
                                 </form>
                             </div>
                             <div id="boleto">
@@ -114,7 +138,7 @@
                                 <div><button class="btn">></button></div>
                             </div>
                         </div>
-                        <a href="./validarPagamento"><button>FINALIZAR COMPRA</button></a>
+                        <a id="btnConfirmar" href="./validarPagamento"><button type="submit">FINALIZAR COMPRA</button></a>
                     </div>
                 </div>
             </div>

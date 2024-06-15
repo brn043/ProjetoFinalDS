@@ -53,4 +53,31 @@ public class EstoqueDAO {
         return tamanhos;
     }
     
+    public int validarQuantidade(String nome_produto, String tamanho){
+        int quantidade_disponivel = 0;
+        
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+
+            stmt = conexao.prepareStatement("CALL verificar_estoque(?, ?);");
+            stmt.setString(1, nome_produto);
+            stmt.setString(2, tamanho);
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {                
+                quantidade_disponivel = (rs.getInt("quantidade"));
+            }
+            rs.close();
+            stmt.close();
+            conexao.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return quantidade_disponivel;
+    }
+    
 }

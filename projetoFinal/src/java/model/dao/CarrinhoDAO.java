@@ -129,8 +129,9 @@ public class CarrinhoDAO {
             PreparedStatement stmt = null;
             ResultSet rs = null;
 
-            stmt = conexao.prepareStatement("SELECT id_compra, quantidade, preco, total FROM carrinho WHERE produto = ?");
+            stmt = conexao.prepareStatement("SELECT id_compra, quantidade, preco, total FROM carrinho WHERE produto = ? AND tamanho = ?");
             stmt.setString(1, produto.getProduto());
+            stmt.setString(2, produto.getTamanho());
             rs = stmt.executeQuery();
 
             if (rs.next()) {

@@ -13,14 +13,16 @@ public class Estoque {
     private int id_estoque;
     private String nome_produto;
     private String tamanho;
+    private int quantidade;
 
     public Estoque() {
     }
 
-    public Estoque(int id_estoque, String nome_produto, String tamanho) {
+    public Estoque(int id_estoque, String nome_produto, String tamanho, int quantidade) {
         this.id_estoque = id_estoque;
         this.nome_produto = nome_produto;
         this.tamanho = tamanho;
+        this.quantidade = quantidade;
     }
 
     public int getId_estoque() {
@@ -46,5 +48,13 @@ public class Estoque {
     public void setTamanho(String tamanho) {
         this.tamanho = tamanho;
     }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }    
     
 }

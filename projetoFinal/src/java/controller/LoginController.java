@@ -52,7 +52,7 @@ public class LoginController extends HttpServlet {
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
                 dispatcher.forward(request, response);
             } else {
-                nextPage = "/WEB-INF/jsp/produtos.jsp";
+                nextPage = "/ListarProdutosController";
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
                 dispatcher.forward(request, response);
             }
@@ -96,7 +96,7 @@ public class LoginController extends HttpServlet {
 
             user = valida.login(user);
             if (user.getId_usuario() > 0 && user.getAcesso() == 2) {
-                nextPage = "/WEB-INF/jsp/produtos.jsp";
+                nextPage = "/ListarProdutosController";
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
                 dispatcher.forward(request, response);
             } else if (user.getAcesso() == 1) {

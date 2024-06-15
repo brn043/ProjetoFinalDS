@@ -1,20 +1,204 @@
-@media screen and (min-width: 320px) and (max-width: 768px){
+@media screen and (min-width: 320px) and (max-width: 768px) {
 
-        
+    #frmEndereco {
+        display: none;
+    }
+
+    main {
+        width: 100vw;
+        height: auto;
+    }
+
+    .container {
+        width: 100vw;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #title {
+        width: 100%;
+        text-align: center;
+        font-size: 15px;
+        margin: 2% 0 5% 0;
+    }
+
+    #forms {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    #forms #frmEnderecoMobile {
+        width: 100%;
+        height: 55vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #forms #frmEnderecoMobile #inputs {
+        width: 100%;
+        display: grid;
+        align-items: center;
+        gap: 2px;
+        margin: 0 0 0 12%;
+    }
+
+    #forms #frmEnderecoMobile div input {
+        width: 80%;
+        height: 2vh;
+    }
+
+    #forms #payment {
+        width: 100vw;
+        height: auto;
+        display: grid;
+        justify-items: center;
+        align-content: space-evenly;
+        gap: 20px;
+    }
+
+    #forms #payment #form-container-credit {
+        display: none;
+    }
+
+    #forms #payment #payments-container {
+        width: 90%;
+        margin: 0 5% 0 0;
+    }
+
+    #payment #credito,
+    #boleto,
+    #pix {
+        width: 100%;
+        height: 5vh;
+        background-color: #d9d9d9;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    #credito,
+    #boleto,
+    #pix div {
+        font-size: 12px;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+    }
+
+    #btnConfirmar button {
+        margin: 5% 20% 10% 0;
+        width: 80vw;
+        height: 6vh;
+        background-color: #272727;
+        color: #fff;
+        border: 1px solid #272727;
+    }
+
+    #btnConfirmar button:hover {
+        background-color: #fff;
+        color: #272727;
+        cursor: pointer;
+    }
+
+    #label-numero {
+        grid-area: label-numero;
+    }
+
+    #in-numero {
+        grid-area: in-numero;
+    }
+
+    #label-data {
+        grid-area: label-data;
+    }
+
+    #in-data {
+        grid-area: in-data;
+    }
+
+    #label-cvc {
+        grid-area: label-cvc;
+    }
+
+    #in-cvc {
+        grid-area: in-cvc;
+    }
+
+    #label-nome {
+        grid-area: label-nome;
+    }
+
+    #in-nome {
+        grid-area: in-nome;
+    }
+
+    #creditCardFrm {
+        overflow: hidden;
+        width: 90%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        padding: 5%;
+        grid-template-areas: "label-numero label-numero"
+            "in-numero in-numero"
+            "label-data label-cvc"
+            "in-data in-cvc"
+            "label-nome label-nome"
+            "in-nome in-nome";
+    }
+
+    #creditCardFrm label,
+    input {
+        padding: 1%;
+        overflow: hidden;
+    }
+
+    #form-container-credit {
+        display: none;
+    }
+
+    #forms #payment #form-container-credit.selected {
+        display: grid;
+        overflow: hidden;
+        width: 80%;
+        height: 64%;
+        font-size: 12px;
+    }
+
+    #payments-container button {
+        border: none;
+        color: #272727;
+        background-color: transparent;
+    }
+
+    #payments-container button:hover {
+        opacity: 0.6;
+        cursor: pointer;
+    }
 }
 
 @media screen and (min-width: 1024px) {
 
+    #frmEnderecoMobile {
+        display: none;
+    }
+
     .container {
         width: 100vw;
-        height: 90vh;
+        height: 88vh;
         overflow: hidden;
     }
 
     #title {
         width: 100%;
         text-align: center;
-        padding: 2%;
+        padding: 2% 0;
     }
 
     #forms {
@@ -78,6 +262,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        overflow: hidden;
     }
 
     #payments-container {
@@ -85,8 +270,10 @@
         flex-direction: column;
         align-items: center;
         width: 100%;
-        height: 70%;
-        gap: 10px;
+        height: 55%;
+        gap: 5px;
+        overflow: hidden;
+        margin: 5%;
     }
 
     #payment-title {
@@ -117,14 +304,14 @@
         justify-items: center;
     }
 
-    #payment button {
+    #payment .btn {
         border: none;
         font-size: 20px;
         color: #272727;
         background-color: transparent;
     }
 
-    #payment button:hover {
+    #payment .btn:hover {
         cursor: pointer;
         opacity: 0.5;
     }
@@ -167,7 +354,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 8px;
-        padding: 5%;
+        margin: 0 5%;
         grid-template-areas: "label-numero label-numero"
             "in-numero in-numero"
             "label-data label-cvc"
@@ -191,5 +378,27 @@
         overflow: hidden;
         width: 80%;
         height: 100%;
+    }
+
+    #btnConfirmar{
+        overflow: hidden;
+    }
+
+    #btnConfirmar button {
+        width: 25vw;
+        height: 7vh;
+        background-color: #272727;
+        color: #fff;
+        border: none;
+        transition: background 0.3s;
+        margin-bottom: 20%;
+        overflow: hidden;
+    }
+
+    #btnConfirmar button:hover {
+        border: 1px solid #272727;
+        background-color: #fff;
+        color: #272727;
+        cursor: pointer;
     }
 }

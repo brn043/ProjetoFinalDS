@@ -13,4 +13,36 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
+    const frmEndereco = document.getElementById("frmEndereco")
+
+    frmEndereco.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const inputsEndereco = docuemnt.getElementsByClassName("inEndereco").trim()
+
+        for (let i = 0; i < inputs.length; i++) {
+            if (inputsEndereco[i].value === "") {
+                alert("Preencha os dados para entrega corretamente!")
+            }
+        }
+        frmEndereco.submit()
+    })
+
+    const frmCartao = document.getElementById("creditCardFrm")
+
+    frmCartao.addEventListener('submit', function(event){
+        event.preventDefault();
+
+        const dadosCartao = document.getElementsByClassName("inCard").trim()
+
+        for (let i = 0; i < dadosCartao.length; i++) {
+            if (dadosCartao[i].value === "") {
+                alert("Preencha os dados de pagamento corretamente!")
+            }
+        }
+    
+        frmCartao.submit()
+    })
+
 });

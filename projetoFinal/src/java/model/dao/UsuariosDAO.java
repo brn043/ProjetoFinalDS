@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import model.bean.Usuarios;
 
 /**
@@ -17,6 +19,37 @@ import model.bean.Usuarios;
  * @author Bruno
  */
 public class UsuariosDAO {
+
+    public List<Usuarios> listar() {
+        List<Usuarios> usuarios = new ArrayList();
+        
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+
+            stmt = conexao.prepareStatement("SELECT * FROM usuarios");
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Usuarios user = new Usuarios();
+                Usuarios.setId_usuario(rs.getInt("id_usuario"));
+                user.setNome(rs.getString("nome"));
+                user.setEmail(rs.getString("email"));
+                user.setCpf(rs.getString("cpf"));
+                user.setTelefone(rs.getString("telefone"));
+                user.setDataNascimento(rs.getDate("dataNascimento"));
+                usuarios.add(user);
+            }
+            rs.close();
+            stmt.close();
+            conexao.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return usuarios;
+    }
 
     public void cadastrar(Usuarios user) {
         try {
@@ -63,6 +96,6 @@ public class UsuariosDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-       return user;
+        return user;
     }
 }

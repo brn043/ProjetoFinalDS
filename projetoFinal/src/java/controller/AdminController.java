@@ -8,6 +8,7 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -36,6 +37,15 @@ public class AdminController extends HttpServlet {
         String url = request.getServletPath();
         if (url.equals("/adicionar-usuario")) {
             String nextPage = "/WEB-INF/jsp/addAdmin.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+        } else if(url.equals("/gerenciar-usuarios")){
+            String nextPage = "/WEB-INF/jsp/gerenciarUsuarios.jsp";
+            UsuariosDAO uDao = new UsuariosDAO();
+            List<Usuarios> usuario = uDao.listar();
+            
+            request.setAttribute("usuarios", usuario);            
+            
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         } else {

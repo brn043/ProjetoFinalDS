@@ -33,6 +33,7 @@ public class PagamentoController extends HttpServlet {
         String url = request.getServletPath();
 
         if (url.equals("/validarPagamento")) {
+            
             String nextPage = "/WEB-INF/jsp/confirmacaoCompra.jsp";
             RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);

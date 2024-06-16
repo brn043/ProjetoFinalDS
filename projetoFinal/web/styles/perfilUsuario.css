@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(to bottom, #fff, #2727270c);
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+
+    .container {
+        width: 100vw;
+        height: 88vh;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .title {
+        width: 100%;
+        height: 5vh;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        margin: 5% 0;
+    }
+
+    .forms {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    #informacoes {
+        width: 100vw;
+        height: 100vh;
+        margin: 0 auto;
+        display: grid;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    #informacoes #form-title {
+        width: 100vw;
+        text-align: center;
+    }
+
+    #informacoes #campos {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        width: 80%;
+        margin: 0 auto;
+        gap: 5px;
+        align-items: center;
+    }
+
+    #informacoes #campos input {
+        width: 100%;
+        height: 5vh;
+        padding: 5px
+    }
+
+    #informacoes #campos input:focus {
+        outline: none;
+    }
+
+    #informacoes #campos button {
+        width: 100%;
+        height: 5vh;
+        background-color: #272727;
+        border: 1px solid #272727;
+        color: #fff;
+        transition: backgorund 0.3s;
+    }
+
+    #informacoes #campos button:hover {
+        background-color: #fff;
+        color: #272727;
+        cursor: pointer;
+    }
+
+    #enderecos {
+        width: 100vw;
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #enderecos #row {
+        width: 80%;
+        background-color: #d9d9d9;
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+        padding: 5%;
+    }
+
+    #enderecos #row div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    #enderecos a {
+        text-decoration: none;
+        color: #272727;
+    }
+
+    #enderecos #adicionar {
+        font-size: 20px;
+        text-decoration: none;
+        color: #272727;
+    }
+
+    #enderecos a:hover {
+        opacity: 0.6;
+        cursor: pointer;
+    }
+
+
+}
+
+@media screen and (min-width: 1024px) {}

@@ -52,7 +52,7 @@ public class LoginController extends HttpServlet {
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         } else {
-            nextPage = "/ListarProdutosController";
+            nextPage = "/WEB-INF/jsp/perfilUsuario.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         }

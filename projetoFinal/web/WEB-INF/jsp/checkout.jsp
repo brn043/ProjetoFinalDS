@@ -57,7 +57,8 @@
                                 <label for="nome">Nome:</label>
                                 <input class="inEndereco" type="text" name="nome" placeholder="Digite aqui">
                                 <label for="telefone">Telefone:</label>
-                                <input class="inEndereco" type="text" name="telefone" id="telefone" placeholder="Digite aqui">
+                                <input class="inEndereco" type="text" name="telefone" id="telefone"
+                                    placeholder="Digite aqui">
                                 <label for="rua">Rua:</label>
                                 <input class="inEndereco" type="text" name="rua" placeholder="Digite aqui">
                                 <label for="numero">Número:</label>
@@ -86,7 +87,8 @@
                             <label for="sobrenome">Sobrenome:</label>
                             <input class="inEndereco" type="text" name="sobrenome" placeholder="Digite aqui">
                             <label for="telefone">Telefone:</label>
-                            <input class="inEndereco" type="text" name="telefone" id="telefone" placeholder="Digite aqui">
+                            <input class="inEndereco" type="text" name="telefone" id="telefone"
+                                placeholder="Digite aqui">
                             <label for="cep">Cep:</label>
                             <input class="inEndereco" type="text" name="cep" id="cep" placeholder="Digite aqui">
                             <label for="rua">Rua:</label>
@@ -114,11 +116,11 @@
                             <div class="frm" id="form-container-credit">
                                 <form action="" id="creditCardFrm">
                                     <label id="label-numero" for="card-number">Número do Cartão:</label>
-                                    <input class="inCard" id="in-numero" type="number" placeholder="Digite Aqui">
+                                    <input class="inCard" id="in-numero" type="text" placeholder="Digite Aqui">
                                     <label id="label-data" for="data-venc">Data de Vencimento:</label>
                                     <input class="inCard" id="in-data" type="text" placeholder="Digite Aqui">
                                     <label id="label-cvc" for="cvc">CVC:</label>
-                                    <input class="inCard" id="in-cvc" type="number" placeholder="Digite Aqui">
+                                    <input class="inCard" id="in-cvc" type="text" placeholder="Digite Aqui">
                                     <label id="label-nome" for="nome-cartao">Nome no Cartão:</label>
                                     <input class="inCard" id="in-nome" type="text" placeholder="Digite Aqui">
                                 </form>
@@ -138,7 +140,8 @@
                                 <div><button class="btn">></button></div>
                             </div>
                         </div>
-                        <a id="btnConfirmar" href="./validarPagamento"><button type="submit">FINALIZAR COMPRA</button></a>
+                        <a id="btnConfirmar" href="./validarPagamento"><button type="submit">FINALIZAR
+                                COMPRA</button></a>
                     </div>
                 </div>
             </div>
@@ -174,6 +177,19 @@
         <script>
             $('#telefone').mask('(00) 00000-0000');
             $('#cep').mask('00000-000');
+            $('#in-numero').mask('0000 0000 0000 0000');
+            $('#in-cvc').mask('000');
+            $('#in-data').mask('00/00');
+            $(document).ready(function () {
+                $('#in-nome').on('input', function () {
+                    var value = $(this).val();
+                    // Remove caracteres não permitidos e transforma em maiúsculas
+                    value = value.replace(/[^a-zA-Z\s]/g, '').toUpperCase();
+                    $(this).val(value);
+                });
+            });
+
+
         </script>
     </body>
     <script src="./js/search-bar.js" type="text/javascript"></script>

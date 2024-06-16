@@ -7,18 +7,20 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.dao.CarrinhoDAO;
+import model.bean.Pedidos;
+import model.dao.PedidosDAO;
 
 /**
  *
  * @author Bruno
  */
-public class PagamentoController extends HttpServlet {
+public class PedidosController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,17 +33,13 @@ public class PagamentoController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String url = request.getServletPath();
-
-        if (url.equals("/validarPagamento")) {
-            
-            CarrinhoDAO cDao = new CarrinhoDAO();
-            cDao.limparCarrinho();
-            
-            String nextPage = "/WEB-INF/jsp/confirmacaoCompra.jsp";
-            RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(nextPage);
-            dispatcher.forward(request, response);
-        }
+        PedidosDAO pDao = new PedidosDAO();
+        List<Pedidos> pedidos = pDao.ler();
+        request.setAttribute("pedidos", pedidos);
+        
+        String nextPage = "/WEB-INF/jsp/historicoPedidos.jsp";
+        RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(nextPage);
+        dispatcher.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

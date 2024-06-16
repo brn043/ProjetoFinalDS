@@ -39,16 +39,23 @@ public class AdminController extends HttpServlet {
             String nextPage = "/WEB-INF/jsp/addAdmin.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
-        } else if(url.equals("/gerenciar-usuarios")){
+        } else if (url.equals("/gerenciar-usuarios")) {
             String nextPage = "/WEB-INF/jsp/gerenciarUsuarios.jsp";
             UsuariosDAO uDao = new UsuariosDAO();
             List<Usuarios> usuario = uDao.listar();
-            
-            request.setAttribute("usuarios", usuario);            
-            
+
+            request.setAttribute("usuarios", usuario);
+
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
-        } else {
+        } else if (url.equals("/remover-usuario")) {
+            int id = Integer.parseInt(request.getParameter("id"));
+
+            UsuariosDAO uDao = new UsuariosDAO();
+            uDao.remover(id);
+            List<Usuarios> usuario = uDao.listar();
+
+            request.setAttribute("usuarios", usuario);
             String nextPage = "/WEB-INF/jsp/gerenciarUsuarios.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);

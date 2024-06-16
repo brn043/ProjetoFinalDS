@@ -48,6 +48,10 @@
         <servlet-name>SobreController</servlet-name>
         <servlet-class>controller.SobreController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PedidosController</servlet-name>
+        <servlet-class>controller.PedidosController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -118,6 +122,10 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AdminController</servlet-name>
+        <url-pattern>/remover-usuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminController</servlet-name>
         <url-pattern>/gerenciar-usuarios</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
@@ -151,6 +159,10 @@
     <servlet-mapping>
         <servlet-name>SobreController</servlet-name>
         <url-pattern>/SobreController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PedidosController</servlet-name>
+        <url-pattern>/PedidosController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

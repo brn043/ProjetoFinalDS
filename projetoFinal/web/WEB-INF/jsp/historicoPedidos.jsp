@@ -6,10 +6,10 @@
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Produtos - LESS</title>
+            <title>Meus pedidos - LESS</title>
             <script src="https://kit.fontawesome.com/3f0655ac6d.js" crossorigin="anonymous"></script>
             <link rel="stylesheet" href="styles/style.css">
-            <link rel="stylesheet" href="styles/gerenciarUsuarios.css">
+            <link rel="stylesheet" href="styles/historicoPedidos.css">
         </head>
         <body>
             <header>
@@ -60,28 +60,27 @@
                 </div>
                 <div class="container">
                     <div id="title">
-                        <h1>Gerenciar Usuarios</h1>
+                        <h1>Meus Pedidos</h1>
                     </div>
                     <div class="table">
                         <div id="tb-header">
-                            <span>ID</span>
-                            <span>Nome</span>
-                            <span>Email</span>
-                            <span>Senha</span>
-                            <span>Cpf</span>
-                            <span>Telefone</span>
-                            <span>Data de Nascimento</span>
+                            <span>Número do Pedido</span>
+                            <span>Nome do Produto</span>
+                            <span>Preço</span>
+                            <span>Quantidade</span>
+                            <span>Total</span>
+                            <span>Data do Pedido</span>
+                            <span>Situação</span>
                         </div>
-                        <c:forEach items="${usuarios}" var="user">
+                        <c:forEach items="${pedidos}" var="pedido">
                         <div id="row">
-                            <span>${user.id_cliente}</span>
-                            <span>${user.nome}</span>
-                            <span>${user.email}</span>
-                            <span>*****</span>
-                            <span>${user.cpf}</span>
-                            <span>${user.telefone}</span>
-                            <span>${user.dataNascimento}</span>
-                            <a href="./remover-usuario?id=${user.id_cliente}"><i class="fa-solid fa-trash"></i></a>
+                            <span>${pedido.id_pedido}</span>
+                            <span>${pedido.produto}</span>
+                            <span>${pedido.preco}</span>
+                            <span>${pedido.quantidade}</span>
+                            <span>${pedido.total}</span>
+                            <span>${pedido.dataPedido}</span>
+                            <span>${pedido.situacao}</span>
                         </div>
                         </c:forEach>
                     </div>

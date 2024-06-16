@@ -14,35 +14,38 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    const frmEndereco = document.getElementById("frmEndereco")
+    function validacoes() {
 
-    frmEndereco.addEventListener("submit", function (event) {
-        event.preventDefault();
+        const frmEndereco = document.getElementById("frmEndereco")
 
-        const inputsEndereco = docuemnt.getElementsByClassName("inEndereco").trim()
+        frmEndereco.addEventListener("submit", function (event) {
+            event.preventDefault();
 
-        for (let i = 0; i < inputs.length; i++) {
-            if (inputsEndereco[i].value === "") {
-                alert("Preencha os dados para entrega corretamente!")
+            const inputsEndereco = docuemnt.getElementsByClassName("inEndereco").trim()
+
+            for (let i = 0; i < inputs.length; i++) {
+                if (inputsEndereco[i].value === "") {
+                    alert("Preencha os dados para entrega corretamente!")
+                }
             }
-        }
-        frmEndereco.submit()
-    })
+            frmEndereco.submit()
+        })
 
-    const frmCartao = document.getElementById("creditCardFrm")
+        const frmCartao = document.getElementById("creditCardFrm")
 
-    frmCartao.addEventListener('submit', function(event){
-        event.preventDefault();
+        frmCartao.addEventListener('submit', function (event) {
+            event.preventDefault();
 
-        const dadosCartao = document.getElementsByClassName("inCard").trim()
+            const dadosCartao = document.getElementsByClassName("inCard").trim()
 
-        for (let i = 0; i < dadosCartao.length; i++) {
-            if (dadosCartao[i].value === "") {
-                alert("Preencha os dados de pagamento corretamente!")
+            for (let i = 0; i < dadosCartao.length; i++) {
+                if (dadosCartao[i].value === "") {
+                    alert("Preencha os dados de pagamento corretamente!")
+                }
             }
-        }
-    
-        frmCartao.submit()
-    })
+
+            frmCartao.submit()
+        })
+    }
 
 });

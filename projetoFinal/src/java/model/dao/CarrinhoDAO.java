@@ -24,7 +24,7 @@ public class CarrinhoDAO {
 
     public List<Carrinho> ler(int id) {
         List<Carrinho> carrinho = new ArrayList();
-        
+
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
@@ -77,9 +77,9 @@ public class CarrinhoDAO {
             e.printStackTrace();
         }
     }
-    
-    public void delete(int id){
-    
+
+    public void delete(int id) {
+
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
@@ -97,9 +97,9 @@ public class CarrinhoDAO {
             e.printStackTrace();
         }
     }
-    
-    public void adicionar(Carrinho cart){
-        
+
+    public void adicionar(Carrinho cart) {
+
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
@@ -114,16 +114,16 @@ public class CarrinhoDAO {
             stmt.setFloat(6, cart.getTotal());
             stmt.setInt(7, cart.getId_cliente());
             stmt.executeUpdate();
-            
+
             stmt.close();
             conexao.close();
 
         } catch (Exception e) {
             e.printStackTrace();
-        }       
+        }
     }
-    
-        public Carrinho validar(Carrinho produto) {
+
+    public Carrinho validar(Carrinho produto) {
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
@@ -147,12 +147,12 @@ public class CarrinhoDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-       return produto;
+        return produto;
     }
-        
-    public Float somaTotal(int id_usuario){
+
+    public Float somaTotal(int id_usuario) {
         Float total_carrinho = null;
-        
+
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
@@ -163,7 +163,7 @@ public class CarrinhoDAO {
             rs = stmt.executeQuery();
 
             if (rs.next()) {
-                total_carrinho = (rs.getFloat("total_soma")); 
+                total_carrinho = (rs.getFloat("total_soma"));
             }
             rs.close();
             stmt.close();
@@ -171,7 +171,24 @@ public class CarrinhoDAO {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }        
+        }
         return total_carrinho;
+    }
+
+    public void limparCarrinho() {
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+
+            stmt = conexao.prepareStatement("DELETE FROM carrinho WHERE id_cliente = ?");
+            stmt.setInt(1, Usuarios.getId_usuario());
+            stmt.executeUpdate();
+
+            stmt.close();
+            conexao.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

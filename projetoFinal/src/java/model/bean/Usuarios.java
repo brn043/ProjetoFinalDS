@@ -13,6 +13,7 @@ import java.sql.Date;
  */
 public class Usuarios {
     private static int id_usuario;
+    private int id_cliente;
     private String nome;
     private String email;
     private String senha;
@@ -25,7 +26,8 @@ public class Usuarios {
     public Usuarios() {
     }
 
-    public Usuarios(String nome, String email, String senha, String cpf, String telefone, String endereco, Date dataNascimento) {
+    public Usuarios(int id_cliente, String nome, String email, String senha, String cpf, String telefone, String endereco, Date dataNascimento) {
+        this.id_cliente = id_cliente;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
@@ -34,6 +36,7 @@ public class Usuarios {
         this.endereco = endereco;
         this.dataNascimento = dataNascimento;
     }
+    
 
     public static int getId_usuario() {
         return id_usuario;
@@ -42,6 +45,14 @@ public class Usuarios {
     public static void setId_usuario(int id_usuario) {
         Usuarios.id_usuario = id_usuario;
     }
+
+    public int getId_cliente() {
+        return id_cliente;
+    }
+
+    public void setId_cliente(int id_cliente) {
+        this.id_cliente = id_cliente;
+    }    
 
     public String getNome() {
         return nome;

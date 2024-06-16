@@ -39,24 +39,24 @@ public class LoginController extends HttpServlet {
 
         if (url.equals("/logout")) {
             user.setId_usuario(0);
+            nextPage = "/WEB-INF/jsp/index.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+        }
+        if (user.getId_usuario() == 0) {
             nextPage = "/WEB-INF/jsp/login.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
+        } else if (user.getAcesso() == 1) {
+            nextPage = "/WEB-INF/jsp/controleAdministrador.jsp";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
         } else {
-            if (user.getId_usuario() == 0) {
-                nextPage = "/WEB-INF/jsp/login.jsp";
-                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-                dispatcher.forward(request, response);
-            } else if (user.getAcesso() == 1) {
-                nextPage = "/WEB-INF/jsp/controleAdministrador.jsp";
-                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-                dispatcher.forward(request, response);
-            } else {
-                nextPage = "/ListarProdutosController";
-                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-                dispatcher.forward(request, response);
-            }
+            nextPage = "/ListarProdutosController";
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

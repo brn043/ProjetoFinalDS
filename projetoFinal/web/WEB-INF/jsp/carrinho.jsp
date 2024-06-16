@@ -70,7 +70,7 @@
                             <p id="total-produto">${produto.total}</p>
                             <div id="buttons">
                                 <a
-                                    href="./incrementar?id=${produto.id_compra}&quantidade=${produto.quantidade}&preco=${produto.preco}&total=${produto.total}">+</a>
+                                    href="./incrementar?produto=${produto.produto}&tamanho=${produto.tamanho}&id=${produto.id_compra}&quantidade=${produto.quantidade}&preco=${produto.preco}&total=${produto.total}">+</a>
                                 <a
                                     href="./diminuir?id=${produto.id_compra}&quantidade=${produto.quantidade}&preco=${produto.preco}&total=${produto.total}">-</a>
                             </div>

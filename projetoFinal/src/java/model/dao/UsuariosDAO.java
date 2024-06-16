@@ -33,7 +33,7 @@ public class UsuariosDAO {
 
             while (rs.next()) {
                 Usuarios user = new Usuarios();
-                Usuarios.setId_usuario(rs.getInt("id_usuario"));
+                user.setId_cliente(rs.getInt("id_usuario"));
                 user.setNome(rs.getString("nome"));
                 user.setEmail(rs.getString("email"));
                 user.setCpf(rs.getString("cpf"));
@@ -65,6 +65,26 @@ public class UsuariosDAO {
             stmt.setInt(6, user.getAcesso());
             stmt.setDate(7, user.getDataNascimento());
 
+            stmt.executeUpdate();
+            stmt.close();
+            conexao.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void remover(int id){
+    try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+
+            stmt = conexao.prepareStatement("DELETE FROM historico WHERE id_cliente = ?");
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
+            
+            stmt = conexao.prepareStatement("DELETE FROM usuarios WHERE id_usuario = ?");
+            stmt.setInt(1, id);
             stmt.executeUpdate();
             stmt.close();
             conexao.close();

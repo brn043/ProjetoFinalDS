@@ -8,12 +8,16 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.bean.Enderecos;
 import model.bean.Usuarios;
+import model.dao.EnderecosDAO;
 import model.dao.UsuariosDAO;
 
 /**
@@ -52,6 +56,17 @@ public class LoginController extends HttpServlet {
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         } else {
+            //lista os endereços cadastrados pelo usuário
+            EnderecosDAO eDao = new EnderecosDAO();
+            List<Enderecos> enderecos = eDao.listarEnderecos();
+            request.setAttribute("enderecos", enderecos);
+
+            //lista as informações referentes ao usuário logado
+            UsuariosDAO uDao = new UsuariosDAO();
+            int id_usuario = Usuarios.getId_usuario();
+            List<Usuarios> infos = uDao.listarInformações(id_usuario);
+            request.setAttribute("infos", infos);
+
             nextPage = "/WEB-INF/jsp/perfilUsuario.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
@@ -133,6 +148,25 @@ public class LoginController extends HttpServlet {
                 request.setAttribute("errorMessage", "Usuário ou senha inválidos!");
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
                 dispatcher.forward(request, response);
+            }
+        } else if (url.equals("/atualizar-informacoes")) {
+            Usuarios user = new Usuarios();
+            user.setNome(request.getParameter("nome"));
+            user.setEmail(request.getParameter("email"));
+            user.setSenha(request.getParameter("senha"));
+            user.setTelefone(request.getParameter("telefone"));
+            String dataNascimento = request.getParameter("dataNascimento");
+            user.setDataNascimento(Date.valueOf(dataNascimento));
+            
+            List<Usuarios> usuario = new ArrayList();
+            usuario = (List<Usuarios>) user;
+            
+            UsuariosDAO uDao = new UsuariosDAO();
+            int id_usuario = Usuarios.getId_usuario();
+            List<Usuarios> informacoes = uDao.listarInformações(id_usuario);
+            
+            if(informacoes != usuario){
+                uDao.atualizarInformacoes(user);
             }
         } else {
             processRequest(request, response);

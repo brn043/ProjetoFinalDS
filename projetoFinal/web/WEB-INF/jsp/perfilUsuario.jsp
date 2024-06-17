@@ -1,6 +1,7 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-    <!DOCTYPE html>
-    <html>
+<!DOCTYPE html>
+<html>
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -46,49 +47,58 @@
             <div class="container">
                 <div class="title">Meu Perfil</div>
                 <div class="forms">
-                    <form id="informacoes">
+                    <c:forEach items="${infos}" var="infos">
+                    <form id="informacoes" action="./atualizar-informacoes" method="post">
                         <div id="form-title"><span>Minhas Informações:</span></div>
                         <div id="campos">
                             <span>Nome:</span>
-                            <input type="text" value="nome">
+                            <input id="nome" type="text" value="${infos.nome}">
                             <span>Email:</span>
-                            <input type="text" value="email">
+                            <input id="email" type="text" value="${infos.email}">
                             <span>Senha:</span>
-                            <input type="password" value="****">
+                            <input id="senha" type="password" value="${infos.senha}">
                             <span>Telefone:</span>
-                            <input type="text" value="telefone">
+                            <input id="telefone" type="text" value="${infos.telefone}">
                             <span>Data de Nascimento:</span>
-                            <input type="text" value="01/01/2000">
+                            <input id="dataNascimento" type="text" value="${infos.dataNascimento}">
                             <button>SALVAR ALTERAÇÕES</button>
                         </div>
                     </form>
+                    </c:forEach>
                     <div id="enderecos">
-                        <span>Meus Endereços:</span>
-                        <div id="row">
-                            <div id="infos">
-                                <p>Cep: 09098-987</p>
-                                <p>Endereço: Rua Dos Periquitos, 180</p>
-                                <p>Complemento: Casa verde</p>
-                            </div>
-                            <div id="btn">
-                                <a href="#deletar"><i class="fa-solid fa-trash"></i></a>
-                            </div>
+                        <div id="form-meus-enderecos-title">
+                            <span>Meus Endereços</span>
                         </div>
-                        <a id="adicionar" href="">+</a>
+                        <c:forEach items="${enderecos}" var="endereco">
+                            <div id="row">
+                                <div id="infos">
+                                    <p>Cep: ${endereco.cep}</p>
+                                    <p>Endereço: ${endereco.rua}, ${endereco.numero}</p>
+                                    <p>Complemento: ${endereco.complemento}</p>
+                                </div>
+                                <div id="btn">
+                                    <a href="./remover-endereco?id_endereco=${endereco.id_endereco}"><i class="fa-solid fa-trash"></i></a>
+                                </div>
+                            </div>
+                        </c:forEach>
+                        <a id="adicionar">+</a>
+                        <div id="form-endereco" class="toggle">
+                            <div id="form-endereco-title">
+                                <span>Adicionar Novo Endereço</span>
+                            </div>
+                            <form action="./adicionar-endereco" method="post">
+                                <label for="cep">Cep:</label>
+                                <input id="cep" name="cep" type="text">
+                                <label for="rua">Rua:</label>
+                                <input id="rua" name="rua" type="text">
+                                <label for="numero">Número:</label>
+                                <input id="numero" name="numero" type="text">
+                                <label for="complemento">Complemento:</label>
+                                <input id="complemento" name="complemento" type="text">
+                                <button>SALVAR ENDEREÇO</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
-                <div class="form-endereco">
-                    <form action="">
-                        <label for="cep">Cep:</label>
-                        <input name="cep" type="text">
-                        <label for="rua">Rua:</label>
-                        <input name="rua" type="text">
-                        <label for="numero">Número:</label>
-                        <input name="numero" type="text">
-                        <label for="complemento">Complemento:</label>
-                        <input name="complemento" type="text">
-                        <button>SALVAR ENDEREÇO</button>
-                    </form>
                 </div>
             </div>
         </main>
@@ -117,5 +127,30 @@
             </div>
         </footer>
     </body>
+    <script src="js/perfilUsuario.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"
+            integrity="sha512-0XDfGxFliYJPFrideYOoxdgNIvrwGTLnmK20xZbCAvPfLGQMzHUsaqZK8ZoH+luXGRxTrS46+Aq400nCnAT0/w=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $('#cep').mask('00000-000');
+        $(document).ready(function () {
+            $('#rua').on('input', function () {
+                var value = $(this).val();
+                // Remove caracteres não permitidos e transforma em maiúsculas
+                value = value.replace(/[^a-zA-Z\s]/g, '').toUpperCase();
+                $(this).val(value);
+            });
+        });
+        $('#numero').mask('0000');
+        $(document).ready(function () {
+            $('#complemento').on('input', function () {
+                var value = $(this).val();
+                // Remove caracteres não permitidos e transforma em maiúsculas
+                value = value.replace(/[^a-zA-Z\s]/g, '').toUpperCase();
+                $(this).val(value);
+            });
+        });
+    </script>
 
-    </html>
+</html>

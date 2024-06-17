@@ -12,7 +12,7 @@ body {
 
     .container {
         width: 100vw;
-        height: 88vh;
+        height: 90vh;
         display: flex;
         flex-direction: column;
 
@@ -41,6 +41,7 @@ body {
         display: grid;
         gap: 10px;
         justify-content: center;
+        z-index: 8;
     }
 
     #informacoes #form-title {
@@ -89,6 +90,7 @@ body {
         flex-direction: column;
         align-items: center;
         gap: 10px;
+        z-index: 8;
     }
 
     #enderecos #row {
@@ -121,6 +123,23 @@ body {
     #enderecos a:hover {
         opacity: 0.6;
         cursor: pointer;
+    }
+
+    .form-endereco {
+        z-index: 9;
+        width: 90vw;
+        height: 50vh;
+        margin: 0 auto;
+    }
+
+    .form-endereco form {
+        width: 90%;
+        height: 100%;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        margin: 0 auto;
+        gap: 10px;
+        background-color: #f6f6f6;
     }
 
 

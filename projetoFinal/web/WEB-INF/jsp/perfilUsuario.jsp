@@ -37,7 +37,7 @@
                     <a href="IndexController"><img src="assets/less-logo-mobile.png" alt=""></a>
                 </div>
                 <div class="links-user">
-                    <a href="./LoginController"><i class="fa-solid fa-user"></i></a>
+                    <a href="./logout"><i class="fa-solid fa-right-from-bracket"></i></a>
                     <a href="./CarrinhoController"><i class="fa-solid fa-cart-shopping"></i></a>
                 </div>
             </nav>
@@ -76,6 +76,19 @@
                         </div>
                         <a id="adicionar" href="">+</a>
                     </div>
+                </div>
+                <div class="form-endereco">
+                    <form action="">
+                        <label for="cep">Cep:</label>
+                        <input name="cep" type="text">
+                        <label for="rua">Rua:</label>
+                        <input name="rua" type="text">
+                        <label for="numero">Número:</label>
+                        <input name="numero" type="text">
+                        <label for="complemento">Complemento:</label>
+                        <input name="complemento" type="text">
+                        <button>SALVAR ENDEREÇO</button>
+                    </form>
                 </div>
             </div>
         </main>

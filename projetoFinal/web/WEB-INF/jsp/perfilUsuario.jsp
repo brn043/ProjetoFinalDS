@@ -52,16 +52,18 @@
                         <div id="form-title"><span>Minhas Informações:</span></div>
                         <div id="campos">
                             <span>Nome:</span>
-                            <input id="nome" type="text" value="${infos.nome}">
+                            <input id="nome" name="nome" type="text" value="${infos.nome}">
                             <span>Email:</span>
-                            <input id="email" type="text" value="${infos.email}">
+                            <input id="email" name="email" type="text" value="${infos.email}">
                             <span>Senha:</span>
-                            <input id="senha" type="password" value="${infos.senha}">
+                            <input id="senha" name="senha" type="password" value="${infos.senha}">
+                            <span>Cpf:</span>
+                            <input id="cpf" name="cpf" type="text" value="${infos.cpf}">
                             <span>Telefone:</span>
-                            <input id="telefone" type="text" value="${infos.telefone}">
+                            <input id="telefone" name="telefone" type="text" value="${infos.telefone}">
                             <span>Data de Nascimento:</span>
-                            <input id="dataNascimento" type="text" value="${infos.dataNascimento}">
-                            <button>SALVAR ALTERAÇÕES</button>
+                            <input id="dataNascimento" name="dataNascimento" type="date" value="${infos.dataNascimento}">
+                            <button type="submit">SALVAR ALTERAÇÕES</button>
                         </div>
                     </form>
                     </c:forEach>
@@ -143,6 +145,7 @@
             });
         });
         $('#numero').mask('0000');
+        $('#cpf').mask('000.000.000-00');
         $(document).ready(function () {
             $('#complemento').on('input', function () {
                 var value = $(this).val();

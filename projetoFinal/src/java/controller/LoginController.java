@@ -8,6 +8,8 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -154,20 +156,37 @@ public class LoginController extends HttpServlet {
             user.setNome(request.getParameter("nome"));
             user.setEmail(request.getParameter("email"));
             user.setSenha(request.getParameter("senha"));
+            user.setCpf(request.getParameter("cpf"));
             user.setTelefone(request.getParameter("telefone"));
             String dataNascimento = request.getParameter("dataNascimento");
             user.setDataNascimento(Date.valueOf(dataNascimento));
-            
-            List<Usuarios> usuario = new ArrayList();
-            usuario = (List<Usuarios>) user;
-            
+
             UsuariosDAO uDao = new UsuariosDAO();
-            int id_usuario = Usuarios.getId_usuario();
-            List<Usuarios> informacoes = uDao.listarInformações(id_usuario);
-            
-            if(informacoes != usuario){
+            int id = Usuarios.getId_usuario();
+            List<Usuarios> informacoes = uDao.listarInformações(id);
+
+            if ((informacoes.get(0).getNome() != user.getNome())
+                    || (informacoes.get(0).getEmail() != user.getEmail())
+                    || (informacoes.get(0).getSenha() != user.getSenha())
+                    || (informacoes.get(0).getCpf() != user.getCpf())
+                    || (informacoes.get(0).getTelefone() != user.getTelefone())
+                    || (informacoes.get(0).getDataNascimento() != user.getDataNascimento())) {
                 uDao.atualizarInformacoes(user);
+                int id_usuario = Usuarios.getId_usuario();
+                List<Usuarios> infos = uDao.listarInformações(id_usuario);
+                request.setAttribute("infos", infos);
+               
+                String nextPage = "/WEB-INF/jsp/perfilUsuario.jsp";
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+                dispatcher.forward(request, response);
+                
+            } else {
+                String nextPage = "/WEB-INF/jsp/perfilUsuario.jsp";
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
+                dispatcher.forward(request, response);
+                
             }
+
         } else {
             processRequest(request, response);
         }

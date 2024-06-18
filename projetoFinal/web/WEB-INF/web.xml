@@ -52,6 +52,10 @@
         <servlet-name>PedidosController</servlet-name>
         <servlet-class>controller.PedidosController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EnderecosController</servlet-name>
+        <servlet-class>controller.EnderecosController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/atualizar-informacoes</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>IndexController</servlet-name>
@@ -163,6 +171,18 @@
     <servlet-mapping>
         <servlet-name>PedidosController</servlet-name>
         <url-pattern>/PedidosController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EnderecosController</servlet-name>
+        <url-pattern>/EnderecosController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EnderecosController</servlet-name>
+        <url-pattern>/adicionar-endereco</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EnderecosController</servlet-name>
+        <url-pattern>/remover-endereco</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

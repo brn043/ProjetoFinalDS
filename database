@@ -165,10 +165,6 @@ END;
 DELIMITER ;
 
 
-
--- fim das triggers
-
-
 create table carrinho(
 	image varchar(45),
 	id_compra int auto_increment primary key,
@@ -196,6 +192,86 @@ create table historico(
 	Foreign key (id_cliente) references usuarios(id_usuario)
 );
 
+DELIMITER //
+
+CREATE PROCEDURE verificar_estoque(
+    IN p_nome_produto VARCHAR(45),
+    IN p_nome_tamanho VARCHAR(45)
+)
+BEGIN
+    SELECT 
+        e.quantidade
+    FROM 
+        estoque e
+    INNER JOIN 
+        tamanhos t ON e.tamanho = t.id_tamanho
+    WHERE 
+        e.nome = p_nome_produto AND t.nome = p_nome_tamanho;
+END;
+//
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE TRIGGER registrar_no_historico
+AFTER DELETE ON carrinho
+FOR EACH ROW
+BEGIN
+    DECLARE tamanho_id INT;
+    
+    -- Verifica se o delete possui id do cliente
+    IF OLD.id_cliente IS NOT NULL THEN
+        
+        -- Obter o id_tamanho correspondente ao nome do tamanho
+        SELECT id_tamanho INTO tamanho_id
+        FROM tamanhos
+        WHERE nome = OLD.tamanho;
+    
+        -- Registrar no histórico
+        INSERT INTO historico (
+            image, 
+            produto, 
+            preco, 
+            quantidade, 
+            total, 
+            dataPedido, 
+            situacao, 
+            id_cliente
+        ) VALUES (
+            OLD.image, 
+            OLD.produto, 
+            OLD.preco, 
+            OLD.quantidade, 
+            OLD.total, 
+            current_date, 
+            'Em separação', 
+            OLD.id_cliente
+        );
+    
+        -- Subtrair quantidade do estoque
+        UPDATE estoque
+        SET quantidade = quantidade - OLD.quantidade
+        WHERE nome = OLD.produto AND tamanho = tamanho_id;
+        
+        -- Subtrair quantidade dos produtos
+        UPDATE produtos
+        SET quantidade = quantidade - OLD.quantidade
+        WHERE nome = OLD.produto AND tamanho = tamanho_id;
+        
+        -- Verificar se a quantidade no estoque é zero e deletar do estoque e produtos
+        IF (SELECT quantidade FROM estoque WHERE nome = OLD.produto AND tamanho = tamanho_id) <= 0 THEN
+            DELETE FROM estoque WHERE nome = OLD.produto AND tamanho = tamanho_id;
+            DELETE FROM produtos WHERE nome = OLD.produto AND tamanho = tamanho_id;
+        END IF;
+    END IF;
+END;
+//
+
+DELIMITER ;
+
 select * from usuarios;
 select * from produtos;
 select * from estoque;
+select * from historico;
+

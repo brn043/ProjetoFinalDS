@@ -98,7 +98,7 @@
                             <label for="numero">Número:</label>
                             <input class="inEndereco" id="numerom" type="number" name="numero" min="1" placeholder="Digite aqui">
                             <label for="complemento">Complemento:</label>
-                            <input class="inEndereco" id="complementom" type="text" name="complemento" placeholder="Digite aqui">
+                            <input class="inEndereco" id="complemento" type="text" name="complemento" placeholder="Digite aqui">
                         </div>
                     </form>
                     <div id="payment">
@@ -182,10 +182,10 @@
             $('#in-data').mask('00/00');
             $(document).ready(function () {
                 $('#in-nome').on('input', function () {
-                    var value = $(this).val();
+                    var inputNome = $(this).val();
                     // Remove caracteres não permitidos e transforma em maiúsculas
-                    value = value.replace(/[^a-zA-Z\s]/g, '').toUpperCase();
-                    $(this).val(value);
+                    inputNome = inputNome.replace(/[^a-zA-Z\s]/g, '').toUpperCase();
+                    $(this).val(inputNome);
                 });
             });
         </script>

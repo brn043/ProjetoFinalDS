@@ -182,7 +182,7 @@
             $('#in-data').mask('00/00');
             $(document).ready(function () {
                 $('#in-nome').on('input', function () {
-                    var inputNome = $(this).val();
+                    let inputNome = $(this).val();
                     // Remove caracteres não permitidos e transforma em maiúsculas
                     inputNome = inputNome.replace(/[^a-zA-Z\s]/g, '').toUpperCase();
                     $(this).val(inputNome);

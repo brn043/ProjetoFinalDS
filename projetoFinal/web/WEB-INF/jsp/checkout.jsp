@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-    <!DOCTYPE html>
-    <html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-br">
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -55,24 +55,24 @@
                         <div id="blocks">
                             <div id="l-block">
                                 <label for="nome">Nome:</label>
-                                <input class="inEndereco" type="text" name="nome" placeholder="Digite aqui">
+                                <input class="inEndereco" id="nome" type="text" name="nome" placeholder="Digite aqui">
                                 <label for="telefone">Telefone:</label>
                                 <input class="inEndereco" type="text" name="telefone" id="telefone"
-                                    placeholder="Digite aqui">
+                                       placeholder="Digite aqui">
                                 <label for="rua">Rua:</label>
-                                <input class="inEndereco" type="text" name="rua" placeholder="Digite aqui">
+                                <input class="inEndereco" id="rua" type="text" name="rua" placeholder="Digite aqui">
                                 <label for="numero">Número:</label>
-                                <input class="inEndereco" type="number" name="numero" min="1" placeholder="Digite aqui">
+                                <input class="inEndereco" id="numero" type="number" name="numero" min="1" placeholder="Digite aqui">
                             </div>
                             <div id="r-block">
                                 <label for="sobrenome">Sobrenome:</label>
-                                <input class="inEndereco" type="text" name="sobrenome" placeholder="Digite aqui">
+                                <input class="inEndereco" id="sobrenome" type="text" name="sobrenome" placeholder="Digite aqui">
                                 <label for="cep">Cep:</label>
-                                <input class="inEndereco" type="text" name="cep" id="cep" placeholder="Digite aqui">
+                                <input class="inEndereco" id="cep" type="text" name="cep" id="cep" placeholder="Digite aqui">
                                 <label for="bairro">Bairro:</label>
-                                <input class="inEndereco" type="text" name="bairro" placeholder="Digite aqui">
+                                <input class="inEndereco" id="bairro" type="text" name="bairro" placeholder="Digite aqui">
                                 <label for="complemento">Complemento:</label>
-                                <input class="inEndereco" type="text" name="complemento" placeholder="Digite aqui">
+                                <input class="inEndereco" id="complemento" type="text" name="complemento" placeholder="Digite aqui">
                             </div>
                         </div>
                     </form>
@@ -83,22 +83,22 @@
                         </div>
                         <div id="inputs">
                             <label for="nome">Nome:</label>
-                            <input class="inEndereco" type="text" name="nome" placeholder="Digite aqui">
+                            <input class="inEndereco" type="text" id="nomem" name="nome" placeholder="Digite aqui">
                             <label for="sobrenome">Sobrenome:</label>
-                            <input class="inEndereco" type="text" name="sobrenome" placeholder="Digite aqui">
+                            <input class="inEndereco" type="text" id="sobrenomem" name="sobrenome" placeholder="Digite aqui">
                             <label for="telefone">Telefone:</label>
-                            <input class="inEndereco" type="text" name="telefone" id="telefone"
-                                placeholder="Digite aqui">
+                            <input class="inEndereco" id="telefonem" type="text" name="telefone" id="telefone"
+                                   placeholder="Digite aqui">
                             <label for="cep">Cep:</label>
-                            <input class="inEndereco" type="text" name="cep" id="cep" placeholder="Digite aqui">
+                            <input class="inEndereco" id="cepm" type="text" name="cep" id="cep" placeholder="Digite aqui">
                             <label for="rua">Rua:</label>
-                            <input class="inEndereco" type="text" name="rua" placeholder="Digite aqui">
+                            <input class="inEndereco" id="ruam" type="text" name="rua" placeholder="Digite aqui">
                             <label for="bairro">Bairro:</label>
-                            <input class="inEndereco" type="text" name="bairro" placeholder="Digite aqui">
+                            <input class="inEndereco" id="bairrom" type="text" name="bairro" placeholder="Digite aqui">
                             <label for="numero">Número:</label>
-                            <input class="inEndereco" type="number" name="numero" min="1" placeholder="Digite aqui">
+                            <input class="inEndereco" id="numerom" type="number" name="numero" min="1" placeholder="Digite aqui">
                             <label for="complemento">Complemento:</label>
-                            <input class="inEndereco" type="text" name="complemento" placeholder="Digite aqui">
+                            <input class="inEndereco" id="complementom" type="text" name="complemento" placeholder="Digite aqui">
                         </div>
                     </form>
                     <div id="payment">
@@ -172,8 +172,8 @@
         </footer>
         <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"
-            integrity="sha512-0XDfGxFliYJPFrideYOoxdgNIvrwGTLnmK20xZbCAvPfLGQMzHUsaqZK8ZoH+luXGRxTrS46+Aq400nCnAT0/w=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                integrity="sha512-0XDfGxFliYJPFrideYOoxdgNIvrwGTLnmK20xZbCAvPfLGQMzHUsaqZK8ZoH+luXGRxTrS46+Aq400nCnAT0/w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script>
             $('#telefone').mask('(00) 00000-0000');
             $('#cep').mask('00000-000');
@@ -188,11 +188,9 @@
                     $(this).val(value);
                 });
             });
-
-
         </script>
     </body>
     <script src="./js/search-bar.js" type="text/javascript"></script>
     <script src="./js/checkout.js" type="text/javascript"></script>
 
-    </html>
+</html>

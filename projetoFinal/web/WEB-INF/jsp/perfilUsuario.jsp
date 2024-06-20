@@ -88,7 +88,7 @@
                             <div id="form-endereco-title">
                                 <span>Adicionar Novo Endereço</span>
                             </div>
-                            <form action="./adicionar-endereco" method="post">
+                            <form id="formAddEndereco" action="./adicionar-endereco" method="post">
                                 <label for="cep">Cep:</label>
                                 <input id="cep" name="cep" type="text">
                                 <label for="rua">Rua:</label>

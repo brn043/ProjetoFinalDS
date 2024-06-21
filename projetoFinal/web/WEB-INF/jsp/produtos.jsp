@@ -1,4 +1,5 @@
-<%@page language="java" contentType="text/html"  pageEncoding = "ISO-8859-1"%>
+<%@ page pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" %>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
         <!DOCTYPE html>
         <html lang="pt-br">
@@ -70,10 +71,10 @@
                                 <select name="categoria">
                                     <option value="0">SELECIONE...</option>
                                     <option value="1">CAMISETAS</option>
-                                    <option value="2">CAL�AS</option>
+                                    <option value="2">CALÇAS</option>
                                     <option value="3">BERMUDAS</option>
                                     <option value="4">MOLETOM</option>
-                                    <option value="5">ACESS�RIOS</option>
+                                    <option value="5">ACESSÓRIOS</option>
                                 </select>
                                 <button>FILTRAR</button>
                             </form>
@@ -100,7 +101,7 @@
                 <div class="footer-container">
                     <div class="infos">
                         <p>
-                            LESS S.A � 2024.
+                            LESS S.A ©️ 2024.
                             <br>
                             todos os direitos reservados
                             <br>

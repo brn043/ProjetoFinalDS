@@ -76,7 +76,7 @@
                 <div class="footer-container">
                     <div class="infos">
                         <p>
-                            LESS S.A � 2024.
+                            LESS S.A ©️ 2024.
                             <br>
                             todos os direitos reservados
                             <br>

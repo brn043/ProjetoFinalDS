@@ -1,5 +1,5 @@
 <%-- Document : controleAdmin Created on : 30/04/2024, 14:12:12 Author : Senai --%>
-
+<%@page charset = "UTF-8"%>
 <%@page language="java" contentType="text/html"  pageEncoding = "ISO-8859-1"%>
 <!DOCTYPE html>
 
@@ -59,10 +59,10 @@
                     <select id="selectCategoria" name="categoria">
                         <option>Selecione a categoria</option>
                         <option value="1">Camisetas</option>
-                        <option value="2">Cal�a</option>
+                        <option value="2">Calça</option>
                         <option value="3">Bermudas</option>
                         <option value="4">Moletom</option>
-                        <option value="5">Acess�rios</option>
+                        <option value="5">Acessórios</option>
                     </select>
                     <p>Quantidade:</p>
                     <input type="number" name="quantidade" min="0" placeholder="Quantidade">
@@ -74,9 +74,9 @@
                         <option value="3">G</option>
                         <option value="4">GG</option>
                     </select>
-                    <p>Pre�o:</p>
+                    <p>Preço:</p>
                     <input type="text" id="inPreco" name="preco" step="0.01" min="0.00" placeholder="Pre�o do Produto">
-                    <p>Descri��o:</p>
+                    <p>Descrição:</p>
                     <input type="text" id="inDesc" name="desc" placeholder="Escreva uma breve descri��o do produto">
                     <p>Imagem:</p>
                     <input type="file" name="imagem" placeholder="Selecione a imgem do produto">
@@ -88,7 +88,7 @@
             <div class="footer-container">
                 <div class="infos">
                     <p>
-                        LESS S.A � 2024.
+                        LESS S.A ©️ 2024.
                         <br>
                         todos os direitos reservados
                         <br>

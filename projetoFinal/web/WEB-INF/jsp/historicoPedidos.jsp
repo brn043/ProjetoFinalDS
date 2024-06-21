@@ -49,7 +49,7 @@
                         <div id="search-box">
                             <form action="./buscar" method="get">
                                 <input type="text" id="search-bar" name="busca" placeholder="Digite o que você deseja">
-                                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                                <button id="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
                             </form>
                         </div>
                         <div id="links">

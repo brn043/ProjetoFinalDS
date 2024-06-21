@@ -11,6 +11,10 @@ html {
     scroll-behavior: smooth;
 }
 
+input:focus{
+    outline: none;
+}
+
 /* estilização do header */
 
 @media screen and (min-width: 320px) and (max-width: 768px) {
@@ -92,7 +96,7 @@ html {
         overflow: hidden;
     }
 
-    .main-container-mobile .cta-mobile button {
+    .main-container-mobile .cta-mobile #cta_button {
         z-index: 8;
         width: 50%;
         height: 8%;
@@ -123,31 +127,17 @@ html {
         z-index: 8;
     }
 
-    #side-menu {
-        width: 70vw;
-        height: 100%;
-        z-index: 9;
-        background-color: #fff;
-        margin-right: 115px;
-        overflow: hidden;
+    #side-menu{
         display: none;
     }
 
-    #side-menu #container {
+    #side-menu.active #container {
         width: 100%;
         height: 100%;
         background: linear-gradient(to bottom, #fff, #2727270c);
         border: #f6f6f6;
         display: flex;
         flex-direction: column;
-        align-items: center;
-    }
-
-    #side-menu #search-box {
-        padding: 5% 0 0 0;
-        width: 100%;
-        height: 10%;
-        display: flex;
         align-items: center;
     }
 
@@ -162,40 +152,47 @@ html {
     }
 
     #side-menu.active {
+        width: 100vw;
+        height: 92vh;
+        z-index: 10;
+        background-color: #fff;
         display: flex;
         flex-direction: column;
         animation: open-slide 300ms linear;
+
     }
 
-    #side-menu.active #search-box form {
-        display: flex;
-        align-items: center;
-        width: 85%;
-        height: 90%;
-        margin: 0 auto;
-    }
-
-    #side-menu.active #search-box form input {
+    #side-menu.active #search-box{
         width: 100%;
-        height: 20%;
-        border: 1px solid #272727;
-        padding: 10px;
     }
 
-    #side-menu.active #search-box form button {
+    #side-menu.active #search-box form{
+        width: 80%;
+        display: flex;
+        margin: 10% auto;
+    }
+
+    #search-bar{
+        width: 100%;
+        height: 4vh;
+        padding: 0 2%;
+        border: 1px solid #272727;
+    }
+
+    #search-button{
         width: 20%;
-        height: 60%;
-        padding: 5px;
+        height: auto;
         background-color: #272727;
-        color: #fff;
         border: 1px solid #272727;
-        transition: background 300ms ease;
+        color: #fff;
+        transition: background 0.3s;
     }
 
-    #side-menu.active #search-box form button:hover {
+    #search-button:hover{
         background-color: #fff;
         color: #272727;
         border: 1px solid #272727;
+        cursor: pointer;
     }
 
     #side-menu.active #links {
@@ -203,7 +200,7 @@ html {
         flex-direction: column;
         width: 100%;
         height: 15%;
-        padding: 0 0 0 15%;
+        padding: 0 0 0 20%;
         justify-content: space-evenly;
     }
 

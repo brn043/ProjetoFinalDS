@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
-<html lang="pt-br">
+    <!DOCTYPE html>
+    <html lang="pt-br">
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -47,103 +47,61 @@
                 <div id="title">
                     <h1>Finalizar Compra</h1>
                 </div>
-                <div id="forms">
-                    <form action="" id="frmEndereco">
-                        <div id="form-title">
-                            <p>Informações para Entrega:</p>
-                        </div>
-                        <div id="blocks">
-                            <div id="l-block">
-                                <label for="nome">Nome:</label>
-                                <input class="inEndereco" id="nome" type="text" name="nome" placeholder="Digite aqui">
-                                <label for="telefone">Telefone:</label>
-                                <input class="inEndereco" type="text" name="telefone" id="telefone"
-                                       placeholder="Digite aqui">
-                                <label for="rua">Rua:</label>
-                                <input class="inEndereco" id="rua" type="text" name="rua" placeholder="Digite aqui">
-                                <label for="numero">Número:</label>
-                                <input class="inEndereco" id="numero" type="number" name="numero" min="1" placeholder="Digite aqui">
-                            </div>
-                            <div id="r-block">
-                                <label for="sobrenome">Sobrenome:</label>
-                                <input class="inEndereco" id="sobrenome" type="text" name="sobrenome" placeholder="Digite aqui">
-                                <label for="cep">Cep:</label>
-                                <input class="inEndereco" id="cep" type="text" name="cep" id="cep" placeholder="Digite aqui">
-                                <label for="bairro">Bairro:</label>
-                                <input class="inEndereco" id="bairro" type="text" name="bairro" placeholder="Digite aqui">
-                                <label for="complemento">Complemento:</label>
-                                <input class="inEndereco" id="complemento" type="text" name="complemento" placeholder="Digite aqui">
-                            </div>
-                        </div>
-                    </form>
-
-                    <form action="" id="frmEnderecoMobile">
-                        <div id="form-title">
-                            <p>Informações para Entrega:</p>
-                        </div>
-                        <div id="inputs">
-                            <label for="nome">Nome:</label>
-                            <input class="inEndereco" type="text" id="nomem" name="nome" placeholder="Digite aqui">
-                            <label for="sobrenome">Sobrenome:</label>
-                            <input class="inEndereco" type="text" id="sobrenomem" name="sobrenome" placeholder="Digite aqui">
-                            <label for="telefone">Telefone:</label>
-                            <input class="inEndereco" id="telefonem" type="text" name="telefone" id="telefone"
-                                   placeholder="Digite aqui">
-                            <label for="cep">Cep:</label>
-                            <input class="inEndereco" id="cepm" type="text" name="cep" id="cep" placeholder="Digite aqui">
-                            <label for="rua">Rua:</label>
-                            <input class="inEndereco" id="ruam" type="text" name="rua" placeholder="Digite aqui">
-                            <label for="bairro">Bairro:</label>
-                            <input class="inEndereco" id="bairrom" type="text" name="bairro" placeholder="Digite aqui">
-                            <label for="numero">Número:</label>
-                            <input class="inEndereco" id="numerom" type="number" name="numero" min="1" placeholder="Digite aqui">
-                            <label for="complemento">Complemento:</label>
-                            <input class="inEndereco" id="complemento" type="text" name="complemento" placeholder="Digite aqui">
-                        </div>
-                    </form>
-                    <div id="payment">
-                        <div id="payment-title">
-                            <p>Forma de Pagamento:</p>
-                        </div>
-                        <div id="payments-container">
-                            <div id="credito">
-                                <div><img src="" alt="bandeiras"></div>
-                                <div>
-                                    <p>Cartão de Crédito</p>
-                                </div>
-                                <div><button class="btn">></button></div>
-                            </div>
-                            <div class="frm" id="form-container-credit">
-                                <form action="" id="creditCardFrm">
-                                    <label id="label-numero" for="card-number">Número do Cartão:</label>
-                                    <input class="inCard" id="in-numero" type="text" placeholder="Digite Aqui">
-                                    <label id="label-data" for="data-venc">Data de Vencimento:</label>
-                                    <input class="inCard" id="in-data" type="text" placeholder="Digite Aqui">
-                                    <label id="label-cvc" for="cvc">CVC:</label>
-                                    <input class="inCard" id="in-cvc" type="text" placeholder="Digite Aqui">
-                                    <label id="label-nome" for="nome-cartao">Nome no Cartão:</label>
-                                    <input class="inCard" id="in-nome" type="text" placeholder="Digite Aqui">
-                                </form>
-                            </div>
-                            <div id="boleto">
-                                <div><img src="" alt="boleto"></div>
-                                <div>
-                                    <p>Boleto</p>
-                                </div>
-                                <div><button class="btn">></button></div>
-                            </div>
-                            <div id="pix">
-                                <div><img src="" alt="boleto"></div>
-                                <div>
-                                    <p>Pix</p>
-                                </div>
-                                <div><button class="btn">></button></div>
-                            </div>
-                        </div>
-                        <a id="btnConfirmar" href="./validarPagamento"><button type="submit">FINALIZAR
-                                COMPRA</button></a>
+                <form id="checkoutFrm" action="">
+                    <div id="frmEndereco">
+                        <div class="form-title">Informações de Entrega:</div>
+                        <span>Nome Completo:</span>
+                        <input type="text" class="input" id="nome" placeholder="Digite Aqui" required>
+                        <span>Cep:</span>
+                        <input type="text" class="input" id="cep" placeholder="Digite Aqui" required>
+                        <span>Rua:</span>
+                        <input type="text" class="input" id="rua" placeholder="Digite Aqui" required>
+                        <span>Número:</span>
+                        <input type="text" class="input" id="numero" placeholder="Digite Aqui" required>
+                        <span>Complemento:</span>
+                        <input type="text" class="input" id="Complemento" placeholder="Digite Aqui" required>
                     </div>
-                </div>
+                    <div id="pagamentos">
+                        <div class="form-title">Forma de Pagamento:</div>
+                        <div id="cartao-credito">
+                            <div><img src="" alt="bandeiras"></div>
+                            <div><span>Cartão de Crédito</span></div>
+                            <div><a class="paymentsBtn">></a></div>
+                        </div>
+                        <div id="form-cartao-credito" class="forms">
+                            <div>
+                                <span>Número do cartão:</span>
+                                <input class="input" id="numero-cartao" type="text">
+                            </div>
+                            <div id="mid">
+                                <div>
+                                    <span>Data de Vencimento:</span>
+                                    <input class="input" id="dataVencimento" type="text">
+                                </div>
+                                <div>
+                                    <span>CVC:</span>
+                                    <input class="input" id="cvc" type="text">
+                                </div>
+                            </div>
+                            <div>
+                                <span>Nome do titular:</span>
+                                <input class="input" id="nome-titular" type="text">
+                            </div>
+                        </div>
+                        <div id="boleto">
+                            <div><img src="" alt="boleto"></div>
+                            <div><span>Boleto</span></div>
+                            <div><a class="paymentsBtn">></a></div>
+                        </div>
+                        <div id="pix">
+                            <div><img src="" alt="pix"></div>
+                            <div><span>Pix</span></div>
+                            <div><a class="paymentsBtn">></a></div>
+                        </div>
+                    </div>
+                    <button type="submit">FINALIZAR COMPRA</button>
+                </form>
+
             </div>
         </main>
         <footer>
@@ -172,19 +130,27 @@
         </footer>
         <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"
-                integrity="sha512-0XDfGxFliYJPFrideYOoxdgNIvrwGTLnmK20xZbCAvPfLGQMzHUsaqZK8ZoH+luXGRxTrS46+Aq400nCnAT0/w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            integrity="sha512-0XDfGxFliYJPFrideYOoxdgNIvrwGTLnmK20xZbCAvPfLGQMzHUsaqZK8ZoH+luXGRxTrS46+Aq400nCnAT0/w=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script>
-            $('#telefone').mask('(00) 00000-0000');
             $('#cep').mask('00000-000');
-            $('#in-numero').mask('0000 0000 0000 0000');
-            $('#in-cvc').mask('000');
-            $('#in-data').mask('00/00');
+            $('#numero-cartao').mask('0000 0000 0000 0000');
+            $('#cvc').mask('000');
+            $('#dataVencimento').mask('00/00');
+            $('#numero').mask('00000');
             $(document).ready(function () {
-                $('#in-nome').on('input', function () {
+                $('#nome-titular').on('input', function () {
                     let inputNome = $(this).val();
                     // Remove caracteres não permitidos e transforma em maiúsculas
                     inputNome = inputNome.replace(/[^a-zA-Z\s]/g, '').toUpperCase();
+                    $(this).val(inputNome);
+                });
+            });
+            $(document).ready(function () {
+                $('#nome').on('input', function () {
+                    let inputNome = $(this).val();
+                    // Remove caracteres não permitidos e transforma em maiúsculas
+                    inputNome = inputNome.replace(/[^a-zA-Z\s]/g, '');
                     $(this).val(inputNome);
                 });
             });
@@ -193,4 +159,4 @@
     <script src="./js/search-bar.js" type="text/javascript"></script>
     <script src="./js/checkout.js" type="text/javascript"></script>
 
-</html>
+    </html>

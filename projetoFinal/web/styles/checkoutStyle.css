@@ -1,402 +1,135 @@
-@media screen and (min-width: 320px) and (max-width: 768px) {
+input:focus {
+    outline: none;
+}
 
-    #frmEndereco {
-        display: none;
+body {
+    background: linear-gradient(to bottom, #fff, #2727270c);
+}
+
+@media screen and (min-width: 320px) {
+    header{
+        height: 8vh;
     }
-
     main {
         width: 100vw;
         height: auto;
     }
-
-    .container {
-        width: 100vw;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    footer{
+        height: 40vh;
     }
 
     #title {
-        width: 100%;
         text-align: center;
-        font-size: 15px;
-        margin: 2% 0 5% 0;
+        margin: 5%;
+        font-size: 14px;
     }
 
-    #forms {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    #forms #frmEnderecoMobile {
-        width: 100%;
-        height: 55vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    #forms #frmEnderecoMobile #inputs {
-        width: 100%;
+    #checkoutFrm {
         display: grid;
-        align-items: center;
-        gap: 2px;
-        margin: 0 0 0 12%;
+        height: 100vh;
+        gap: 5px;
+        overflow: hidden;
     }
 
-    #forms #frmEnderecoMobile div input {
-        width: 80%;
+    .form-title {
+        text-align: center;
+        margin: 3% 0;
+    }
+
+    #checkoutFrm #frmEndereco {
+        display: grid;
+        width: 85%;
+        height: 40vh;
+        margin: 0 auto;
+        align-items: center;
+        gap: 5px;
+    }
+
+    #checkoutFrm #frmEndereco input {
         height: 2vh;
-    }
-
-    #forms #payment {
-        width: 100vw;
-        height: auto;
-        display: grid;
-        justify-items: center;
-        align-content: space-evenly;
-        gap: 20px;
-    }
-
-    #forms #payment #form-container-credit {
-        display: none;
-    }
-
-    #forms #payment #payments-container {
-        width: 90%;
-        margin: 0 5% 0 0;
-    }
-
-    #payment #credito,
-    #boleto,
-    #pix {
-        width: 100%;
-        height: 5vh;
-        background-color: #d9d9d9;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        align-items: center;
-        justify-content: space-around;
-    }
-
-    #credito,
-    #boleto,
-    #pix div {
-        font-size: 12px;
-        display: grid;
-        align-items: center;
-        justify-items: center;
-    }
-
-    #btnConfirmar button {
-        margin: 5% 20% 10% 0;
-        width: 80vw;
-        height: 6vh;
-        background-color: #272727;
-        color: #fff;
+        padding: 2%;
         border: 1px solid #272727;
     }
 
-    #btnConfirmar button:hover {
-        background-color: #fff;
-        color: #272727;
-        cursor: pointer;
-    }
-
-    #label-numero {
-        grid-area: label-numero;
-    }
-
-    #in-numero {
-        grid-area: in-numero;
-    }
-
-    #label-data {
-        grid-area: label-data;
-    }
-
-    #in-data {
-        grid-area: in-data;
-    }
-
-    #label-cvc {
-        grid-area: label-cvc;
-    }
-
-    #in-cvc {
-        grid-area: in-cvc;
-    }
-
-    #label-nome {
-        grid-area: label-nome;
-    }
-
-    #in-nome {
-        grid-area: in-nome;
-    }
-
-    #creditCardFrm {
-        overflow: hidden;
+    #pagamentos {
+        display: grid;
         width: 90%;
+        height: 50vh;
+        margin: 0 auto;
+        gap: 3px;
+        align-items: center;
+    }
+
+    #pagamentos #cartao-credito,
+    #boleto,
+    #pix {
+        height: 4vh;
+        background-color: #dfdfdf;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
-        padding: 5%;
-        grid-template-areas: "label-numero label-numero"
-            "in-numero in-numero"
-            "label-data label-cvc"
-            "in-data in-cvc"
-            "label-nome label-nome"
-            "in-nome in-nome";
-    }
-
-    #creditCardFrm label,
-    input {
-        padding: 1%;
-        overflow: hidden;
-    }
-
-    #form-container-credit {
-        display: none;
-    }
-
-    #forms #payment #form-container-credit.selected {
-        display: grid;
-        overflow: hidden;
-        width: 80%;
-        height: 64%;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
+        justify-items: center;
         font-size: 12px;
     }
 
-    #payments-container button {
-        border: none;
-        color: #272727;
-        background-color: transparent;
+    #pagamentos #cartao-credito,
+    #boleto,
+    #pix {
+        height: 100%;
     }
 
-    #payments-container button:hover {
+    #pagamentos #cartao-credito a,
+    #boleto a,
+    #pix a {
+        font-size: 12px;
+        border: none;
+        background-color: transparent;
+        color: #272727;
+    }
+
+    #pagamentos #cartao-credito a:hover,
+    #boleto a:hover,
+    #pix a:hover {
         opacity: 0.6;
         cursor: pointer;
     }
-}
 
-@media screen and (min-width: 1024px) {
-
-    #frmEnderecoMobile {
+    #form-cartao-credito{
         display: none;
     }
 
-    .container {
-        width: 100vw;
-        height: 88vh;
-        overflow: hidden;
-    }
-
-    #title {
-        width: 100%;
-        text-align: center;
-        padding: 2% 0;
-    }
-
-    #forms {
-        width: 100%;
-        height: 90%;
-        overflow: hidden;
-        display: flex;
-    }
-
-    #forms #frmEndereco {
-        width: 50%;
-        height: 100%;
-        border-right: 2px solid #272727;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    #frmEndereco #blocks {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-    }
-
-    #frmEndereco #blocks div {
-        display: flex;
-        flex-direction: column;
+    #form-cartao-credito.selected {
+        display: grid;
+        height: 65%;
+        grid-template-rows: 1fr 1fr 1fr;
+        padding: 5%;
+        background-color: #eeeeee;
+        font-size: 12px;
         gap: 5px;
-        margin-bottom: 20%;
     }
 
-    #frmEndereco #form-title {
-        width: 100%;
-        font-size: 22px;
-        font-weight: 200;
-        text-align: center;
-        margin: 5%;
-    }
-
-    #frmEndereco #blocks div input {
-        height: 2vh;
-        border: 1px solid #272727;
-        margin-bottom: 5%;
-        padding: 6px;
-    }
-
-    #frmEndereco #blocks label {
-        font-size: 20px;
-    }
-
-    #frmEndereco #blocks div input:focus {
-        outline: none;
-    }
-
-    /* métodos de pagamento */
-
-    #payment {
-        width: 50%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-    }
-
-    #payments-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        height: 55%;
+    #form-cartao-credito div {
+        display: grid;
         gap: 5px;
-        overflow: hidden;
-        margin: 5%;
     }
 
-    #payment-title {
-        width: 100%;
-        font-size: 22px;
-        font-weight: 200;
-        text-align: center;
-        margin: 5%;
+    #form-cartao-credito #mid {
+        display: flex;
+        gap: 5px;
     }
 
-    #payment #credito,
-    #boleto,
-    #pix {
-        width: 80%;
-        height: 20%;
-        background-color: #d9d9d9;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        align-items: center;
-        justify-content: space-around;
-    }
-
-    #credito,
-    #boleto,
-    #pix div {
-        display: grid;
-        align-items: center;
-        justify-items: center;
-    }
-
-    #payment .btn {
-        border: none;
-        font-size: 20px;
-        color: #272727;
-        background-color: transparent;
-    }
-
-    #payment .btn:hover {
-        cursor: pointer;
-        opacity: 0.5;
-    }
-
-    #label-numero {
-        grid-area: label-numero;
-    }
-
-    #in-numero {
-        grid-area: in-numero;
-    }
-
-    #label-data {
-        grid-area: label-data;
-    }
-
-    #in-data {
-        grid-area: in-data;
-    }
-
-    #label-cvc {
-        grid-area: label-cvc;
-    }
-
-    #in-cvc {
-        grid-area: in-cvc;
-    }
-
-    #label-nome {
-        grid-area: label-nome;
-    }
-
-    #in-nome {
-        grid-area: in-nome;
-    }
-
-    #creditCardFrm {
-        overflow: hidden;
-        width: 90%;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
-        margin: 0 5%;
-        grid-template-areas: "label-numero label-numero"
-            "in-numero in-numero"
-            "label-data label-cvc"
-            "in-data in-cvc"
-            "label-nome label-nome"
-            "in-nome in-nome";
-    }
-
-    #creditCardFrm label,
-    input {
-        padding: 1%;
-        overflow: hidden;
-    }
-
-    #form-container-credit {
-        display: none;
-    }
-
-    #form-container-credit.selected {
-        display: grid;
-        overflow: hidden;
-        width: 80%;
-        height: 100%;
-    }
-
-    #btnConfirmar{
-        overflow: hidden;
-    }
-
-    #btnConfirmar button {
-        width: 25vw;
-        height: 7vh;
+    #checkoutFrm button {
+        width: 85%;
+        margin: 0 auto;
+        height: 5vh;
         background-color: #272727;
         color: #fff;
-        border: none;
-        transition: background 0.3s;
-        margin-bottom: 20%;
-        overflow: hidden;
+        border: 1px solid #272727;
+        transition: 0.3s;
+        margin: 2% auto;
     }
 
-    #btnConfirmar button:hover {
-        border: 1px solid #272727;
+    #checkoutFrm button:hover {
         background-color: #fff;
         color: #272727;
         cursor: pointer;

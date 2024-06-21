@@ -48,6 +48,7 @@ html {
         color: rgba(27, 27, 27, 0.8);
         font-size: 15px;
         font-weight: 100;
+        display: flex;
     }
 
     .mobile-navbar a:hover {
@@ -63,13 +64,14 @@ html {
         align-items: center;
         justify-content: center;
         overflow: hidden;
-        padding: 20px;
+        padding: 25%;
     }
 
     .mobile-navbar .logo img {
-        width: 100%;
+        width: 60%;
         height: 40%;
         overflow: hidden;
+        margin: 0 auto;
     }
 
     main {
@@ -149,11 +151,12 @@ html {
         align-items: center;
     }
 
-    @keyframes open-slide{
-        from{
+    @keyframes open-slide {
+        from {
             transform: translateX(-100%);
         }
-        to{
+
+        to {
             transform: translateX(0%);
         }
     }
@@ -195,7 +198,7 @@ html {
         border: 1px solid #272727;
     }
 
-    #side-menu.active #links{
+    #side-menu.active #links {
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -204,7 +207,7 @@ html {
         justify-content: space-evenly;
     }
 
-    #side-menu.active #links a{
+    #side-menu.active #links a {
         text-decoration: none;
         color: #272727;
         font-style: italic;
@@ -212,7 +215,7 @@ html {
         font-weight: 200;
     }
 
-    #side-menu.active #links a:hover{
+    #side-menu.active #links a:hover {
         opacity: 0.6;
         cursor: pointer;
     }
@@ -261,7 +264,7 @@ html {
 
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
     header {
         width: 100vw;
         height: 12vh;
@@ -292,17 +295,153 @@ html {
     }
 
     .navbar .logo {
-        width: fit-content;
+        width: 60%;
         height: 12vh;
         overflow: hidden;
-        padding: 10px;
     }
 
     .logo img {
-        margin-top: 12%;
         width: max-content;
         overflow: hidden;
-        height: 50vh;
+        height: 8vh;
+    }
+
+    .navbar a {
+        text-decoration: none;
+        color: rgba(27, 27, 27, 0.8);
+        font-size: 15px;
+        font-weight: 100;
+    }
+
+    .navbar a:hover {
+        text-decoration: none;
+        color: rgba(27, 27, 27, 0.5);
+        font-weight: 400;
+    }
+
+    #search-bar.toogle {
+        display: none;
+    }
+
+    #search-bar.active {
+        display: flex;
+    }
+
+    #search-bar input {
+        width: 10vw;
+        color: #101010;
+        background-color: #fff;
+        border: 1px solid #272727;
+        padding: 10px;
+    }
+
+    /* dimensionamento da imagem cta */
+
+    .main-container-mobile {
+        display: none;
+    }
+
+    main {
+        width: 100vw;
+        height: 88vh;
+    }
+
+    .main-container {
+        width: 100vw;
+        height: 88vh;
+        display: block;
+        overflow: hidden;
+    }
+
+    .cta,
+    .cta img {
+        overflow: hidden;
+        width: 100vw;
+        height: 100vh;
+        z-index: 9;
+    }
+
+    /* estilização do footer */
+
+    .footer {
+        width: 100vw;
+        height: 40vh;
+        overflow: hidden;
+    }
+
+    .footer-container {
+        overflow: hidden;
+        width: 100vw;
+        height: 40vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        background-color: black;
+        background: linear-gradient(to top, black, #101010);
+    }
+
+    .footer-container div {
+        height: auto;
+        width: 20%;
+        text-align: center;
+        line-height: 30px;
+    }
+
+    .footer-container a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .footer-container p {
+        color: #fff;
+    }
+
+    .credits,
+    .contact {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    header {
+        width: 100vw;
+        height: 12vh;
+    }
+
+    .mobile-navbar {
+        display: none;
+    }
+
+    .navbar {
+        position: fixed;
+        width: 100vw;
+        height: 12vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        background-color: #fff;
+        z-index: 10;
+    }
+
+    .navbar div {
+        width: 500px;
+        height: 12vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+    }
+
+    .navbar .logo {
+        width: 60%;
+        height: 12vh;
+        overflow: hidden;
+    }
+
+    .logo img {
+        width: max-content;
+        overflow: hidden;
+        height: 8vh;
     }
 
     .navbar a {

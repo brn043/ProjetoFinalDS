@@ -18,7 +18,7 @@
                     <a href="./sobreController">SOBRE</a>
                 </div>
                 <div class="logo">
-                    <a href="IndexController"><img src="assets/less-logo.png" alt=""></a>
+                    <a href="IndexController"><img src="assets/less-logo-mobile.png" alt=""></a>
                 </div>
                 <div class="links-user">
                     <form id="search-bar" class="toogle" action="./buscar" method="get">
@@ -47,13 +47,14 @@
                 <div id="title">
                     <h1>Finalizar Compra</h1>
                 </div>
-                <form id="checkoutFrm" action="">
+                <form id="checkoutFrm" action="./validarPagamento">
+                    <div id="forms-container">
                     <div id="frmEndereco">
                         <div class="form-title">Informações de Entrega:</div>
                         <span>Nome Completo:</span>
                         <input type="text" class="input" id="nome" placeholder="Digite Aqui" required>
                         <span>Cep:</span>
-                        <input type="text" class="input" id="cep" placeholder="Digite Aqui" required>
+                        <input type="text" class="input" minlength="8" id="cep" placeholder="Digite Aqui" required>
                         <span>Rua:</span>
                         <input type="text" class="input" id="rua" placeholder="Digite Aqui" required>
                         <span>Número:</span>
@@ -71,7 +72,7 @@
                         <div id="form-cartao-credito" class="forms">
                             <div>
                                 <span>Número do cartão:</span>
-                                <input class="input" id="numero-cartao" type="text">
+                                <input minlength="16" class="input" id="numero-cartao" type="text">
                             </div>
                             <div id="mid">
                                 <div>
@@ -80,7 +81,7 @@
                                 </div>
                                 <div>
                                     <span>CVC:</span>
-                                    <input class="input" id="cvc" type="text">
+                                    <input minlength="3" class="input" id="cvc" type="text">
                                 </div>
                             </div>
                             <div>
@@ -99,7 +100,10 @@
                             <div><a class="paymentsBtn">></a></div>
                         </div>
                     </div>
+                </div>
+                <div id="btnFinalizar">
                     <button type="submit">FINALIZAR COMPRA</button>
+                </div>
                 </form>
 
             </div>

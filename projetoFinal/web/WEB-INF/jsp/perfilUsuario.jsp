@@ -19,7 +19,7 @@
                     <a href="./SobreController">SOBRE</a>
                 </div>
                 <div class="logo">
-                    <a href="IndexController"><img src="assets/less-logo.png" alt=""></a>
+                    <a href="IndexController"><img src="assets/less-logo-mobile.png" alt=""></a>
                 </div>
                 <div class="links-user">
                     <form id="search-bar" class="toogle" action="./buscar" method="get">

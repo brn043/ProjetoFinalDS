@@ -20,11 +20,11 @@
                         <a href="./sobreController">SOBRE</a>
                     </div>
                     <div class="logo">
-                        <a href="IndexController"><img src="assets/less-logo.png" alt=""></a>
+                        <a href="IndexController"><img src="assets/less-logo-mobile.png" alt=""></a>
                     </div>
                     <div class="links-user">
                         <form id="search-bar" class="toogle" action="./buscar" method="get">
-                            <input type="text" name="busca" placeholder="Digite o que você deseja">
+                            <input type="text" name="busca" placeholder="Digite o que vocï¿½ deseja">
                         </form>
                         <a id="search-button"><i class="fa-solid fa-magnifying-glass"></i></a>
                         <a href="./LoginController"><i class="fa-solid fa-user"></i></a>
@@ -49,7 +49,7 @@
                     <div id="container">
                         <div id="search-box">
                             <form action="./buscar" method="get">
-                                <input type="text" id="search-bar" name="busca" placeholder="Digite o que você deseja">
+                                <input type="text" id="search-bar" name="busca" placeholder="Digite o que vocï¿½ deseja">
                                 <button><i class="fa-solid fa-magnifying-glass"></i></button>
                             </form>
                         </div>
@@ -70,10 +70,10 @@
                                 <select name="categoria">
                                     <option value="0">SELECIONE...</option>
                                     <option value="1">CAMISETAS</option>
-                                    <option value="2">CALÇAS</option>
+                                    <option value="2">CALï¿½AS</option>
                                     <option value="3">BERMUDAS</option>
                                     <option value="4">MOLETOM</option>
-                                    <option value="5">ACESSÓRIOS</option>
+                                    <option value="5">ACESSï¿½RIOS</option>
                                 </select>
                                 <button>FILTRAR</button>
                             </form>
@@ -100,7 +100,7 @@
                 <div class="footer-container">
                     <div class="infos">
                         <p>
-                            LESS S.A © 2024.
+                            LESS S.A ï¿½ 2024.
                             <br>
                             todos os direitos reservados
                             <br>

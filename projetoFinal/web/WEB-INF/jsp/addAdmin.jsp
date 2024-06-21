@@ -20,11 +20,11 @@
                         <a href="./sobreController">SOBRE</a>
                     </div>
                     <div class="logo">
-                        <a href="IndexController"><img src="assets/less-logo.png" alt=""></a>
+                        <a href="IndexController"><img src="assets/less-logo-mobile.png" alt=""></a>
                     </div>
                     <div class="links-user">
                         <form id="search-bar" class="toogle" action="./buscar" method="get">
-                            <input type="text" name="busca" placeholder="Digite o que você deseja">
+                            <input type="text" name="busca" placeholder="Digite o que vocï¿½ deseja">
                         </form>
                         <a id="search-button"><i class="fa-solid fa-magnifying-glass"></i></a>
                         <a href="./LoginController"><i class="fa-solid fa-user"></i></a>
@@ -76,7 +76,7 @@
                 <div class="footer-container">
                     <div class="infos">
                         <p>
-                            LESS S.A © 2024.
+                            LESS S.A ï¿½ 2024.
                             <br>
                             todos os direitos reservados
                             <br>

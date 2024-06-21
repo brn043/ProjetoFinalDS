@@ -15,9 +15,9 @@ import java.sql.SQLException;
  */
 public class Conexao {
 
-    private static final String url = "jdbc:mysql://db4free.net:3306/db_less?useSSL=false";
-    private static final String user = "brunosouza1325";
-    private static final String password = "gt26cumall";
+    private static final String url = "jdbc:mysql://localhost:3306/projetofinal?useSSL=false";
+    private static final String user = "root";
+    private static final String password = "root";
     public static final String driver = "com.mysql.cj.jdbc.Driver";
 
     public static Connection conectar() throws SQLException {

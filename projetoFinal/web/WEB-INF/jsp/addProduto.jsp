@@ -1,6 +1,6 @@
 <%-- Document : controleAdmin Created on : 30/04/2024, 14:12:12 Author : Senai --%>
-<%@page charset = "UTF-8"%>
-<%@page language="java" contentType="text/html"  pageEncoding = "ISO-8859-1"%>
+<%@ page pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" %>
 <!DOCTYPE html>
 
 <html lang="pt-br">
@@ -75,9 +75,9 @@
                         <option value="4">GG</option>
                     </select>
                     <p>Preço:</p>
-                    <input type="text" id="inPreco" name="preco" step="0.01" min="0.00" placeholder="Pre�o do Produto">
+                    <input type="text" id="inPreco" name="preco" step="0.01" min="0.00" placeholder="Preço do Produto">
                     <p>Descrição:</p>
-                    <input type="text" id="inDesc" name="desc" placeholder="Escreva uma breve descri��o do produto">
+                    <input type="text" id="inDesc" name="desc" placeholder="Escreva uma breve descrição do produto">
                     <p>Imagem:</p>
                     <input type="file" name="imagem" placeholder="Selecione a imgem do produto">
                     <button type="submit">ADICIONAR</button>

@@ -1,5 +1,5 @@
-   
-    <%@page language="java" contentType="text/html"  pageEncoding = "ISO-8859-1"%>
+<%@ page pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; pageEncoding=ISO-8859-1" %>
         <!DOCTYPE html>
         <html>
 

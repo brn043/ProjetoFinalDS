@@ -1,0 +1,419 @@
+input:focus {
+    outline: none;
+}
+
+body {
+    background: linear-gradient(to bottom, #fff, #2727270c);
+}
+
+#btnFinalizar{
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    header {
+        height: 8vh;
+    }
+
+    main {
+        width: 100vw;
+        height: auto;
+    }
+
+    footer {
+        height: 40vh;
+    }
+
+    #title {
+        text-align: center;
+        margin: 5%;
+        font-size: 14px;
+    }
+
+    #checkoutFrm {
+        display: grid;
+        height: 100vh;
+        gap: 5px;
+        overflow: hidden;
+    }
+
+    .form-title {
+        text-align: center;
+        margin: 3% 0;
+    }
+
+    #checkoutFrm #frmEndereco {
+        display: grid;
+        width: 85%;
+        height: 40vh;
+        margin: 0 auto;
+        align-items: center;
+        gap: 5px;
+    }
+
+    #checkoutFrm #frmEndereco input {
+        height: 45%;
+        padding: 1%;
+        border: 1px solid #272727;
+    }
+
+    #pagamentos {
+        display: grid;
+        width: 90%;
+        height: 50vh;
+        margin: 0 auto;
+        gap: 3px;
+        align-items: center;
+    }
+
+    #pagamentos #cartao-credito,
+    #boleto,
+    #pix {
+        height: 4vh;
+        background-color: #dfdfdf;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
+        justify-items: center;
+        font-size: 12px;
+    }
+
+    #pagamentos #cartao-credito,
+    #boleto,
+    #pix {
+        height: 100%;
+    }
+
+    #pagamentos #cartao-credito a,
+    #boleto a,
+    #pix a {
+        font-size: 12px;
+        border: none;
+        background-color: transparent;
+        color: #272727;
+    }
+
+    #pagamentos #cartao-credito a:hover,
+    #boleto a:hover,
+    #pix a:hover {
+        opacity: 0.6;
+        cursor: pointer;
+    }
+
+    #form-cartao-credito {
+        display: none;
+    }
+
+    #form-cartao-credito.selected {
+        display: grid;
+        height: 65%;
+        grid-template-rows: 1fr 1fr 1fr;
+        padding: 5%;
+        background-color: #eeeeee;
+        font-size: 12px;
+        gap: 5px;
+    }
+
+    #form-cartao-credito div {
+        display: grid;
+        gap: 5px;
+    }
+
+    #form-cartao-credito #mid {
+        display: flex;
+        gap: 5px;
+    }
+
+    #checkoutFrm #btnFinalizar button {
+        width: 85vw;
+        height: 5vh;
+        background-color: #272727;
+        color: #fff;
+        border: 1px solid #272727;
+        transition: 0.3s;
+        margin: 2% auto;
+    }
+
+    #checkoutFrm #btnFinalizar button:hover {
+        background-color: #fff;
+        color: #272727;
+        cursor: pointer;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    header {
+        height: 8vh;
+    }
+
+    main {
+        width: 100vw;
+        height: auto;
+    }
+
+    footer {
+        height: 40vh;
+    }
+
+    #title {
+        text-align: center;
+        margin: 5%;
+        font-size: 14px;
+    }
+
+    #checkoutFrm {
+        display: grid;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .form-title {
+        text-align: center;
+        margin: 3% 0;
+    }
+
+    #checkoutFrm #frmEndereco {
+        display: grid;
+        width: 70%;
+        height: 41vh;
+        margin: 0 auto;
+        align-items: center;
+        gap: 5px;
+    }
+
+    #checkoutFrm #frmEndereco input {
+        height: 40%;
+        padding: 1%;
+        border: 1px solid #272727;
+    }
+
+    #pagamentos {
+        display: grid;
+        width: 70%;
+        height: 50vh;
+        margin: 0 auto;
+        gap: 3px;
+        align-items: center;
+    }
+
+    #pagamentos #cartao-credito,
+    #boleto,
+    #pix {
+        height: 4vh;
+        background-color: #dfdfdf;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
+        justify-items: center;
+        font-size: 12px;
+    }
+
+    #pagamentos #cartao-credito,
+    #boleto,
+    #pix {
+        height: 100%;
+    }
+
+    #pagamentos #cartao-credito a,
+    #boleto a,
+    #pix a {
+        font-size: 12px;
+        border: none;
+        background-color: transparent;
+        color: #272727;
+    }
+
+    #pagamentos #cartao-credito a:hover,
+    #boleto a:hover,
+    #pix a:hover {
+        opacity: 0.6;
+        cursor: pointer;
+    }
+
+    #form-cartao-credito {
+        display: none;
+    }
+
+    #form-cartao-credito.selected {
+        display: grid;
+        height: 65%;
+        grid-template-rows: 1fr 1fr 1fr;
+        padding: 5%;
+        background-color: #eeeeee;
+        font-size: 12px;
+        gap: 5px;
+    }
+
+    #form-cartao-credito div {
+        display: grid;
+        gap: 5px;
+    }
+
+    #form-cartao-credito #mid {
+        display: flex;
+        gap: 5px;
+    }
+
+    #checkoutFrm #btnFinalizar button {
+        width: 70vw;
+        height: 5vh;
+        background-color: #272727;
+        color: #fff;
+        border: 1px solid #272727;
+        transition: 0.3s;
+        margin: 2% auto;
+    }
+
+    #checkoutFrm #btnFinalizar button:hover {
+        background-color: #fff;
+        color: #272727;
+        cursor: pointer;
+    }
+
+}
+
+@media screen and (min-width: 1024px) {
+    header {
+        height: 12vh;
+    }
+
+    main {
+        width: 100vw;
+        height: auto;
+    }
+
+    .container {
+        width: 100vw;
+        height: auto;
+    }
+
+    footer {
+        height: 40vh;
+    }
+
+    .form-title {
+        margin: 2% auto;
+    }
+
+    #title {
+        text-align: center;
+        margin: 5%;
+        font-size: 14px;
+    }
+
+    #checkoutFrm {
+        display: grid;
+        height: 70vh;
+        align-content: space-around;
+    }
+
+    #forms-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100vw;
+        height: 40vh;
+        justify-items: center;
+    }
+
+    #frmEndereco {
+        display: grid;
+        width: 40vw;
+        align-items: center;
+        gap: 5px;
+    }
+
+    #frmEndereco input {
+        height: 22%;
+        padding: 2%;
+        border: 1px solid #272727;
+    }
+
+    #pagamentos {
+        display: grid;
+        width: 70vh;
+        gap: 3px;
+        align-items: center;
+    }
+
+    #pagamentos #cartao-credito,
+    #boleto,
+    #pix {
+        height: 4vh;
+        background-color: #dfdfdf;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
+        justify-items: center;
+        font-size: 12px;
+    }
+
+    #pagamentos #cartao-credito,
+    #boleto,
+    #pix {
+        height: 100%;
+    }
+
+    #pagamentos #cartao-credito a,
+    #boleto a,
+    #pix a {
+        font-size: 12px;
+        border: none;
+        background-color: transparent;
+        color: #272727;
+    }
+
+    #pagamentos #cartao-credito a:hover,
+    #boleto a:hover,
+    #pix a:hover {
+        opacity: 0.6;
+        cursor: pointer;
+    }
+
+    #form-cartao-credito {
+        display: none;
+    }
+
+    #form-cartao-credito.selected {
+        display: grid;
+        height: 75%;
+        grid-template-rows: 1fr 1fr 1fr;
+        padding: 5% 18%;
+        background-color: #eeeeee;
+        font-size: 12px;
+        gap: 5px;
+    }
+
+    #form-cartao-credito div {
+        display: grid;
+        gap: 5px;
+    }
+
+    #form-cartao-credito #mid {
+        display: flex;
+        gap: 5px;
+    }
+
+    #btnFinalizar {
+        width: 100vw;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    #checkoutFrm #btnFinalizar button {
+        width: 40vw;
+        height: 7vh;
+        background-color: #272727;
+        color: #fff;
+        border: 1px solid #272727;
+        transition: 0.3s;
+        margin: 2% auto;
+    }
+
+    #checkoutFrm #btnFinalizar button:hover {
+        background-color: #fff;
+        color: #272727;
+        cursor: pointer;
+    }
+}

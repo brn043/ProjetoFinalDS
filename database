@@ -1,0 +1,277 @@
+create database projetoFinal;
+use projetoFinal;
+
+SET FOREIGN_KEY_CHECKS=0;
+
+create table usuarios(
+	id_usuario int auto_increment primary key,
+    nome varchar(45) not null,
+    email varchar(45) not null,
+    senha varchar(45) not null,
+    cpf varchar(15) unique not null,
+    telefone varchar(20),
+	acesso int default 2,
+    dataNascimento date not null,
+    endereco int,
+    Foreign Key (endereco) references endereco(id_endereco)
+);
+
+insert into usuarios(nome, email, senha, cpf, telefone, acesso, dataNascimento) values ('admin', 'admin@gmail.com', '123', '123.456.789-10', '(43)91234-5678', '1', '2000-01-01');
+
+create table endereco(
+	id_endereco int auto_increment primary key,
+    id_cliente int,
+    Foreign key (id_cliente) references usuarios(id_usuario),
+    cep char(10),
+    rua varchar(45),
+    numero varchar(10),
+    bairro varchar(45),
+    complemento tinytext
+);
+
+SET FOREIGN_KEY_CHECKS=1;
+
+create table tamanhos(
+	id_tamanho int auto_increment primary key,
+	nome varchar(45)
+);
+
+INSERT INTO tamanhos (nome) VALUES ('P');
+INSERT INTO tamanhos (nome) VALUES ('M');
+INSERT INTO tamanhos (nome) VALUES ('G');
+INSERT INTO tamanhos (nome) VALUES ('GG');
+
+create table categoria(
+	id_categoria int auto_increment primary key,
+    nome varchar(45)
+);
+
+INSERT INTO categoria (nome) VALUES ('Camisetas'); 
+INSERT INTO categoria (nome) VALUES ('Calça'); 
+INSERT INTO categoria (nome) VALUES ('Bermudas'); 
+INSERT INTO categoria (nome) VALUES ('Moletom'); 
+INSERT INTO categoria (nome) VALUES ('Acessórios');
+
+create table produtos(
+	image varchar(45),
+	id_produto int auto_increment primary key,
+    nome varchar(45) not null,
+    categoria int,
+    Foreign key (categoria) references categoria(id_categoria),    
+    quantidade int not null,
+    tamanho int,
+    Foreign key (tamanho) references tamanhos(id_tamanho),
+    preco float not null,
+    descricao tinytext
+);
+
+create table estoque(
+	id_estoque int auto_increment primary key,
+    nome varchar(45),
+    tamanho int,
+    Foreign key (tamanho) references tamanhos(id_tamanho),
+    quantidade int
+);
+
+
+
+
+-- Procedimento inserir na tabela produtos --
+
+DELIMITER //
+
+CREATE PROCEDURE inserir_produto(
+    IN p_image VARCHAR(45),
+    IN p_nome VARCHAR(45),
+    IN p_categoria INT,
+    IN p_quantidade INT,
+    IN p_tamanho INT,
+    IN p_preco FLOAT,
+    IN p_descricao TINYTEXT
+)
+BEGIN
+    DECLARE existing_product_id INT;
+    DECLARE existing_product_name VARCHAR(45);
+    DECLARE existing_quantity INT;
+    
+    -- Verifica se já existe um produto com o mesmo nome e categoria
+    SELECT id_produto, nome INTO existing_product_id, existing_product_name
+    FROM produtos
+    WHERE nome = p_nome AND categoria = p_categoria;
+    
+    IF (existing_product_id) IS NOT NULL THEN
+        -- Produto já existe, verifica o estoque
+        SELECT quantidade INTO existing_quantity
+        FROM estoque
+        WHERE nome = existing_product_name AND tamanho = p_tamanho;
+        
+        IF (existing_quantity) IS NOT NULL THEN
+            -- Tamanho já existe no estoque, incrementa a quantidade
+            UPDATE estoque
+            SET quantidade = existing_quantity + p_quantidade
+            WHERE nome = existing_product_name AND tamanho = p_tamanho;
+        ELSE
+            -- Tamanho não existe no estoque, insere o novo tamanho
+            INSERT INTO estoque (nome, tamanho, quantidade)
+            VALUES (p_nome, p_tamanho, p_quantidade);
+        END IF;
+        
+        -- Atualiza a quantidade total do produto na tabela produtos
+        UPDATE produtos
+        SET quantidade = quantidade + p_quantidade
+        WHERE nome = existing_product_name;
+    ELSE
+        -- Produto não existe, insere o novo produto
+        INSERT INTO produtos (image, nome, categoria, quantidade, tamanho, preco, descricao)
+        VALUES (p_image, p_nome, p_categoria, p_quantidade, p_tamanho, p_preco, p_descricao);
+        
+        -- Insere o novo produto no estoque
+        INSERT INTO estoque (nome, tamanho, quantidade)
+        VALUES (p_nome, p_tamanho, p_quantidade);
+    END IF;
+END;
+//
+
+DELIMITER ;
+
+-- Trigger para atualizar a tabela estoque
+
+DELIMITER //
+
+CREATE TRIGGER atualizar_quantidade_no_estoque
+AFTER UPDATE ON produtos
+FOR EACH ROW
+BEGIN
+    DECLARE existing_quantity INT;
+    
+    -- Verifica se já existe o tamanho no estoque
+    SELECT quantidade INTO existing_quantity
+    FROM estoque
+    WHERE nome = NEW.nome AND tamanho = NEW.tamanho;
+    
+    IF (existing_quantity) IS NOT NULL THEN
+        -- Tamanho já existe no estoque, atualiza a quantidade
+        UPDATE estoque
+        SET quantidade = NEW.quantidade
+        WHERE nome = NEW.nome AND tamanho = NEW.tamanho;
+    ELSE
+        -- Tamanho não existe no estoque, insere o novo tamanho
+        INSERT INTO estoque (produto, nome, tamanho, quantidade)
+        VALUES (NEW.id_produto, NEW.nome, NEW.tamanho, NEW.quantidade);
+    END IF;
+END;
+//
+
+DELIMITER ;
+
+
+create table carrinho(
+	image varchar(45),
+	id_compra int auto_increment primary key,
+    produto varchar(45) not null,
+    preco float not null,
+    quantidade int,
+    tamanho varchar(5),
+    total float not null,
+    id_cliente int,
+	Foreign key (id_cliente) references usuarios(id_usuario)
+);
+
+select * from carrinho;
+
+create table historico(
+	image varchar(45),
+    id_pedido int auto_increment primary key,
+    produto varchar(45),
+    preco float,
+    quantidade int,
+    total float,
+    dataPedido date,
+	situacao varchar(45),
+    id_cliente int,
+	Foreign key (id_cliente) references usuarios(id_usuario)
+);
+
+DELIMITER //
+
+CREATE PROCEDURE verificar_estoque(
+    IN p_nome_produto VARCHAR(45),
+    IN p_nome_tamanho VARCHAR(45)
+)
+BEGIN
+    SELECT 
+        e.quantidade
+    FROM 
+        estoque e
+    INNER JOIN 
+        tamanhos t ON e.tamanho = t.id_tamanho
+    WHERE 
+        e.nome = p_nome_produto AND t.nome = p_nome_tamanho;
+END;
+//
+
+DELIMITER ;
+
+DELIMITER //
+
+CREATE TRIGGER registrar_no_historico
+AFTER DELETE ON carrinho
+FOR EACH ROW
+BEGIN
+    DECLARE tamanho_id INT;
+    
+    -- Verifica se o delete possui id do cliente
+    IF OLD.id_cliente IS NOT NULL THEN
+        
+        -- Obter o id_tamanho correspondente ao nome do tamanho
+        SELECT id_tamanho INTO tamanho_id
+        FROM tamanhos
+        WHERE nome = OLD.tamanho;
+    
+        -- Registrar no histórico
+        INSERT INTO historico (
+            image, 
+            produto, 
+            preco, 
+            quantidade, 
+            total, 
+            dataPedido, 
+            situacao, 
+            id_cliente
+        ) VALUES (
+            OLD.image, 
+            OLD.produto, 
+            OLD.preco, 
+            OLD.quantidade, 
+            OLD.total, 
+            current_date, 
+            'Em separação', 
+            OLD.id_cliente
+        );
+    
+        -- Subtrair quantidade do estoque
+        UPDATE estoque
+        SET quantidade = quantidade - OLD.quantidade
+        WHERE nome = OLD.produto AND tamanho = tamanho_id;
+        
+        -- Subtrair quantidade dos produtos
+        UPDATE produtos
+        SET quantidade = quantidade - OLD.quantidade
+        WHERE nome = OLD.produto AND tamanho = tamanho_id;
+        
+        -- Verificar se a quantidade no estoque é zero e deletar do estoque e produtos
+        IF (SELECT quantidade FROM estoque WHERE nome = OLD.produto AND tamanho = tamanho_id) <= 0 THEN
+            DELETE FROM estoque WHERE nome = OLD.produto AND tamanho = tamanho_id;
+            DELETE FROM produtos WHERE nome = OLD.produto AND tamanho = tamanho_id;
+        END IF;
+    END IF;
+END;
+//
+
+DELIMITER ;
+
+select * from usuarios;
+select * from produtos;
+select * from estoque;
+select * from historico;
+

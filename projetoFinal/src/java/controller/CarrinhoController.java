@@ -7,7 +7,9 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -71,14 +73,17 @@ public class CarrinhoController extends HttpServlet {
 
                 List<Carrinho> produto = cDao.ler(Usuarios.getId_usuario());
                 float total_carrinho = cDao.somaTotal(Usuarios.getId_usuario());
+                Locale moedaBr = new Locale("pt", "BR");
+                NumberFormat valorBr = NumberFormat.getCurrencyInstance(moedaBr);
+                String total_cart = (valorBr.format(total_carrinho));
 
-                request.setAttribute("total", total_carrinho);
+                request.setAttribute("total", total_cart);
                 request.setAttribute("produtos", produto);
                 String nextPage = "/WEB-INF/jsp/carrinho.jsp";
 
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
                 dispatcher.forward(request, response);
-            } else if (cart.getId_compra() > 0 & cart.getQuantidade() >= quantidade_disponivel) {            
+            } else if (cart.getId_compra() > 0 & cart.getQuantidade() >= quantidade_disponivel) {
             } else {
                 cart.setImg(request.getParameter("img"));
                 cart.setProduto(request.getParameter("produto"));
@@ -109,8 +114,11 @@ public class CarrinhoController extends HttpServlet {
 
                 List<Carrinho> produto = cDao.ler(Usuarios.getId_usuario());
                 float total_carrinho = cDao.somaTotal(Usuarios.getId_usuario());
+                Locale moedaBr = new Locale("pt", "BR");
+                NumberFormat valorBr = NumberFormat.getCurrencyInstance(moedaBr);
+                String total_cart = (valorBr.format(total_carrinho));
 
-                request.setAttribute("total", total_carrinho);
+                request.setAttribute("total", total_cart);
                 request.setAttribute("produtos", produto);
             }
 
@@ -132,8 +140,11 @@ public class CarrinhoController extends HttpServlet {
 
             List<Carrinho> produto = cDao.ler(Usuarios.getId_usuario());
             float total_carrinho = cDao.somaTotal(Usuarios.getId_usuario());
+            Locale moedaBr = new Locale("pt", "BR");
+            NumberFormat valorBr = NumberFormat.getCurrencyInstance(moedaBr);
+            String total_cart = (valorBr.format(total_carrinho));
 
-            request.setAttribute("total", total_carrinho);
+            request.setAttribute("total", total_cart);
             request.setAttribute("produtos", produto);
             String nextPage = "/WEB-INF/jsp/carrinho.jsp";
 
@@ -141,13 +152,16 @@ public class CarrinhoController extends HttpServlet {
             dispatcher.forward(request, response);
 
         } else {
+            Locale moedaBr = new Locale("pt", "BR");
+            NumberFormat valorBr = NumberFormat.getCurrencyInstance(moedaBr);
             List<Carrinho> produto = cDao.ler(Usuarios.getId_usuario());
             request.setAttribute("produtos", produto);
             float total_carrinho = cDao.somaTotal(Usuarios.getId_usuario());
-            request.setAttribute("total", total_carrinho);
+
+            String total_cart = (valorBr.format(total_carrinho));
+            request.setAttribute("total", total_cart);
 
             String nextPage = "/WEB-INF/jsp/carrinho.jsp";
-
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         }

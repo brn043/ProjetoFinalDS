@@ -54,19 +54,18 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 20px;
     }
 
     .mobile-navbar .logo img {
         width: 100%;
-        height: 8vh;
+        height: 5vh;
         overflow: hidden;
 
     }
 
     #side-menu {
         width: 70vw;
-        height: 100vh;
+        height: 100%;
         z-index: 9;
         background-color: #fff;
         margin-right: 115px;
@@ -83,13 +82,39 @@
         flex-direction: column;
         align-items: center;
     }
-
-    #side-menu #search-box {
-        padding: 5% 0 0 0;
+    
+    #side-menu.active #search-box{
         width: 100%;
-        height: 10%;
+    }
+
+    #side-menu.active #search-box form{
+        width: 80%;
         display: flex;
-        align-items: center;
+        flex-direction: row;
+        margin: 10% auto;
+    }
+
+    .search-bar{
+        width: 100%;
+        height: 4vh;
+        padding: 0 2%;
+        border: 1px solid #272727;
+    }
+
+    #search-button{
+        width: 20%;
+        height: auto;
+        background-color: #272727;
+        border: 1px solid #272727;
+        color: #fff;
+        transition: background 0.3s;
+    }
+
+    #search-button:hover{
+        background-color: #fff;
+        color: #272727;
+        border: 1px solid #272727;
+        cursor: pointer;
     }
 
     @keyframes open-slide{
@@ -109,14 +134,6 @@
         z-index: 9;
     }
 
-    #side-menu.active #search-box form {
-        display: flex;
-        align-items: center;
-        width: 85%;
-        height: 90%;
-        margin: 0 auto;
-    }
-
     #side-menu.active #search-box form input {
         width: 100%;
         height: 20%;
@@ -126,7 +143,6 @@
 
     #side-menu.active #search-box form button {
         width: 20%;
-        height: 60%;
         padding: 5px;
         background-color: #272727;
         color: #fff;
@@ -138,15 +154,6 @@
         background-color: #fff;
         color: #272727;
         border: 1px solid #272727;
-    }
-
-    #side-menu.active #links{
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        height: 15%;
-        padding: 0 0 0 15%;
-        justify-content: space-evenly;
     }
 
     #side-menu.active #links a{
@@ -174,7 +181,6 @@
         flex-direction: column;
         align-items: center;
         background: linear-gradient(to right, #fff, #2727270c);
-        z-index: 8;
     }
 
     .products-container {
@@ -256,6 +262,10 @@
         margin: 5%;
         position: relative;
         z-index: 8;
+    }
+
+    #container-products.toggle{
+        display: none;
     }
 
 }

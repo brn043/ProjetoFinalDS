@@ -53,6 +53,20 @@
                         <p>Less Oficial. Fundada em 2024, vem com o objetivo de fornecer para o público o melhor do vestuário streetwear.</p>
                     </div>
                 </div>
+                <div id="side-menu">
+                    <div id="container">
+                        <div id="search-box">
+                            <form class="search-form" action="./buscar" method="get">
+                                <input type="text" class="search-bar" name="busca" placeholder="Digite o que você deseja">
+                                <button id="search-button" ><i class="fa-solid fa-magnifying-glass"></i></button>
+                            </form>
+                        </div>
+                        <div id="links">
+                            <a href="./ListarProdutosController">SHOP</a>
+                            <a href="./SobreController">SOBRE</a>
+                        </div>
+                    </div>
+                </div>
             </main>
             <footer>
                 <div class="footer-container">

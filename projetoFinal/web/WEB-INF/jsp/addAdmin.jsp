@@ -70,6 +70,20 @@
                         </div>
                         <button type="submit">ADICIONAR</button>
                     </form>
+                    <div id="side-menu">
+                        <div id="container">
+                            <div id="search-box">
+                                <form class="search-form" action="./buscar" method="get">
+                                    <input type="text" class="search-bar" name="busca" placeholder="Digite o que você deseja">
+                                    <button id="search-button" ><i class="fa-solid fa-magnifying-glass"></i></button>
+                                </form>
+                            </div>
+                            <div id="links">
+                                <a href="./ListarProdutosController">SHOP</a>
+                                <a href="./SobreController">SOBRE</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </main>
             <footer>

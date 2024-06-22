@@ -78,6 +78,40 @@ body {
         display: flex;
         align-items: center;
         justify-content: space-around;
+        position: absolute;
+        z-index: 8;
+    }
+
+    #side-menu{
+        display: none;
+    }
+
+    #side-menu.active{
+        width: 100vw;
+        height: 92vh;
+        display: grid;
+        background-color: #fff;
+        position: relative;
+        z-index: 9;
+    }
+
+    #side-menu.active #container {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, #fff, #2727270c);
+        border: #f6f6f6;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #side-menu.active #links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 15%;
+        padding: 0 0 0 10%;
+        justify-content: space-evenly;
     }
 
     .cover-image {

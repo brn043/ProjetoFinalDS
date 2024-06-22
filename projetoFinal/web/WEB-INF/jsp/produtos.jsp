@@ -49,8 +49,8 @@
                 <div id="side-menu">
                     <div id="container">
                         <div id="search-box">
-                            <form action="./buscar" method="get">
-                                <input type="text" id="search-bar" name="busca" placeholder="Digite o que voc� deseja">
+                            <form class="search-form" action="./buscar" method="get">
+                                <input type="text" class="search-bar" name="busca" placeholder="Digite o que voc� deseja">
                                 <button><i class="fa-solid fa-magnifying-glass"></i></button>
                             </form>
                         </div>
@@ -60,7 +60,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="products">
+                <div id="container-products" class="products">
                     <div class="title">
                         <h1>Nossos Produtos</h1>
                     </div>
@@ -123,5 +123,5 @@
             </footer>
         </body>
         <script src="js/search-bar.js" type="text/javascript"></script>
-        <script src="js/side-menu.js" type="text/javascript"></script>
+        <script src="js/side-menu-products.js" type="text/javascript"></script>
         </html>

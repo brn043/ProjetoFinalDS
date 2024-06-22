@@ -33,7 +33,7 @@
             </nav>
             <nav class="mobile-navbar">
                 <div class="menu-container">
-                    <a href="" id="menu"><i class="fa-solid fa-bars"></i></a>
+                    <a id="menu"><i class="fa-solid fa-bars"></i></a>
                 </div>
                 <div class="logo">
                     <a href="IndexController"><img src="assets/less-logo-mobile.png" alt=""></a>
@@ -88,6 +88,20 @@
                     </form>
                 </div>
             </div>
+            <div id="side-menu">
+                <div id="container">
+                    <div id="search-box">
+                        <form class="search-form" action="./buscar" method="get">
+                            <input type="text" class="search-bar" name="busca" placeholder="Digite o que você deseja">
+                            <button id="search-button" ><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </div>
+                    <div id="links">
+                        <a href="./ListarProdutosController">SHOP</a>
+                        <a href="./SobreController">SOBRE</a>
+                    </div>
+                </div>
+            </div>
         </main>
         <footer>
             <div class="footer-container">
@@ -123,7 +137,8 @@
             $('#inCpf').mask('000.000.000-00', {reverse: false});
         </script>
     </body>
-    <script src="js/script.js"></script>
-    <script src="js/search-bar.js" type="text/javascript"></script>
-    <script src="js/validation.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/search-bar.js" type="text/javascript"></script>
+    <script src="./js/validation.js"></script>
+    <script src="./js/side-menu.js"></script>
 </html>

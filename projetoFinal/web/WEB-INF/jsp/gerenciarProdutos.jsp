@@ -66,6 +66,7 @@
                     <div class="table">
                         <div id="tb-header">
                             <span>ID do Produto</span>
+                            <span>Imagem</span>
                             <span>Nome do Produto</span>
                             <span>Categoria</span>
                             <span>Quantidade</span>
@@ -74,6 +75,9 @@
                         <c:forEach items="${produtos}" var="produto">
                         <div id="row">
                             <span>${produto.id_produto}</span>
+                            <div id="product-img">
+                                <img src="${produto.img}" alt="imagem do produto">
+                            </div>
                             <span>${produto.nome}</span>
                             <span>${produto.categoria}</span>
                             <span>${produto.quantidade}</span>

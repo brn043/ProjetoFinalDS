@@ -1,3 +1,7 @@
+body {
+    background: linear-gradient(to right, #fff, #2727270c);
+}
+
 @media screen and (min-width: 320px) and (max-width: 768px) {
     header {
         width: 100vw;
@@ -177,6 +181,10 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px){
+    #side-menu {
+        display: none;
+    }
+
     header {
         width: 100vw;
         height: 8vh;
@@ -361,7 +369,7 @@
 
     .total-container {
         width: 100vw;
-        height: 22vh;
+        height: 30vh;
         display: flex;
         justify-content: flex-end;
     }

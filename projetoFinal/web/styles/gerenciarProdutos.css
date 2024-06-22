@@ -21,7 +21,7 @@
 }
 
 .table{
-    width: 80%;
+    width: 90%;
 }
 
 .table #tb-header{
@@ -29,10 +29,12 @@
     height: 6vh;
     background-color: #d9d9d9;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     justify-items: center;
     align-items: center;
     color: #272727;
+    overflow: hidden;
+    font-size: 12px;
 }
 
 .table #row{
@@ -40,11 +42,24 @@
     height: 6vh;
     background-color: #d9d9d9a3;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     justify-items: center;
     align-items: center;
     color: #272727;
     border-bottom: 1px solid #f6f6f6;
+    overflow: hidden;
+    font-size: 11px;
+}
+
+.table #row #product-img{
+    height: 100%;
+    overflow: hidden;
+}
+
+.table #row #product-img img{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 .table #row a{

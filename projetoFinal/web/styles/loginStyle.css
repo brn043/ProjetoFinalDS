@@ -444,7 +444,7 @@ body {
 
     .main-container {
         overflow: hidden;
-        height: 100%;
+        height: 86vh;
         display: flex;
         align-items: center;
         justify-content: space-around;
@@ -535,14 +535,14 @@ body {
     #signup-container form input {
         padding: 10px;
         height: 4vh;
-        width: 25vw;
+        width: 100%;
         color: rgb(100, 100, 100);
         border: 1px solid black;
     }
 
     #signin-container form input {
         padding: 10px;
-        width: 25vw;
+        width: 100%;
         color: rgb(100, 100, 100);
         border: 1px solid black;
     }
@@ -588,7 +588,7 @@ body {
     }
 
     #signup-container form p {
-        margin-top: 8px;
+        margin-top: 4px;
     }
 
     footer {

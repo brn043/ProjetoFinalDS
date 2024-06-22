@@ -49,7 +49,7 @@
         </header>
         <main>
             <div class="main-container">
-                <form action="./cadastrar-produto" method="post" enctype="multipart/form-data">
+                <form id="frmAddProduct" action="./cadastrar-produto" method="post" enctype="multipart/form-data">
                     <div class="title">
                         <h1>Cadastro de Produtos</h1>
                     </div>
@@ -130,6 +130,7 @@
         <script>
             $('#inPreco').mask("#.##0.00", {reverse: true});
         </script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     </body>
     <script src="js/search-bar.js" type="text/javascript"></script>
 </html>

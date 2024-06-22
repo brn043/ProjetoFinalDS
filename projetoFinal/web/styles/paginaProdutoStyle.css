@@ -182,10 +182,14 @@ body {
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px){
+
+    #side-menu {
+        display: none;
+    }
  
     .container {
         width: 85vw;
-        height: 90vh;
+        height: 88vh;
         margin: 0 auto;
         display: flex;
         align-items: center;
@@ -291,12 +295,13 @@ body {
 
     .container {
         width: 70vw;
-        height: 90vh;
+        height: 88vh;
         margin: 0 auto;
         display: flex;
         align-items: center;
         justify-content: space-around;
         gap: 10%;
+        overflow: hidden;
     }
 
     .container #product-name {

@@ -73,6 +73,7 @@
                         <option value="2">M</option>
                         <option value="3">G</option>
                         <option value="4">GG</option>
+                        <option value="5">U</option>
                     </select>
                     <p>Preço:</p>
                     <input type="text" id="inPreco" name="preco" step="0.01" min="0.00" placeholder="Preço do Produto">

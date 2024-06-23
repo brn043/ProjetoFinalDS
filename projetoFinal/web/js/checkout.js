@@ -6,15 +6,15 @@ document.addEventListener('DOMContentLoaded', function () {
         payments[i].addEventListener('click', function () {
             if (forms[i].classList.contains("selected")) {
                 forms[i].classList.remove("selected");
-            }else{
-                for(let j = 0 ; j < i; j++){
-                    if(forms[j].classList.contains('selected')){
+            } else {
+                for (let j = 0; j < i; j++) {
+                    if (forms[j].classList.contains('selected')) {
                         forms[j].classList.remove('selected');
                     }
                 }
                 forms[i].classList.add('selected');
             }
-            
+
         });
     }
 
@@ -23,16 +23,18 @@ document.addEventListener('DOMContentLoaded', function () {
     formCheckout.addEventListener('submit', function (event) {
         event.preventDefault();
 
+        let b
         const inputs = document.getElementsByClassName('input');
 
         for (let i = 0; i < inputs.length; i++) {
             if (inputs[i].value.trim() === "") {
-                alert("Preencha todos os campos corretamente!");
-                break;
-            } else {
-                formCheckout.submit();
+                b = true;
             }
-
+        }
+        if (b === true) {
+            alert("Preencha todos os campos corretamente!");
+        } else {
+            formCheckout.submit();
         }
     });
 

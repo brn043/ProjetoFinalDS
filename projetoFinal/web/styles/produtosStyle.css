@@ -484,11 +484,10 @@
         align-content: space-around;
         justify-items: center;
         overflow: hidden;
-        gap: 10px;
     }
 
     .card {
-        width: 300px;
+        width: 250px;
         height: 400px;
         margin: 2%;
         border: 1px solid #2727278b;
@@ -543,6 +542,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 2%;
+        margin: 2% auto;
     }
 }

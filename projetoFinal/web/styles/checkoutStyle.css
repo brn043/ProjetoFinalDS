@@ -47,7 +47,7 @@ body {
     #checkoutFrm #frmEndereco {
         display: grid;
         width: 85%;
-        height: 40vh;
+        height: auto;
         margin: 0 auto;
         align-items: center;
         gap: 5px;
@@ -62,7 +62,7 @@ body {
     #pagamentos {
         display: grid;
         width: 85%;
-        height: 60vh;
+        height: auto;
         margin: 0 auto;
         gap: 3px;
         align-items: center;
@@ -143,15 +143,16 @@ body {
     }
 
     #pix i {
-        font-size: 34px;
+        font-size: 40px;
         overflow: hidden;
+        margin: 1vh 0;
     }
 
     .forms span {
         overflow: hidden;
     }
 
-    #pix-code{
+    #pix-code {
         display: none;
     }
 
@@ -212,17 +213,14 @@ body {
 
     #title {
         text-align: center;
-        margin: 2%;
+        margin: 5%;
         font-size: 14px;
     }
 
     #checkoutFrm {
         display: grid;
         height: auto;
-        overflow: hidden;
-    }
-
-    #forms-container {
+        gap: 5px;
         overflow: hidden;
     }
 
@@ -233,23 +231,23 @@ body {
 
     #checkoutFrm #frmEndereco {
         display: grid;
-        width: 70%;
-        height: 60vh;
+        width: 85%;
+        height: auto;
         margin: 0 auto;
         align-items: center;
         gap: 5px;
     }
 
     #checkoutFrm #frmEndereco input {
-        height: 40%;
-        padding: 1%;
+        height: 2vh;
+        padding: 2%;
         border: 1px solid #272727;
     }
 
     #pagamentos {
         display: grid;
-        width: 70%;
-        height: 70vh;
+        width: 85%;
+        height: auto;
         margin: 0 auto;
         gap: 3px;
         align-items: center;
@@ -293,12 +291,6 @@ body {
         display: none;
     }
 
-    #form-cartao-credito input,
-    #mid input {
-        border: 1px solid #272727;
-        padding: 0 1%;
-    }
-
     #form-cartao-credito.selected {
         display: grid;
         height: 65%;
@@ -309,12 +301,7 @@ body {
         gap: 5px;
     }
 
-    .forms span {
-        overflow: hidden;
-    }
-
     #form-cartao-credito div {
-        width: 100%;
         display: grid;
         gap: 5px;
     }
@@ -324,9 +311,59 @@ body {
         gap: 5px;
     }
 
+    #pagamentos #cartao-credito div,
+    #boleto div,
+    #pix div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #pagamentos #cartao-credito img,
+    #boleto img,
+    #pix img {
+        width: 70%;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    #pix i {
+        font-size: 40px;
+        overflow: hidden;
+        margin: 1vh 0;
+    }
+
+    .forms span {
+        overflow: hidden;
+    }
+
+    #pix-code {
+        display: none;
+    }
+
+    #pix-code.selected {
+        background-color: #eeeeee;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    #pix-code.selected span {
+        margin: 5% auto;
+    }
+
+    #pix-code.selected img {
+        width: 50%;
+        overflow: hidden;
+    }
+
     #checkoutFrm #btnFinalizar button {
-        width: 70vw;
-        height: 7vh;
+        width: 85vw;
+        height: 5vh;
         background-color: #272727;
         color: #fff;
         border: 1px solid #272727;
@@ -339,7 +376,6 @@ body {
         color: #272727;
         cursor: pointer;
     }
-
 }
 
 @media screen and (min-width: 1024px) {
@@ -354,7 +390,7 @@ body {
 
     .container {
         width: 100vw;
-        height: auto;
+        height: 100vh;
     }
 
     footer {
@@ -367,21 +403,20 @@ body {
 
     #title {
         text-align: center;
-        margin: 5%;
+        margin: 2%;
         font-size: 14px;
     }
 
     #checkoutFrm {
         display: grid;
-        height: 70vh;
-        align-content: space-around;
+        height: 80vh;
     }
 
     #forms-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
         width: 100vw;
-        height: 40vh;
+        height: 55vh;
         justify-items: center;
     }
 
@@ -445,12 +480,17 @@ body {
 
     #form-cartao-credito.selected {
         display: grid;
-        height: 75%;
+        height: 95%;
         grid-template-rows: 1fr 1fr 1fr;
-        padding: 5% 18%;
+        padding: 2% 18%;
         background-color: #eeeeee;
         font-size: 12px;
         gap: 5px;
+    }
+
+    #form-cartao-credito.selected input {
+        border: 1px solid #272727;
+        padding: 0 2%;
     }
 
     #form-cartao-credito div {
@@ -461,6 +501,55 @@ body {
     #form-cartao-credito #mid {
         display: flex;
         gap: 5px;
+    }
+
+    #pagamentos #cartao-credito div,
+    #boleto div,
+    #pix div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #pagamentos #cartao-credito img,
+    #boleto img,
+    #pix img {
+        width: 70%;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    #pix i {
+        font-size: 40px;
+        overflow: hidden;
+        margin: 1vh 0;
+    }
+
+    .forms span {
+        overflow: hidden;
+    }
+
+    #pix-code {
+        display: none;
+    }
+
+    #pix-code.selected {
+        background-color: #eeeeee;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #pix-code.selected span {
+        margin: 2% auto;
+    }
+
+    #pix-code.selected img {
+        width: 20%;
+        overflow: hidden;
     }
 
     #btnFinalizar {

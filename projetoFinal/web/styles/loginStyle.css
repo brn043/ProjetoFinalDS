@@ -9,7 +9,7 @@ body {
 }
 
 /* estilização pagina de login */
-@media screen and (min-width: 320px) and (max-width: 768px){
+@media screen and (min-width: 320px) and (max-width: 768px) {
     header {
         width: 100vw;
         height: 8vh;
@@ -82,11 +82,11 @@ body {
         z-index: 8;
     }
 
-    #side-menu{
+    #side-menu {
         display: none;
     }
 
-    #side-menu.active{
+    #side-menu.active {
         width: 100vw;
         height: 92vh;
         display: grid;
@@ -262,7 +262,7 @@ body {
     }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1024px){
+@media screen and (min-width: 768px) and (max-width: 1024px) {
     main {
         width: 100vw;
         height: 88vh;
@@ -444,7 +444,7 @@ body {
 
     .main-container {
         overflow: hidden;
-        height: 86vh;
+        height: 88vh;
         display: flex;
         align-items: center;
         justify-content: space-around;
@@ -520,6 +520,8 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        width: 40vw;
+        margin: 0 auto;
     }
 
     form p {

@@ -44,16 +44,17 @@ public class LoginController extends HttpServlet {
         String url = request.getServletPath();
 
         if (url.equals("/logout")) {
-            user.setId_usuario(0);
+            Usuarios.setId_usuario(0);
+            System.out.println(Usuarios.getId_usuario());
             nextPage = "/WEB-INF/jsp/index.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
         }
-        if (user.getId_usuario() == 0) {
+        if (Usuarios.getId_usuario() == 0) {
             nextPage = "/WEB-INF/jsp/login.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
-        } else if (user.getAcesso() == 1) {
+        } else if (Usuarios.getAcesso() == 1) {
             nextPage = "/WEB-INF/jsp/controleAdministrador.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);
@@ -112,11 +113,11 @@ public class LoginController extends HttpServlet {
             user.setSenha(request.getParameter("inPassword"));
 
             user = valida.login(user);
-            if (user.getId_usuario() > 0 && user.getAcesso() == 2) {
+            if (Usuarios.getId_usuario() > 0 && Usuarios.getAcesso() == 2) {
                 nextPage = "/ListarProdutosController";
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
                 dispatcher.forward(request, response);
-            } else if (user.getAcesso() == 1) {
+            } else if (Usuarios.getAcesso() == 1) {
                 nextPage = "/WEB-INF/jsp/controleAdministrador.jsp";
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
                 dispatcher.forward(request, response);
@@ -139,7 +140,7 @@ public class LoginController extends HttpServlet {
             String data = request.getParameter("inDataNascimento");
             user.setDataNascimento((Date.valueOf(data)));
             int acessoUsuario = 2;
-            user.setAcesso(acessoUsuario);
+            Usuarios.setAcesso(acessoUsuario);
 
             try {
                 valida.cadastrar(user);

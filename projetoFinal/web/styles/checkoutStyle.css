@@ -6,7 +6,7 @@ body {
     background: linear-gradient(to bottom, #fff, #2727270c);
 }
 
-#btnFinalizar{
+#btnFinalizar {
     display: grid;
     align-content: center;
     justify-content: center;
@@ -34,7 +34,7 @@ body {
 
     #checkoutFrm {
         display: grid;
-        height: 100vh;
+        height: auto;
         gap: 5px;
         overflow: hidden;
     }
@@ -54,15 +54,15 @@ body {
     }
 
     #checkoutFrm #frmEndereco input {
-        height: 45%;
-        padding: 1%;
+        height: 2vh;
+        padding: 2%;
         border: 1px solid #272727;
     }
 
     #pagamentos {
         display: grid;
-        width: 90%;
-        height: 50vh;
+        width: 85%;
+        height: 60vh;
         margin: 0 auto;
         gap: 3px;
         align-items: center;
@@ -124,6 +124,55 @@ body {
     #form-cartao-credito #mid {
         display: flex;
         gap: 5px;
+    }
+
+    #pagamentos #cartao-credito div,
+    #boleto div,
+    #pix div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #pagamentos #cartao-credito img,
+    #boleto img,
+    #pix img {
+        width: 70%;
+        height: 100%;
+        margin: 0 auto;
+    }
+
+    #pix i {
+        font-size: 34px;
+        overflow: hidden;
+    }
+
+    .forms span {
+        overflow: hidden;
+    }
+
+    #pix-code{
+        display: none;
+    }
+
+    #pix-code.selected {
+        background-color: #eeeeee;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    #pix-code.selected span {
+        margin: 5% auto;
+    }
+
+    #pix-code.selected img {
+        width: 50%;
+        overflow: hidden;
     }
 
     #checkoutFrm #btnFinalizar button {
@@ -147,9 +196,9 @@ body {
     #side-menu {
         display: none;
     }
-    
+
     header {
-        height: 8vh;
+        height: 12vh;
     }
 
     main {
@@ -163,13 +212,17 @@ body {
 
     #title {
         text-align: center;
-        margin: 5%;
+        margin: 2%;
         font-size: 14px;
     }
 
     #checkoutFrm {
         display: grid;
-        height: 100vh;
+        height: auto;
+        overflow: hidden;
+    }
+
+    #forms-container {
         overflow: hidden;
     }
 
@@ -181,7 +234,7 @@ body {
     #checkoutFrm #frmEndereco {
         display: grid;
         width: 70%;
-        height: 41vh;
+        height: 60vh;
         margin: 0 auto;
         align-items: center;
         gap: 5px;
@@ -196,7 +249,7 @@ body {
     #pagamentos {
         display: grid;
         width: 70%;
-        height: 50vh;
+        height: 70vh;
         margin: 0 auto;
         gap: 3px;
         align-items: center;
@@ -240,6 +293,12 @@ body {
         display: none;
     }
 
+    #form-cartao-credito input,
+    #mid input {
+        border: 1px solid #272727;
+        padding: 0 1%;
+    }
+
     #form-cartao-credito.selected {
         display: grid;
         height: 65%;
@@ -250,7 +309,12 @@ body {
         gap: 5px;
     }
 
+    .forms span {
+        overflow: hidden;
+    }
+
     #form-cartao-credito div {
+        width: 100%;
         display: grid;
         gap: 5px;
     }
@@ -262,7 +326,7 @@ body {
 
     #checkoutFrm #btnFinalizar button {
         width: 70vw;
-        height: 5vh;
+        height: 7vh;
         background-color: #272727;
         color: #fff;
         border: 1px solid #272727;

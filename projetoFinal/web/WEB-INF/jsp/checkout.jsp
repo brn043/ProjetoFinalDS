@@ -65,7 +65,7 @@
                     <div id="pagamentos">
                         <div class="form-title">Forma de Pagamento:</div>
                         <div id="cartao-credito">
-                            <div><img src="" alt="bandeiras"></div>
+                            <div><img src="./assets/bandeira-dos-cartoes-de-credito.png" alt="bandeiras"></div>
                             <div><span>Cartão de Crédito</span></div>
                             <div><a class="paymentsBtn">></a></div>
                         </div>
@@ -90,14 +90,18 @@
                             </div>
                         </div>
                         <div id="boleto">
-                            <div><img src="" alt="boleto"></div>
+                            <div><img src="./assets/boleto.png" alt="boleto"></div>
                             <div><span>Boleto</span></div>
-                            <div><a class="paymentsBtn">></a></div>
+                            <div><a>></a></div>
                         </div>
                         <div id="pix">
-                            <div><img src="" alt="pix"></div>
+                            <div><i class="fa-brands fa-pix"></i></div>
                             <div><span>Pix</span></div>
                             <div><a class="paymentsBtn">></a></div>
+                        </div>
+                        <div id="pix-code" class="forms">
+                            <span>Scanear QR Code: </span>
+                            <img src="./assets/QR_Code.png" alt="">
                         </div>
                     </div>
                 </div>

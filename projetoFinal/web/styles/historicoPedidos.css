@@ -21,7 +21,7 @@
 }
 
 .table{
-    width: 80%;
+    width: 95%;
 }
 
 .table #tb-header{
@@ -33,6 +33,7 @@
     justify-items: center;
     align-items: center;
     color: #272727;
+    
 }
 
 .table #row{
@@ -45,4 +46,5 @@
     align-items: center;
     color: #272727;
     border-bottom: 1px solid #f6f6f6;
+    font-size: 12px;
 }

@@ -11,9 +11,7 @@ create table usuarios(
     cpf varchar(15) unique not null,
     telefone varchar(20),
 	acesso int default 2,
-    dataNascimento date not null,
-    endereco int,
-    Foreign Key (endereco) references endereco(id_endereco)
+    dataNascimento date not null
 );
 
 insert into usuarios(nome, email, senha, cpf, telefone, acesso, dataNascimento) values ('admin', 'admin@gmail.com', '123', '123.456.789-10', '(43)91234-5678', '1', '2000-01-01');
@@ -21,11 +19,9 @@ insert into usuarios(nome, email, senha, cpf, telefone, acesso, dataNascimento) 
 create table endereco(
 	id_endereco int auto_increment primary key,
     id_cliente int,
-    Foreign key (id_cliente) references usuarios(id_usuario),
     cep char(10),
     rua varchar(45),
     numero varchar(10),
-    bairro varchar(45),
     complemento tinytext
 );
 
@@ -40,6 +36,7 @@ INSERT INTO tamanhos (nome) VALUES ('P');
 INSERT INTO tamanhos (nome) VALUES ('M');
 INSERT INTO tamanhos (nome) VALUES ('G');
 INSERT INTO tamanhos (nome) VALUES ('GG');
+INSERT INTO tamanhos (nome) VALUES ('U');
 
 create table categoria(
 	id_categoria int auto_increment primary key,
@@ -53,7 +50,7 @@ INSERT INTO categoria (nome) VALUES ('Moletom');
 INSERT INTO categoria (nome) VALUES ('Acessórios');
 
 create table produtos(
-	image varchar(45),
+	image varchar(99),
 	id_produto int auto_increment primary key,
     nome varchar(45) not null,
     categoria int,
@@ -103,7 +100,7 @@ create table historico(
 DELIMITER $
 
 CREATE PROCEDURE inserir_produto(
-    IN produto_image VARCHAR(45),
+    IN produto_image VARCHAR(99),
     IN produto_nome VARCHAR(45),
     IN produto_categoria INT,
     IN produto_quantidade INT,
@@ -117,22 +114,19 @@ BEGIN
     DECLARE quantidade_existente INT;
     
     -- execução de um select na tabela de produtos
-    SELECT id_produto, nome INTO id_produto_existente, nome_produto_existente
-    FROM produtos
+    SELECT id_produto, nome INTO id_produto_existente, nome_produto_existente FROM produtos
     WHERE nome = produto_nome AND categoria = produto_categoria;
     
     -- verificação se produto ja existe
     IF (id_produto_existente) IS NOT NULL THEN
     
 		-- select na tabela de estoque para retornar a quantidade
-        SELECT quantidade INTO quantidade_existente
-        FROM estoque
+        SELECT quantidade INTO quantidade_existente FROM estoque
         WHERE nome = nome_produto_existente AND tamanho = produto_tamanho;
         
         -- produto ja existe, atualiza quantidade do produto em estoque        
         IF (quantidade_existente) IS NOT NULL THEN
-            UPDATE estoque
-            SET quantidade = quantidade_existente + produto_quantidade
+            UPDATE estoque SET quantidade = quantidade_existente + produto_quantidade
             WHERE nome = nome_produto_existente AND tamanho = produto_tamanho;
         ELSE
 			-- produto nao existe, insere um novo produto
@@ -141,8 +135,7 @@ BEGIN
             VALUES (produto_nome, produto_tamanho, produto_quantidade);
         END IF;
         
-        UPDATE produtos
-        SET quantidade = quantidade + produto_quantidade
+        UPDATE produtos SET quantidade = quantidade + produto_quantidade
         WHERE nome = nome_produto_existente;
     ELSE
         INSERT INTO produtos (image, nome, categoria, quantidade, tamanho, preco, descricao)
@@ -166,8 +159,7 @@ BEGIN
     
     -- Verifica se já existe o tamanho no estoque
     SELECT quantidade INTO quantidade_existente
-    FROM estoque
-    WHERE nome = NEW.nome AND tamanho = NEW.tamanho;
+    FROM estoque WHERE nome = NEW.nome AND tamanho = NEW.tamanho;
     
     IF (quantidade_existente) IS NOT NULL THEN
         UPDATE estoque
@@ -189,14 +181,9 @@ CREATE PROCEDURE verificar_estoque(
     IN p_nome_tamanho VARCHAR(45)
 )
 BEGIN
-    SELECT 
-        e.quantidade
-    FROM 
-        estoque e
-    INNER JOIN 
-        tamanhos t ON e.tamanho = t.id_tamanho
-    WHERE 
-        e.nome = p_nome_produto AND t.nome = p_nome_tamanho;
+    SELECT e.quantidade FROM estoque e
+    INNER JOIN tamanhos t ON e.tamanho = t.id_tamanho
+    WHERE e.nome = p_nome_produto AND t.nome = p_nome_tamanho;
 END;
 $
 
@@ -216,32 +203,13 @@ BEGIN
         FROM tamanhos
         WHERE nome = OLD.tamanho;
     
-        INSERT INTO historico (
-            image, 
-            produto, 
-            preco, 
-            quantidade, 
-            total, 
-            dataPedido, 
-            situacao, 
-            id_cliente
-        ) VALUES (
-            OLD.image, 
-            OLD.produto, 
-            OLD.preco, 
-            OLD.quantidade, 
-            OLD.total, 
-            current_date, 
-            'Em separação', 
-            OLD.id_cliente
-        );
+        INSERT INTO historico (image, produto, preco, quantidade, total, dataPedido, situacao, id_cliente) 
+        VALUES (OLD.image, OLD.produto, OLD.preco, OLD.quantidade, OLD.total, current_date, 'Em separação', OLD.id_cliente);
     
-        UPDATE estoque
-        SET quantidade = quantidade - OLD.quantidade
+        UPDATE estoque SET quantidade = quantidade - OLD.quantidade
         WHERE nome = OLD.produto AND tamanho = tamanho_id;
         
-        UPDATE produtos
-        SET quantidade = quantidade - OLD.quantidade
+        UPDATE produtos SET quantidade = quantidade - OLD.quantidade
         WHERE nome = OLD.produto AND tamanho = tamanho_id;
         
         IF (SELECT quantidade FROM estoque WHERE nome = OLD.produto AND tamanho = tamanho_id) <= 0 THEN
@@ -253,4 +221,3 @@ END;
 $
 
 DELIMITER ;
-

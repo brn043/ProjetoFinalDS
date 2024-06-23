@@ -10,8 +10,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import model.bean.Carrinho;
 import model.bean.Produtos;
 import model.bean.Usuarios;
@@ -21,6 +23,8 @@ import model.bean.Usuarios;
  * @author Bruno
  */
 public class CarrinhoDAO {
+    Locale reais = new Locale("pt", "BR");
+    NumberFormat formatar = NumberFormat.getCurrencyInstance(reais);
 
     public List<Carrinho> ler(int id) {
         List<Carrinho> carrinho = new ArrayList();
@@ -40,9 +44,11 @@ public class CarrinhoDAO {
                 cart.setId_compra(rs.getInt("id_compra"));
                 cart.setProduto(rs.getString("produto"));
                 cart.setPreco(rs.getFloat("preco"));
+                cart.setPrecoFormatado(formatar.format(cart.getPreco()));
                 cart.setQuantidade(rs.getInt("quantidade"));
                 cart.setTamanho(rs.getString("tamanho"));
                 cart.setTotal(rs.getFloat("total"));
+                cart.setTotalFormatado((formatar.format(cart.getTotal())));
                 carrinho.add(cart);
             }
             rs.close();

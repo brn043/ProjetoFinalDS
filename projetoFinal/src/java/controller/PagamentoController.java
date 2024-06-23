@@ -12,7 +12,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.bean.Enderecos;
 import model.dao.CarrinhoDAO;
+import model.dao.EnderecosDAO;
 
 /**
  *
@@ -31,17 +33,7 @@ public class PagamentoController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String url = request.getServletPath();
-
-        if (url.equals("/validarPagamento")) {
-            
-            CarrinhoDAO cDao = new CarrinhoDAO();
-            cDao.limparCarrinho();
-            
-            String nextPage = "/WEB-INF/jsp/confirmacaoCompra.jsp";
-            RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(nextPage);
-            dispatcher.forward(request, response);
-        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -70,7 +62,25 @@ public class PagamentoController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String url = request.getServletPath();
+
+        if (url.equals("/validarPagamento")) {
+            
+            CarrinhoDAO cDao = new CarrinhoDAO();
+            cDao.limparCarrinho();
+            Enderecos e = new Enderecos();
+            EnderecosDAO eDao = new EnderecosDAO();
+            
+            e.setCep(request.getParameter("cep"));
+            e.setRua(request.getParameter("rua"));
+            e.setNumero(request.getParameter("numero"));
+            e.setComplemento(request.getParameter("complemento"));
+            eDao.cadastrarEndereco(e);
+            
+            String nextPage = "/WEB-INF/jsp/confirmacaoCompra.jsp";
+            RequestDispatcher dispatcher = request.getServletContext().getRequestDispatcher(nextPage);
+            dispatcher.forward(request, response);
+        }
     }
 
     /**

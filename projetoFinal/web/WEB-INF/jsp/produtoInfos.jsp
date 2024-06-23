@@ -53,7 +53,7 @@
                     </div>
                     <div id="product-infos">
                         <p id="product-name">${produto.nome}</p>
-                        <p id="product-price">R$ ${produto.preco}</p>
+                        <p id="product-price">${produto.precoFormatado}</p>
                         <p id="product-desc">${produto.descricao}</p>
                         <div id="tabela-tamanhos">
                             <p id="message"><%

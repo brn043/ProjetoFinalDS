@@ -21,11 +21,13 @@ public class Pedidos {
     private Date dataPedido;
     private String situacao;
     private int id_cliente;
+    private String precoFormatado;
+    private String totalFormatado;
 
     public Pedidos() {
-    }
+    }  
 
-    public Pedidos(int id_pedido, String produto, float preco, int quantidade, float total, Date dataPedido, String situacao, int id_cliente) {
+    public Pedidos(int id_pedido, String produto, float preco, int quantidade, float total, Date dataPedido, String situacao, int id_cliente, String precoFormatado, String totalFormatado) {
         this.id_pedido = id_pedido;
         this.produto = produto;
         this.preco = preco;
@@ -34,6 +36,8 @@ public class Pedidos {
         this.dataPedido = dataPedido;
         this.situacao = situacao;
         this.id_cliente = id_cliente;
+        this.precoFormatado = precoFormatado;
+        this.totalFormatado = totalFormatado;
     }
 
     public int getId_pedido() {
@@ -98,6 +102,22 @@ public class Pedidos {
 
     public void setId_cliente(int id_cliente) {
         this.id_cliente = id_cliente;
+    }
+
+    public String getPrecoFormatado() {
+        return precoFormatado;
+    }
+
+    public void setPrecoFormatado(String precoFormatado) {
+        this.precoFormatado = precoFormatado;
+    }
+
+    public String getTotalFormatado() {
+        return totalFormatado;
+    }
+
+    public void setTotalFormatado(String totalFormatado) {
+        this.totalFormatado = totalFormatado;
     }
     
     

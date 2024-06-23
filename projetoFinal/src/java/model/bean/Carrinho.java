@@ -10,6 +10,7 @@ package model.bean;
  * @author Bruno
  */
 public class Carrinho {
+
     private String img;
     private int id_compra;
     private String produto;
@@ -18,11 +19,13 @@ public class Carrinho {
     private String tamanho;
     private float total;
     private int id_cliente;
+    private String precoFormatado;
+    private String totalFormatado;
 
     public Carrinho() {
     }
 
-    public Carrinho(String img, int id_compra, String produto, float preco, int quantidade, String tamanho, float total, int id_cliente) {
+    public Carrinho(String img, int id_compra, String produto, float preco, int quantidade, String tamanho, float total, int id_cliente, String precoFormatado, String totalFormatado) {
         this.img = img;
         this.id_compra = id_compra;
         this.produto = produto;
@@ -31,6 +34,8 @@ public class Carrinho {
         this.tamanho = tamanho;
         this.total = total;
         this.id_cliente = id_cliente;
+        this.precoFormatado = precoFormatado;
+        this.totalFormatado = totalFormatado;
     }
 
     public String getImg() {
@@ -96,6 +101,21 @@ public class Carrinho {
     public void setId_cliente(int id_cliente) {
         this.id_cliente = id_cliente;
     }
+
+    public String getPrecoFormatado() {
+        return precoFormatado;
+    }
+
+    public void setPrecoFormatado(String precoFormatado) {
+        this.precoFormatado = precoFormatado;
+    }
     
-    
+    public String getTotalFormatado() {
+        return totalFormatado;
+    }
+
+    public void setTotalFormatado(String totalFormatado) {
+        this.totalFormatado = totalFormatado;
+    }
+
 }

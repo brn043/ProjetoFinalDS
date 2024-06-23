@@ -81,7 +81,7 @@
                             <span>${produto.nome}</span>
                             <span>${produto.categoria}</span>
                             <span>${produto.quantidade}</span>
-                            <span>${produto.preco}</span>
+                            <span>${produto.precoFormatado}</span>
                             <a href="./remover-produto?id=${produto.id_produto}"><i class="fa-solid fa-trash"></i></a>
                         </div>
                         </c:forEach>

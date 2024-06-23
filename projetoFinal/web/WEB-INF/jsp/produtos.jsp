@@ -89,7 +89,7 @@
                                         <span>${produto.nome}</span>
                                     </div>
                                     <div id="product-price">
-                                        <span>R$ ${produto.preco}</span>
+                                        <span>${produto.precoFormatado}</span>
                                     </div>
                                     <div id="product-add">
                                         <a href="./ver-produto?id=${produto.id_produto}&name=${produto.nome}"><i class=" fa-solid fa-plus"></i></a>

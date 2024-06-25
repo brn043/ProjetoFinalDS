@@ -9,8 +9,10 @@ import conexao.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import model.bean.Pedidos;
 import model.bean.Usuarios;
 
@@ -19,9 +21,9 @@ import model.bean.Usuarios;
  * @author Bruno
  */
 public class PedidosDAO {
-    
-        public void registrar(Pedidos pedido) {
-                
+
+    public void registrar(Pedidos pedido) {
+
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
@@ -35,9 +37,9 @@ public class PedidosDAO {
             stmt.setDate(5, pedido.getDataPedido());
             stmt.setString(6, pedido.getSituacao());
             stmt.setInt(7, Usuarios.getId_usuario());
-            
+
             stmt.executeUpdate();
-            
+
             rs.close();
             stmt.close();
             conexao.close();
@@ -46,10 +48,12 @@ public class PedidosDAO {
             e.printStackTrace();
         }
     }
-    
+
     public List<Pedidos> ler() {
         List<Pedidos> pedidos = new ArrayList();
-        
+        Locale reais = new Locale("pt", "BR");
+        NumberFormat formatar = NumberFormat.getCurrencyInstance(reais);
+
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
@@ -64,8 +68,10 @@ public class PedidosDAO {
                 p.setId_pedido(rs.getInt("id_pedido"));
                 p.setProduto(rs.getString("produto"));
                 p.setPreco(rs.getFloat("preco"));
+                p.setPrecoFormatado(formatar.format(p.getPreco()));
                 p.setQuantidade(rs.getInt("quantidade"));
                 p.setTotal(rs.getFloat("total"));
+                p.setTotalFormatado(formatar.format(p.getTotal()));
                 p.setDataPedido(rs.getDate("dataPedido"));
                 p.setSituacao(rs.getString("situacao"));
                 pedidos.add(p);

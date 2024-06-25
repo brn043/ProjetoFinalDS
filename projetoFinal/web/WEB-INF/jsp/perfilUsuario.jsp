@@ -27,6 +27,7 @@
                     </form>
                     <a id="search-button"><i class="fa-solid fa-magnifying-glass"></i></a>
                     <a href="./logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+                    <a href="./PedidosController"><i class="fa-solid fa-truck"></i></a>
                     <a href="./CarrinhoController"><i class="fa-solid fa-cart-shopping"></i></a>
                 </div>
             </nav>

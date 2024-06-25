@@ -10,8 +10,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import model.bean.Produtos;
 
 /**
@@ -19,6 +21,9 @@ import model.bean.Produtos;
  * @author Bruno
  */
 public class ProdutosDAO {
+
+    Locale reais = new Locale("pt", "BR");
+    NumberFormat formatar = NumberFormat.getCurrencyInstance(reais);
 
     public List<Produtos> ler() {
         List<Produtos> produtos = new ArrayList();
@@ -38,6 +43,7 @@ public class ProdutosDAO {
                 produto.setCategoria(rs.getInt("categoria"));
                 produto.setQuantidade(rs.getInt("quantidade"));
                 produto.setPreco(rs.getFloat("preco"));
+                produto.setPrecoFormatado(formatar.format(produto.getPreco()));
                 produto.setDescricao(rs.getString("descricao"));
                 produto.setImg(rs.getString("image"));
                 produtos.add(produto);
@@ -70,6 +76,7 @@ public class ProdutosDAO {
                 produto.setCategoria(rs.getInt("categoria"));
                 produto.setQuantidade(rs.getInt("quantidade"));
                 produto.setPreco(rs.getFloat("preco"));
+                produto.setPrecoFormatado(formatar.format(produto.getPreco()));
                 produto.setDescricao(rs.getString("descricao"));
                 produto.setImg(rs.getString("image"));
                 produtos.add(produto);
@@ -164,7 +171,6 @@ public class ProdutosDAO {
             stmt.setFloat(6, produto.getPreco());
             stmt.setString(7, produto.getDescricao());
 
-
             stmt.executeUpdate();
             stmt.close();
             conexao.close();
@@ -174,15 +180,14 @@ public class ProdutosDAO {
         }
 
     }
-    
-    public void deletarProduto(int id){
+
+    public void deletarProduto(int id) {
         try {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
 
             stmt = conexao.prepareStatement("DELETE FROM produtos WHERE id_produto = ?");
             stmt.setInt(1, id);
-
 
             stmt.executeUpdate();
             stmt.close();
@@ -191,7 +196,7 @@ public class ProdutosDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        
+
     }
 
 }

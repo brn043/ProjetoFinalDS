@@ -37,7 +37,6 @@ public class EnderecosDAO {
                 e.setCep(rs.getString("cep"));
                 e.setRua(rs.getString("rua"));
                 e.setNumero(rs.getString("numero"));
-                e.setBairro(rs.getString("bairro"));
                 e.setComplemento(rs.getString("complemento"));
                 enderecos.add(e);
             }

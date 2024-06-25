@@ -47,20 +47,20 @@
                 <div id="title">
                     <h1>Finalizar Compra</h1>
                 </div>
-                <form id="checkoutFrm" action="./validarPagamento">
+                <form id="checkoutFrm" action="./validarPagamento" method="post">
                     <div id="forms-container">
                     <div id="frmEndereco">
                         <div class="form-title">Informações de Entrega:</div>
                         <span>Nome Completo:</span>
                         <input type="text" class="input" id="nome" placeholder="Digite Aqui" required>
                         <span>Cep:</span>
-                        <input type="text" class="input" minlength="8" id="cep" placeholder="Digite Aqui" required>
+                        <input type="text" class="input" minlength="7" id="cep" name="cep" placeholder="Digite Aqui" required title="O campo cep, deve conter 7 caracteres!">
                         <span>Rua:</span>
-                        <input type="text" class="input" id="rua" placeholder="Digite Aqui" required>
+                        <input type="text" class="input" id="rua" name="rua" placeholder="Digite Aqui" required>
                         <span>Número:</span>
-                        <input type="text" class="input" id="numero" placeholder="Digite Aqui" required>
+                        <input type="text" class="input" id="numero" name="numero" placeholder="Digite Aqui" required>
                         <span>Complemento:</span>
-                        <input type="text" class="input" id="Complemento" placeholder="Digite Aqui" required>
+                        <input type="text" class="input" id="Complemento" name="complemento" placeholder="Digite Aqui" required>
                     </div>
                     <div id="pagamentos">
                         <div class="form-title">Forma de Pagamento:</div>

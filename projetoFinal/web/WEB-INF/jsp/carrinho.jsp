@@ -64,12 +64,12 @@
                                             <p>x${produto.quantidade}</p>
                                         </div>
                                         <div id="produto-preco">
-                                            <p>${produto.preco}</p>
+                                            <p>${produto.precoFormatado}</p>
                                         </div>
                                         <div id="produto-tamanho">
                                             <p>${produto.tamanho}</p>
                                         </div>
-                                        <p id="total-produto">${produto.total}</p>
+                                        <p id="total-produto">${produto.totalFormatado}</p>
                                         <div id="buttons">
                                             <a
                                                 href="./incrementar?produto=${produto.produto}&tamanho=${produto.tamanho}&id=${produto.id_compra}&quantidade=${produto.quantidade}&preco=${produto.preco}&total=${produto.total}">+</a>

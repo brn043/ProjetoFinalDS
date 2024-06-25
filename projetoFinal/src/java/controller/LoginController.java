@@ -45,7 +45,7 @@ public class LoginController extends HttpServlet {
 
         if (url.equals("/logout")) {
             Usuarios.setId_usuario(0);
-            System.out.println(Usuarios.getId_usuario());
+            Usuarios.setAcesso(0);
             nextPage = "/WEB-INF/jsp/index.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
             dispatcher.forward(request, response);

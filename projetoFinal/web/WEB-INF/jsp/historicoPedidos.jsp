@@ -77,9 +77,9 @@
                         <div id="row">
                             <span>${pedido.id_pedido}</span>
                             <span>${pedido.produto}</span>
-                            <span>${pedido.preco}</span>
+                            <span>${pedido.precoFormatado}</span>
                             <span>${pedido.quantidade}</span>
-                            <span>${pedido.total}</span>
+                            <span>${pedido.totalFormatado}</span>
                             <span>${pedido.dataPedido}</span>
                             <span>${pedido.situacao}</span>
                         </div>

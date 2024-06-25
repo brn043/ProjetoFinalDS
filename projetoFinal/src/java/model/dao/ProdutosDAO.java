@@ -110,6 +110,7 @@ public class ProdutosDAO {
                 produto.setCategoria(rs.getInt("categoria"));
                 produto.setQuantidade(rs.getInt("quantidade"));
                 produto.setPreco(rs.getFloat("preco"));
+                produto.setPrecoFormatado(formatar.format(produto.getPreco()));
                 produto.setDescricao(rs.getString("descricao"));
                 produto.setImg(rs.getString("image"));
                 produtos.add(produto);
@@ -143,6 +144,7 @@ public class ProdutosDAO {
                 produto.setCategoria(rs.getInt("categoria"));
                 produto.setQuantidade(rs.getInt("quantidade"));
                 produto.setPreco(rs.getFloat("preco"));
+                produto.setPrecoFormatado(formatar.format(produto.getPreco()));
                 produto.setDescricao(rs.getString("descricao"));
                 produto.setImg(rs.getString("image"));
                 produtos.add(produto);
